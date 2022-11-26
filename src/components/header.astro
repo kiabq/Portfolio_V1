@@ -1,0 +1,85 @@
+---
+
+---
+
+<script>
+    let initTheme = getTheme();
+    let globalTheme = document.querySelector(".content-container");
+    let theme = document.querySelector(".nav-theme");
+    let themeToggle = document.querySelector(".nav-theme-toggle");
+
+    function getTheme() {
+        let currentTheme = localStorage.getItem("theme");
+
+        if (currentTheme === null) {
+            return "light";
+        } else {
+            return currentTheme;
+        }
+    }
+
+    if (globalTheme !== null && themeToggle !== null && theme !== null) {
+        let gT = globalTheme;
+        let toggle = themeToggle;
+
+        function setThemeId() {
+            if (getTheme() === "dark") {
+                gT.classList.add("dark-theme");
+                gT.classList.remove("light-theme");
+            } else {
+                gT.classList.add("light-theme");
+                gT.classList.remove("dark-theme");
+            }
+            
+            toggle.id = getTheme();
+        }
+
+        function setTheme(param: string) {
+            localStorage.setItem("theme", param);
+        
+            setThemeId();
+        }
+
+        function handleWindowLoad() {
+            if (initTheme === null || (initTheme !== "light" && initTheme !== "dark")) {
+                localStorage.setItem("theme", "light");
+            }
+
+            setThemeId();
+        }
+
+        function handleThemeChange() {
+            if (localStorage.getItem("theme") === "dark") {
+                setTheme("light");
+            } else {
+                setTheme("dark");
+            }
+        }
+
+        window.addEventListener("load", handleWindowLoad);
+        theme.addEventListener("click", handleThemeChange);
+    }
+</script>
+
+<header>
+    <div class="nav">
+        <div class="nav-title">
+          <h3>kiabq</h3>
+        </div>
+        <div class="nav-links">
+          <h3><a href="/blog">blog</a></h3>
+          <h3><a href="/projects">projects</a></h3>
+          <h3><a href="https://github.com/kiabq">github</a></h3>
+          <div class="nav-theme">
+            <div class="nav-theme-toggle">
+              <span class="material-symbols-rounded">
+                &#xe518;
+              </span>
+              <span class="material-symbols-rounded">
+                &#xe51c;
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+</header>
