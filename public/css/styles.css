@@ -1,3 +1,7 @@
+:root {
+    --lightTextColor: #FEFFFA;
+}
+
 body, p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
@@ -6,7 +10,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
 a {
     outline: none;
     text-decoration: none;
-    color: black;
+    color: var(--themeTextColor)
 }
 
 a:focus {
@@ -15,6 +19,14 @@ a:focus {
 
 a:hover {
     border-bottom: 1px solid orange;
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* wrappers */
@@ -26,13 +38,14 @@ a:hover {
 
 .content-wrapper {
     width: 60%;
+    max-width: 950px;
     height: 100%;
     margin: 0 auto;
 }
 
 .dark-theme {
     background-color: #423847 !important;
-    color: white !important;
+    color: var(--lightTextColor) !important;
     transition: background-color 0.5s;
 }
   
@@ -61,7 +74,7 @@ a:hover {
     align-items: center;
 }
 
-.nav-links > h3 {
+.nav-element {
     margin: 0 1rem;
 }
 
@@ -121,10 +134,60 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-}    
-  
+
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.5;
+}
+
+.body-content {
+    max-width: 800px;
+}
+
+.body-intro {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.body-list {
+    margin: 1rem;
+}
+
+.body-list-element {
+    white-space: nowrap;
+    margin: 1rem 0;
+}
+
+.body-intro-content > p {
+    margin: 1rem;
+}
+
+.body-list-element:nth-child(1) {
+    margin: 0;
+}
+
 .banner {
     border: 1px solid white;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
 }
 
+@media (max-width: 900px) {
+    .content-wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 450px) {
+    .nav-element {
+        margin: 0 0.5rem;
+    }
+
+    .body-intro {
+        display: flex;
+        flex-direction: column;
+    }
+}
