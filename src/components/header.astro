@@ -3,13 +3,13 @@
 ---
 
 <script>
-    let initTheme = getTheme();
-    let globalTheme = document.querySelector(".content-container");
-    let theme = document.querySelector(".nav-theme");
-    let themeToggle = document.querySelector(".nav-theme-toggle");
+    const initTheme = getTheme();
+    const globalTheme = document.querySelector(".content-container");
+    const theme = document.querySelector(".nav-theme");
+    const themeToggle = document.querySelector(".nav-theme-toggle");
 
     function getTheme() {
-        let currentTheme = localStorage.getItem("theme");
+        const currentTheme = localStorage.getItem("theme");
 
         if (currentTheme === null) {
             return "light";
@@ -19,8 +19,8 @@
     }
     
     if (globalTheme !== null && themeToggle !== null && theme !== null) {
-        let gT = globalTheme;
-        let toggle = themeToggle;
+        const gT = globalTheme;
+        const toggle = themeToggle;
 
         function setThemeId() {
             if (getTheme() === "dark") {
@@ -62,9 +62,9 @@
 </script>
 
 <header>
-    <div class="nav">
+    <div class="nav pdtb-1rem">
         <div class="nav-title">
-          <h3><a href="/">cnwy</a></h3>
+          <h3><a href="/">jcwy</a></h3>
         </div>
         <div class="nav-links">
           <h3 class="nav-element"><a href="/blog">blog</a></h3>

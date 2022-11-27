@@ -29,6 +29,12 @@ ul, li {
     margin: 0;
 }
 
+/* helpers */
+
+.pdtb-1rem {
+    padding: 1rem 0;
+}
+
 /* wrappers */
 
 .content-container {
@@ -37,10 +43,12 @@ ul, li {
 }
 
 .content-wrapper {
-    width: 60%;
-    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
+    max-width: 950px;
 }
 
 .dark-theme {
@@ -57,7 +65,6 @@ ul, li {
 
 .nav {
     width: 100%;
-    padding: 1rem 0;
 }
   
 .nav, .nav-links {
@@ -75,7 +82,7 @@ ul, li {
 }
 
 .nav-element {
-    margin: 0 1rem;
+    margin: 0 0.5rem;
 }
 
 .nav-theme {
@@ -137,11 +144,23 @@ img {
 
     font-family: 'Ubuntu', sans-serif;
     line-height: 1.5;
+    flex-grow: 1;
+}
+
+.banner {
+    border: 1px solid white;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
 }
 
 .body-content {
     max-width: 800px;
 }
+
+/* body -> intro */
 
 .body-intro {
     display: flex;
@@ -162,30 +181,39 @@ img {
     margin: 1rem;
 }
 
-.body-list-element:nth-child(1) {
+.body-list-element:first-child, .body-list-element:last-child {
     margin: 0;
 }
 
-.banner {
-    border: 1px solid white;
-    border-radius: 3px;
+/* body -> about */
+
+#body-change-toggle {
+    color: orange;
+    cursor: pointer;
+}
+
+/* footer */
+
+.footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2rem 0;
+    justify-content: center;
+}
+
+.footer-element {
+    margin: 0 0.5rem;
 }
 
 @media (max-width: 900px) {
     .content-wrapper {
         width: 90%;
     }
+
+    h2, h1 {
+        text-align: center;
+    }
 }
 
 @media (max-width: 450px) {
-    .nav-element {
-        margin: 0 0.5rem;
-    }
-
     .body-intro {
         display: flex;
         flex-direction: column;
