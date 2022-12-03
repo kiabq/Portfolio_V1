@@ -1,61 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/header.astro";
+import Main from "../components/main.astro";
 import Footer from "../components/footer.astro";
 ---
 
-<script>
-	const artistToggle = document.querySelector("#body-change-toggle");
-	const artists = ["Simon Stalenhag", "Lennart", "Waneella"];
-	let index = 0;
-
-	artistToggle?.addEventListener("click", (e) => {
-		if (index >= artists.length - 1) {
-			index = 0;
-		} else {
-			index++
-		}
-
-		artistToggle.innerHTML = artists[index];
-	})
-</script>
-
 <Layout>
 	<Header/>
-	<main class="body">
-		<div class="banner">
+	<Main>
+		<div class="banner mgtb-1r">
 			<img src="https://i.imgur.com/NBnMlwq.png"/>
-			<!-- <marquee>bonjour</marquee> -->
 		</div>
 		<div class="body-content">
-			<h1>Introduction</h1>
 			<div class="body-intro">
 				<div class="body-list">
 					<ul>
-						<li class="body-list-element">My Writings</li>
-						<li class="body-list-element">More About Me</li>
-						<li class="body-list-element">My Projects</li>
+						<li class="body-list-element">
+							<a href="/blog">My Writings</a>
+						</li>
+						<li class="body-list-element">
+							<a>My Projects</a>
+						</li>
 					</ul>
 				</div>
-				<div class="body-intro-content">
+				<div class="body-intro-main">
 					<p>Welcome! I'm Joseph. I enjoy doing frontend work and messing around on browsers.</p>
+					<br>
 					<p>My main languages include TypeScript, JavaScript, and Rust. I occasionally touch C, Lua, and Bash.</p>
+					<br>
+					<p>I'm currently working on understanding web browsers more, and I hope to be able to create or contribute to some sort of browser project.</p>
+					<br>
+					<p>In my time away from computers, I enjoy film photography, vintage cars, calisthenics, and reading.</p>
 				</div>
 			</div>
 			<div class="body-about">
-				<div>
-					<h2>More about me</h2>
-					<p>Outside of computers, I enjoy reading, film photography, video games, and calisthenics.</p>
-					<p>Some of my favorite art(ists): <span id="body-change-toggle">Simon Stalenhag</span></p>
-				</div>
 				<div>
 					<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam esse, doloremque labore dolore dolor quo distinctio minima? Quod pariatur ratione ipsum maiores laboriosam incidunt sunt.</p> -->
 				</div>
 			</div>
 		</div>
-	</main>
+	</Main>
 	<Footer/>
 </Layout>
-
-<style>
-</style>
