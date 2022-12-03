@@ -220,15 +220,6 @@ img {
     cursor: pointer;
 }
 
-.temp {
-    width: 100%;
-}
-
-.temp2 > img {
-    width: 256px;
-    height: 256px;
-}
-
 .img-banner {
     width: 800px !important;
     height: 400px !important;

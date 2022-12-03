@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+---
+
+<Layout>
+    <div class="error">
+        <sup>404 Page Not Found :(</sup>
+        <a href="/">
+            <sup>Go Back</sup>
+        </a>
+    </div>
+</Layout>
+
+<style>
+    .error { 
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .error > a {
+        margin: 1rem;
+        width: max-content;
+    }
+</style>
