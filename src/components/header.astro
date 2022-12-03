@@ -1,64 +1,81 @@
----
+<script async>
+	const theme = localStorage.getItem("theme");
+	const htmlTag = document.getElementsByTagName("html");
 
----
+  const stylesheet = document.styleSheets[4];
+  stylesheet.insertRule(".preload {}", stylesheet.cssRules.length);
+
+  const preload = [...stylesheet.cssRules].find((val) => val.selectorText === ".preload");
+
+  const light = stylesheet.cssRules[0].style.getPropertyValue("--lightTheme");
+  const dark = stylesheet.cssRules[0].style.getPropertyValue("--darkTheme");
+
+	if (theme === "light" || theme === null) {
+    preload.style.setProperty("transform", "translateY(0px)");
+		htmlTag[0].style.backgroundColor = light;
+		htmlTag[0].style.color = dark;
+	} else {
+    preload.style.setProperty("transform", "translateY(-28px)");
+		htmlTag[0].style.backgroundColor = dark;
+		htmlTag[0].style.color = light;
+	}
+</script>
 
 <script>
-    const initTheme = getTheme();
-    const globalTheme = document.querySelector(".content-container");
-    const theme = document.querySelector(".nav-theme");
-    const themeToggle = document.querySelector(".nav-theme-toggle");
+  const globalTheme = document.querySelector(".content-container");
+  const theme = document.querySelector(".nav-theme");
+  const themeToggle = document.querySelector(".nav-theme-toggle");
 
-    function getTheme() {
-        const currentTheme = localStorage.getItem("theme");
+  globalTheme!.classList.add(getTheme());
+  themeToggle!.id = getTheme();
 
-        if (currentTheme === null) {
-            return "light";
-        } else {
-            return currentTheme;
-        }
+  function getTheme() {
+    const currentTheme = localStorage.getItem("theme");
+  
+    if (currentTheme) {
+        return currentTheme;
+    } else {
+        return "light";
+    }
+  }
+
+  if (globalTheme !== null && themeToggle !== null && theme !== null) {
+    const gT = globalTheme;
+    const toggle = themeToggle;
+
+    function setThemeId() {
+      toggle.classList.remove("preload");
+
+      if (getTheme() === "dark") {
+        gT.classList.add("dark");
+        gT.classList.remove("light");
+      } else {
+        gT.classList.add("light");
+        gT.classList.remove("dark");
+      }
+
+      theme!.addEventListener("click", handleThemeChange);
+      toggle.id = getTheme();
     }
     
-    if (globalTheme !== null && themeToggle !== null && theme !== null) {
-        const gT = globalTheme;
-        const toggle = themeToggle;
-
-        function setThemeId() {
-            if (getTheme() === "dark") {
-                gT.classList.add("dark-theme");
-                gT.classList.remove("light-theme");
-            } else {
-                gT.classList.add("light-theme");
-                gT.classList.remove("dark-theme");
-            }
-            
-            toggle.id = getTheme();
-        }
-
-        function setTheme(param: string) {
-            localStorage.setItem("theme", param);
-        
-            setThemeId();
-        }
-
-        function handleWindowLoad() {
-            if (initTheme === null || (initTheme !== "light" && initTheme !== "dark")) {
-                localStorage.setItem("theme", "light");
-            }
-
-            setThemeId();
-        }
-
-        function handleThemeChange() {
-            if (localStorage.getItem("theme") === "dark") {
-                setTheme("light");
-            } else {
-                setTheme("dark");
-            }
-        }
-
-        window.addEventListener("load", handleWindowLoad);
-        theme.addEventListener("click", handleThemeChange);
+    function setTheme(param: string) {
+      localStorage.setItem("theme", param);
+      setThemeId();
     }
+
+    function handleThemeChange() {
+      toggle.classList.add("animate");
+      gT.classList.add("animate");
+      
+      if (localStorage.getItem("theme") === "dark") {
+        setTheme("light");
+      } else {
+        setTheme("dark");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", setThemeId);
+  }
 </script>
 
 <header>
@@ -71,7 +88,7 @@
           <h3 class="nav-element"><a href="/projects">projects</a></h3>
           <h3 class="nav-element"><a href="https://github.com/kiabq">github</a></h3>
           <div class="nav-theme">
-            <div class="nav-theme-toggle">
+            <div class="nav-theme-toggle preload">
               <span class="material-symbols-rounded">
                 &#xe518;
               </span>
