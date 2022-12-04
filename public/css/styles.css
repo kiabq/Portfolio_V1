@@ -46,13 +46,13 @@ ul, li {
 }
 
 .dark {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
+    background-color: var(--darkTheme) !important;
+    color: var(--lightTheme) !important;
 }
   
 .light {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme); 
+    background-color: var(--lightTheme) !important;
+    color: var(--darkTheme) !important; 
 }
 
 .animate {
