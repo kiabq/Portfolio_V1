@@ -7,6 +7,16 @@ html {
     text-rendering: auto;
 }
 
+html[data-theme="dark"] {
+    color: var(--lightTheme) !important;
+    background-color: var(--darkTheme) !important;
+}
+
+html[data-theme="light"] {
+    color: var(--darkTheme) !important;
+    background-color: var(--lightTheme) !important;
+}
+
 body, p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
@@ -45,7 +55,7 @@ ul, li {
     margin: 1rem 0;
 }
 
-.dark {
+/* .dark {
     background-color: var(--darkTheme) !important;
     color: var(--lightTheme) !important;
 }
@@ -53,7 +63,7 @@ ul, li {
 .light {
     background-color: var(--lightTheme) !important;
     color: var(--darkTheme) !important; 
-}
+} */
 
 .animate {
     transition: transform 0.5s, background-color 0.5s;
@@ -75,6 +85,7 @@ ul, li {
     height: 100%;
     margin: 0 auto;
     max-width: 950px;
+    position: relative;
 }
 
 /* nav */
@@ -167,12 +178,10 @@ img {
 }
 
 .banner {
-    /* border: 1px solid white; */
     border-radius: 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
 }
 
 .body-content {
@@ -223,6 +232,33 @@ img {
 .img-banner {
     width: 800px !important;
     height: 400px !important;
+}
+
+/* body -> blog */
+
+.pedals {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.e {
+    background-color: red;
+    color: black;
+    overflow-y: hidden;
+    position: absolute;
+}
+
+.blog {
+    width: 75%;
+}
+
+.blog-post {
+    border: 3px solid black;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 /* footer */
