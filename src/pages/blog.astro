@@ -1,14 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
 import Main from "../components/main.astro";
+import BlogPostLayout from "../layouts/BlogPostLayout.astro";
+import Post from "../components/post.astro";
+
+const posts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <Layout>
-    <Header/>
     <Main>
-        <sup>nothing here yet :(</sup>
+        <div class="pedals mgtb-1r"></div>
+        <div class="blog">
+            {posts.map((post) => 
+                <div class="blog-post">
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                    <post.Content/>
+                </div>
+            )}
+        </div>
     </Main>
-    <Footer/>
 </Layout>

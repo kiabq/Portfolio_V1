@@ -1,6 +1,6 @@
 <script async>
-	const theme = localStorage.getItem("theme");
-	const htmlTag = document.getElementsByTagName("html");
+  const theme = localStorage.getItem("theme");
+  const htmlTag = document.getElementsByTagName("html");
 
   const stylesheet = document.styleSheets[4];
   stylesheet.insertRule(".preload {}", stylesheet.cssRules.length);
@@ -10,71 +10,14 @@
   const light = stylesheet.cssRules[0].style.getPropertyValue("--lightTheme");
   const dark = stylesheet.cssRules[0].style.getPropertyValue("--darkTheme");
 
-	if (theme === "light" || theme === null) {
-    preload.style.setProperty("transform", "translateY(0px)");
-		htmlTag[0].style.backgroundColor = light;
-		htmlTag[0].style.color = dark;
-	} else {
-    preload.style.setProperty("transform", "translateY(-28px)");
-		htmlTag[0].style.backgroundColor = dark;
-		htmlTag[0].style.color = light;
-	}
-</script>
-
-<script>
-  const globalTheme = document.querySelector(".content-container");
-  const theme = document.querySelector(".nav-theme");
-  const themeToggle = document.querySelector(".nav-theme-toggle");
-
-  globalTheme!.classList.add(getTheme());
-  themeToggle!.id = getTheme();
-
-  function getTheme() {
-    const currentTheme = localStorage.getItem("theme");
-  
-    if (currentTheme) {
-        return currentTheme;
-    } else {
-        return "light";
-    }
-  }
-
-  if (globalTheme !== null && themeToggle !== null && theme !== null) {
-    const gT = globalTheme;
-    const toggle = themeToggle;
-
-    function setThemeId() {
-      toggle.classList.remove("preload");
-
-      if (getTheme() === "dark") {
-        gT.classList.add("dark");
-        gT.classList.remove("light");
-      } else {
-        gT.classList.add("light");
-        gT.classList.remove("dark");
-      }
-
-      theme!.addEventListener("click", handleThemeChange);
-      toggle.id = getTheme();
-    }
-    
-    function setTheme(param: string) {
-      localStorage.setItem("theme", param);
-      setThemeId();
-    }
-
-    function handleThemeChange() {
-      toggle.classList.add("animate");
-      gT.classList.add("animate");
-      
-      if (localStorage.getItem("theme") === "dark") {
-        setTheme("light");
-      } else {
-        setTheme("dark");
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", setThemeId);
+  if (theme === "light" || theme === null) {
+  preload.style.setProperty("transform", "translateY(0px)");
+    htmlTag[0].style.backgroundColor = light;
+    htmlTag[0].style.color = dark;
+  } else {
+  preload.style.setProperty("transform", "translateY(-28px)");
+    htmlTag[0].style.backgroundColor = dark;
+    htmlTag[0].style.color = light;
   }
 </script>
 
