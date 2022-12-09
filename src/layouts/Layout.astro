@@ -21,8 +21,34 @@ import "../../public/css/styles.css";
 			<!-- Ubuntu -->
 		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
 			<!-- Josefin -->
-			<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 	
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 	
+		
+		<script src="../scripts/theme.ts"></script>
 	</head>
+
+	<script async>
+		const theme = localStorage.getItem("theme");
+		const htmlTag = document.getElementsByTagName("html");
+	
+	  	const STYLESHEET = document.styleSheets[4];
+	  	STYLESHEET.insertRule(".preload {}", STYLESHEET.cssRules.length);
+
+	  	const PRELOAD = [...STYLESHEET.cssRules].find((val) => val.selectorText === ".preload");
+	
+	  	const LIGHT = STYLESHEET.cssRules[0].style.getPropertyValue("--lightTheme");
+	  	const DARK = STYLESHEET.cssRules[0].style.getPropertyValue("--darkTheme");
+	
+		if (theme === "light" || theme === null) {
+			PRELOAD.style.setProperty("transform", "translateY(0px)");
+			htmlTag[0].style.backgroundColor = LIGHT;
+			htmlTag[0].style.color = DARK;
+		} else {
+			PRELOAD.style.setProperty("transform", "translateY(-28px)");
+			htmlTag[0].style.backgroundColor = DARK;
+			htmlTag[0].style.color = LIGHT;
+		}
+	</script>
+
 	<body class="content-container">
 		<div class="content-wrapper">
 			<slot />
