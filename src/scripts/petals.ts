@@ -1,4 +1,4 @@
-const BANNER = document.querySelector(".pedals");
+const BANNER = document.querySelector(".petals");
 
 class Leaf {
     y: number;
