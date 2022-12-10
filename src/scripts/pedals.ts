@@ -1,3 +1,5 @@
+const BANNER = document.querySelector(".pedals");
+
 class Leaf {
     y: number;
     x: number;
@@ -24,7 +26,7 @@ class Leaf {
     setY() {
         if (this.y >= 100) {
             this.y = random(-150, -50);
-            this.x = random(950)
+            this.x = random(BANNER!.clientWidth);
         } else {
             this.y += 1;
         }
@@ -61,14 +63,12 @@ function random(max: number, min?: number) {
     }
 }
 
-function temp() {
-    const BANNER = document.querySelector(".pedals");
+function init() {
     let loaded = false;
-
     let names: Array<Leaf> = [];
 
     for (let i = 0; i < 40; i++) {
-        let x = random(BANNER!.clientWidth);
+        let x = random(-150);
 
         names.push(new Leaf(
             random(-150, -50), 
@@ -103,6 +103,6 @@ function temp() {
     window.addEventListener("DOMContentLoaded", load);
 }
 
-temp();
+init();
 
-export default temp;
+export default init;
