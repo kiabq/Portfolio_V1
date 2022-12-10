@@ -240,15 +240,16 @@ img {
     height: 100px;
     width: 100%;
     background-color: white;
-    overflow-y: hidden;
+    overflow: hidden;
     position: relative;
 }
 
 .e {
-    background-color: red;
     color: black;
     overflow-y: hidden;
     position: absolute;
+    width: 70px;
+    height: 70px;
 }
 
 .blog {
