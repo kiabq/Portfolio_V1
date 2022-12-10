@@ -75,7 +75,7 @@ function temp() {
             random(BANNER!.clientWidth),
             random(360), 
             random(360), 
-            `<img src="../../public/images/flower2.png" class='e' style="transform: translateX(${x}px)"/>`
+            `<img src="/images/flower2.png" class='e' style="transform: translateX(${x}px)"/>`
             ));
     }
 
