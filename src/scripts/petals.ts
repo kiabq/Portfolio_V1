@@ -28,7 +28,7 @@ class Leaf {
             this.y = random(-150, -50);
             this.x = random(BANNER!.clientWidth);
         } else {
-            this.y += 1;
+            this.y += 0.5;
         }
 
         return this.y;
@@ -38,7 +38,7 @@ class Leaf {
         if (this.rx >= 360) {
             this.rx = 0;
         } else {
-            this.rx += random(5);
+            this.rx += random(3);
         }
 
         return this.rx;
@@ -48,7 +48,7 @@ class Leaf {
         if (this.ry >= 360) {
             this.ry = 0;
         } else {
-            this.ry += random(2);
+            this.ry += random(1);
         }
 
         return this.ry;
@@ -67,7 +67,7 @@ function init() {
     let loaded = false;
     let names: Array<Leaf> = [];
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 150; i++) {
         let x = random(-150);
 
         names.push(new Leaf(
@@ -75,7 +75,7 @@ function init() {
             random(BANNER!.clientWidth),
             random(360), 
             random(360), 
-            `<img src="/images/flower2.png" class='e' style="transform: translateX(${x}px)"/>`
+            `<img src="/images/flower${Math.floor(random(4))}.png" class='e' style="transform: translateX(${x}px)"/>`
             ));
     }
 
