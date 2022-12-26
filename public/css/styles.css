@@ -239,7 +239,6 @@ img {
 .petals {
     height: 100px;
     width: 100%;
-    background-color: white;
     overflow: hidden;
     position: relative;
 }
