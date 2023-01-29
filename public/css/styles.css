@@ -166,6 +166,12 @@ img {
     justify-content: center;
 }
   
+#game {
+    height: 200px;
+    width: 200px;
+    background-color: black;
+}
+
 .body {
     display: flex;
     flex-direction: column;
