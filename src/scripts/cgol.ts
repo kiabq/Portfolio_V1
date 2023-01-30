@@ -190,8 +190,6 @@ function cgol() {
             let posX = e.clientX - area.left;
             let posY = e.clientY - area.top;
 
-            console.log(posX, posY);
-
             draw(posX * scale, posY * scale);
         }   
 
