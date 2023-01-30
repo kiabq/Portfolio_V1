@@ -1,4 +1,4 @@
-function getTheme() {
+export function getTheme() {
     const LOCAL_THEME = localStorage.getItem("theme");
     const PREFERRED_THEME = (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
@@ -10,25 +10,24 @@ function getTheme() {
 }
 
 function theme() {
-    const PAGE = document.getElementsByTagName("html")[0];
-    const THEME = document.querySelector(".nav-theme");
-    const TOGGLE = document.querySelector(".nav-theme-toggle");
+    const page = document.getElementsByTagName("html")[0];
+    const theme = document.querySelector(".nav-theme");
+    const toggle = document.querySelector(".nav-theme-toggle");
 
-    if (PAGE !== null && TOGGLE !== null && THEME !== null) {
-        TOGGLE.classList.remove("preload");
-        PAGE.classList.add("animate");
-        TOGGLE.classList.add("animate");
+    if (page !== null && toggle !== null && theme !== null) {
+        toggle.classList.remove("preload");
+        page.classList.add("animate");
+        toggle.classList.add("animate");
         
         function setThemeId() {
-
             if (getTheme() === "dark") {
-                PAGE.dataset["theme"] = "dark";
+                page.dataset["theme"] = "dark";
             } else {
-                PAGE.dataset["theme"] = "light";
+                page.dataset["theme"] = "light";
             }
 
-            TOGGLE!.id = getTheme();
-            THEME!.addEventListener("click", handleThemeChange);
+            toggle!.id = getTheme();
+            theme!.addEventListener("click", handleThemeChange);
         }
         
         function setTheme() {
@@ -50,5 +49,4 @@ function theme() {
 }
 
 theme();
-
 export default theme

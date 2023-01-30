@@ -1,14 +1,18 @@
+import { getTheme } from "./theme";
+
 type Board = {
     alive: number,
     x: number,
     y: number
 }
 
+let model;
+
 function cgol() {
-    let canvas = document.getElementById("game") as HTMLCanvasElement;
-    let pauseButton = document.getElementById("pause") as HTMLButtonElement;
-    let resetButton = document.getElementById("reset") as HTMLButtonElement;
-    let cycle = document.getElementById("counter") as HTMLElement;
+    const canvas = document.getElementById("game") as HTMLCanvasElement;
+    const pauseButton = document.getElementById("pause") as HTMLButtonElement;
+    const resetButton = document.getElementById("reset") as HTMLButtonElement;
+    const cycle = document.getElementById("counter") as HTMLElement;
 
     if (canvas !== null) {
         const ctx = canvas.getContext("2d");
@@ -106,13 +110,25 @@ function cgol() {
                         Math.round(block.x - xOffset),
                         Math.round(block.y - yOffset),
                     );
-                    
-                    if (paused && posX && posY && ctx!.isPointInPath(posX, posY)) {
-                        ctx!.fillStyle = "blue";
-                    } else if (board[i][j].alive === 1) {
-                        ctx!.fillStyle = "yellow";
+
+                    let hover: string = ""; 
+                    let background: string = "";
+                    let fill: string = "#ff5c42";
+
+                    if (getTheme() === "dark") {
+                        hover = "#FEFFFA";
+                        background = "#423847";
                     } else {
-                        ctx!.fillStyle = "grey";
+                        hover = "#FEFFFA";
+                        background = "#FEFFFA";
+                    }
+
+                    if (paused && posX && posY && ctx!.isPointInPath(posX, posY)) {
+                        ctx!.fillStyle = hover;
+                    } else if (board[i][j].alive === 1) {
+                        ctx!.fillStyle = fill;
+                    } else {
+                        ctx!.fillStyle = background;
                     }
 
                     ctx!.fill();
@@ -290,6 +306,14 @@ function cgol() {
             }
         })
 
+        document.body.onload = () => {
+            const theme = document.querySelector(".nav-theme");
+
+            if (theme) {
+                theme?.addEventListener("click", () => draw());
+            }
+        }
+
         function newFrame() {
             updateCounter();
             game();
@@ -305,3 +329,4 @@ function cgol() {
 cgol();
 
 export default cgol;
+export { model }

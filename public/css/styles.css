@@ -17,6 +17,14 @@ html[data-theme="light"] {
     background-color: var(--lightTheme) !important;
 }
 
+html[data-theme="dark"] #game {
+    background-color: var(--lightTheme) !important;
+}
+
+html[data-theme="light"] #game {
+    background-color: var(--darkTheme) !important;
+}
+
 body, p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
@@ -169,7 +177,6 @@ img {
 #game {
     height: 300px;
     width: 300px;
-    background-color: black;
 }
 
 .body {
