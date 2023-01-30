@@ -16,7 +16,7 @@ function cgol() {
 
     if (canvas !== null) {
         const ctx = canvas.getContext("2d");
-        const border = 2;
+        const border = 3;
         let height = canvas.height;
         let width = canvas.width;
         let scale = width / canvas.clientWidth;
@@ -116,10 +116,12 @@ function cgol() {
                     let fill: string = "#ff5c42";
 
                     if (getTheme() === "dark") {
+                        fill = "#66bcf1";
                         hover = "#FEFFFA";
                         background = "#423847";
+                        
                     } else {
-                        hover = "#FEFFFA";
+                        hover = "#423847";
                         background = "#FEFFFA";
                     }
 
