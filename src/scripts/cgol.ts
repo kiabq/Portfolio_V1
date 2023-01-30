@@ -7,6 +7,8 @@ type Board = {
 function cgol() {
     let canvas = document.getElementById("game") as HTMLCanvasElement;
     let pauseButton = document.getElementById("pause") as HTMLButtonElement;
+    let resetButton = document.getElementById("reset") as HTMLButtonElement;
+    let cycle = document.getElementById("counter") as HTMLElement;
 
     if (canvas !== null) {
         let ctx = canvas.getContext("2d");
@@ -15,10 +17,11 @@ function cgol() {
 
         let board: Array<Board>[] = [];
         let xOffset = 0, yOffset = 0;
-        let border = 0;
+        let border = 2;
 
         let interval: number | undefined = undefined;
         let paused = false;
+        let counter = 0;
 
         let initial = [
             [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -50,28 +53,35 @@ function cgol() {
             y: height / boardSize
         }
 
-        function createBoard(size: number, borderWidth: number) {
+        function createBoard(size: number, reset?: boolean) {
             for (let i = 0; i < size; i++) {
                 board.push([]);
 
                 for (let j = 0; j < size; j++) {
-                    if (initial[i][j] === 1) {
+                    if (initial[i][j] === 1 && !reset) {
                         board[i].push({ alive: 1, x: j * block.x, y: i * block.y })
                     } else {
                         board[i].push({ alive: 0, x: j * block.x, y: i * block.y })
                     }
                 }
-
-                border = borderWidth;
             }
         }
 
-        function init() {
-            createBoard(boardSize, 2);
+        function init(reset: boolean) {
+            board = [];
+            counter = 0;
 
+            if (interval) {
+                clearInterval(interval);
+            }
+
+            updateCounter();
+            createBoard(boardSize, reset);
             draw();
 
-            interval = setInterval(newFrame, 200);
+            if (!paused) {
+                interval = setInterval(newFrame, 200);
+            }
         }
 
         function draw(posX?: number, posY?: number) {
@@ -150,6 +160,11 @@ function cgol() {
             board = newBoard;
         }
 
+        function updateCounter() {
+            cycle.textContent = `${counter}`;
+            counter++;
+        }
+
         function clickEvent(this: HTMLCanvasElement, e: MouseEvent) {
             let area = this.getBoundingClientRect();
 
@@ -178,9 +193,12 @@ function cgol() {
         }   
 
         function mouseDownEvent(this: HTMLCanvasElement) {
-            canvas.removeEventListener("click", clickEvent);
+            function mouseUpEvent() {
+                canvas.removeEventListener("mousemove", mouseMoveEvent);
+                canvas.removeEventListener("mouseup", mouseUpEvent);
+            }
 
-            function logHi(this: HTMLCanvasElement, e: MouseEvent) {
+            function mouseMoveEvent(this: HTMLCanvasElement, e: MouseEvent) {
                 let area = this.getBoundingClientRect();
 
                 let posX = e.clientX - area.left;
@@ -196,12 +214,8 @@ function cgol() {
                 draw();
             }
 
-            canvas.addEventListener("mousemove", logHi);
-            
-            canvas.addEventListener("mouseup", () => {
-                canvas.removeEventListener("mousemove", logHi);
-                canvas.addEventListener("click", clickEvent);
-            });
+            canvas.addEventListener("mousemove", mouseMoveEvent);
+            canvas.addEventListener("mouseup", mouseUpEvent);
         }
 
         clickEvent.bind(canvas);
@@ -222,21 +236,31 @@ function cgol() {
                 paused = true;
                 clearInterval(interval);
 
-                pauseButton.textContent = "Resume";
+                pauseButton.textContent = "Play";
 
                 canvas.addEventListener("click", clickEvent);
                 canvas.addEventListener("mousemove", mouseOverEvent);
                 canvas.addEventListener("mousedown", mouseDownEvent);
             }
+        });
+
+        resetButton.addEventListener("click", () => {
+            init(true);
+        
+            if (!paused) {
+                pauseButton.click();
+            }
         })
 
         function newFrame() {
+            updateCounter();
+
             game();
-            draw();        
+            draw();
         }
 
         if (interval === undefined) {
-            init();
+            init(false);
         }
     }
 }
