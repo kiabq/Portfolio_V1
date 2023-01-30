@@ -12,8 +12,9 @@ function cgol() {
 
     if (canvas !== null) {
         let ctx = canvas.getContext("2d");
-        let height = canvas.width;
-        let width = canvas.height;
+        let height = canvas.height;
+        let width = canvas.width;
+        let scale = width / canvas.clientWidth;
 
         let board: Array<Board>[] = [];
         let xOffset = 0, yOffset = 0;
@@ -121,7 +122,7 @@ function cgol() {
         
         function game() {
             let newBoard: Array<Board>[] = [];
-
+            
             for (let i = 0; i < boardSize; i++) {
                 newBoard.push([]);
 
@@ -171,8 +172,8 @@ function cgol() {
             let posX = e.clientX - area.left;
             let posY = e.clientY - area.top;
 
-            let x = Math.floor(posX / block.x);
-            let y = Math.floor(posY / block.y)
+            let x = Math.floor(posX * scale/ block.x);
+            let y = Math.floor(posY * scale/ block.y)
 
             if (board[y][x].alive === 0) {
                 board[y][x].alive = 1;
@@ -185,11 +186,13 @@ function cgol() {
 
         function mouseOverEvent(this: HTMLCanvasElement, e: MouseEvent) {
             let area = this.getBoundingClientRect();
-
+            
             let posX = e.clientX - area.left;
             let posY = e.clientY - area.top;
 
-            draw(posX, posY);
+            console.log(posX, posY);
+
+            draw(posX * scale, posY * scale);
         }   
 
         function mouseDownEvent(this: HTMLCanvasElement) {
@@ -204,11 +207,10 @@ function cgol() {
                 let posX = e.clientX - area.left;
                 let posY = e.clientY - area.top;
     
-                let x = Math.floor(posX / block.x);
-                let y = Math.floor(posY / block.y);
+                let x = Math.floor(posX * scale / block.x);
+                let y = Math.floor(posY * scale/ block.y);
 
                 let current = board[y][x];
-
                 current.alive = 1;
                 
                 draw();
@@ -222,12 +224,22 @@ function cgol() {
         mouseOverEvent.bind(canvas);
         mouseDownEvent.bind(canvas);
 
+        function addListeners() {
+            canvas.addEventListener("click", clickEvent);
+            canvas.addEventListener("mousemove", mouseOverEvent);
+            canvas.addEventListener("mousedown", mouseDownEvent);
+        }
+
+        function removeListeners() {
+            canvas.removeEventListener("click", clickEvent);
+            canvas.removeEventListener("mousemove", mouseOverEvent);
+            canvas.removeEventListener("mousedown", mouseDownEvent);
+        }
+
         pauseButton.addEventListener("click", () => {
             if (paused) {
-                canvas.removeEventListener("click", clickEvent);
-                canvas.removeEventListener("mousemove", mouseOverEvent);
-                canvas.removeEventListener("mousedown", mouseDownEvent);
 
+                removeListeners();
                 pauseButton.textContent = "Pause";
 
                 paused = false;
@@ -237,16 +249,13 @@ function cgol() {
                 clearInterval(interval);
 
                 pauseButton.textContent = "Play";
-
-                canvas.addEventListener("click", clickEvent);
-                canvas.addEventListener("mousemove", mouseOverEvent);
-                canvas.addEventListener("mousedown", mouseDownEvent);
+                addListeners();
             }
         });
 
         resetButton.addEventListener("click", () => {
             init(true);
-        
+
             if (!paused) {
                 pauseButton.click();
             }
