@@ -4,7 +4,6 @@ type Board = {
     y: number
 }
 
-
 function cgol() {
     let canvas = document.getElementById("game") as HTMLCanvasElement;
     let pauseButton = document.getElementById("pause") as HTMLButtonElement;
@@ -75,7 +74,7 @@ function cgol() {
             interval = setInterval(newFrame, 200);
         }
 
-        function draw() {
+        function draw(posX?: number, posY?: number) {
             for (let i = 0; i < boardSize; i++) {
                 for (let j = 0; j < boardSize; j++) {
                     xOffset = border;
@@ -97,7 +96,9 @@ function cgol() {
                         Math.round(block.y - yOffset),
                     );
                     
-                    if (board[i][j].alive === 1) {
+                    if (paused && posX && posY && ctx!.isPointInPath(posX, posY)) {
+                        ctx!.fillStyle = "blue";
+                    } else if (board[i][j].alive === 1) {
                         ctx!.fillStyle = "yellow";
                     } else {
                         ctx!.fillStyle = "grey";
@@ -151,7 +152,7 @@ function cgol() {
 
         function clickEvent(this: HTMLCanvasElement, e: MouseEvent) {
             let area = this.getBoundingClientRect();
-            
+
             let posX = e.clientX - area.left;
             let posY = e.clientY - area.top;
 
@@ -173,47 +174,45 @@ function cgol() {
             let posX = e.clientX - area.left;
             let posY = e.clientY - area.top;
 
-            for (let i = 0; i < boardSize; i++) {
-                for (let j = 0; j < boardSize; j++) {
-                    xOffset = border;
-                    yOffset = border;
+            draw(posX, posY);
+        }   
 
-                    if (j === boardSize - 1) {
-                        xOffset = 0;
-                    }
+        function mouseDownEvent(this: HTMLCanvasElement) {
+            canvas.removeEventListener("click", clickEvent);
+
+            function logHi(this: HTMLCanvasElement, e: MouseEvent) {
+                let area = this.getBoundingClientRect();
+
+                let posX = e.clientX - area.left;
+                let posY = e.clientY - area.top;
     
-                    if (i === boardSize - 1) {
-                        yOffset = 0;
-                    }
-    
-                    ctx!.beginPath();
-                    ctx!.rect(
-                        Math.round(board[i][j].x), 
-                        Math.round(board[i][j].y), 
-                        Math.round(block.x - xOffset), 
-                        Math.round(block.y - yOffset)
-                    );
-                    
-                    if (ctx!.isPointInPath(posX, posY)) {
-                        ctx!.fillStyle = "blue";
-                    } else if (board[i][j].alive) {
-                        ctx!.fillStyle = "yellow";
-                    } else {
-                        ctx!.fillStyle = "grey";
-                    }
-                    
-                    ctx!.fill();
-                }
+                let x = Math.floor(posX / block.x);
+                let y = Math.floor(posY / block.y);
+
+                let current = board[y][x];
+
+                current.alive = 1;
+                
+                draw();
             }
+
+            canvas.addEventListener("mousemove", logHi);
+            
+            canvas.addEventListener("mouseup", () => {
+                canvas.removeEventListener("mousemove", logHi);
+                canvas.addEventListener("click", clickEvent);
+            });
         }
 
         clickEvent.bind(canvas);
         mouseOverEvent.bind(canvas);
+        mouseDownEvent.bind(canvas);
 
         pauseButton.addEventListener("click", () => {
             if (paused) {
                 canvas.removeEventListener("click", clickEvent);
                 canvas.removeEventListener("mousemove", mouseOverEvent);
+                canvas.removeEventListener("mousedown", mouseDownEvent);
 
                 pauseButton.textContent = "Pause";
 
@@ -227,6 +226,7 @@ function cgol() {
 
                 canvas.addEventListener("click", clickEvent);
                 canvas.addEventListener("mousemove", mouseOverEvent);
+                canvas.addEventListener("mousedown", mouseDownEvent);
             }
         })
 
