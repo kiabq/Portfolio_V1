@@ -119,7 +119,6 @@ function cgol() {
                         fill = "#66bcf1";
                         hover = "#FEFFFA";
                         background = "#423847";
-                        
                     } else {
                         hover = "#423847";
                         background = "#FEFFFA";
@@ -211,11 +210,11 @@ function cgol() {
                     draw();
                 }
             } catch (error) {
-                removeListeners();
-                addListeners();
+                // Out of bounds error, no need to panic.
             }
-            
         }
+
+        let globalController: AbortController = new AbortController;
 
         function clickEvent(this: HTMLCanvasElement, e: MouseEvent): void {
             const area = this.getBoundingClientRect();
@@ -231,7 +230,7 @@ function cgol() {
             draw(posX * scale, posY * scale);
         }
 
-        function mouseDownEvent(this: HTMLCanvasElement):void {
+        function mouseDownEvent(this: HTMLCanvasElement): void {
             const controller = new AbortController();
 
             function mouseUpEvent(this: HTMLCanvasElement) {
@@ -244,13 +243,13 @@ function cgol() {
             }
 
             this.addEventListener("mousemove", mouseMoveEvent, { signal: controller.signal });
-            this.addEventListener("mouseup", mouseUpEvent, { signal: controller.signal });
+            document.addEventListener("mouseup", mouseUpEvent, { signal: controller.signal });
         }
 
         function touchOverEvent(this: HTMLCanvasElement) {
             const controller = new AbortController();
 
-            function endTouchEvent(this: HTMLCanvasElement) {
+            function touchEndEvent(this: HTMLCanvasElement) {
                 window.onscroll = function() {};
                 controller.abort();
             }
@@ -260,32 +259,33 @@ function cgol() {
                 paint(area, e);
 
                 window.onscroll = function() {
-                    const scrollTop = window.screenY || document.body.scrollTop;
-                    const scrollLeft = window.screenX || document.body.scrollLeft;
+                    console.log(window.screenX, window.screenY);
+
+                    let scrollTop = window.screenY - (window.screenY - 1) || document.documentElement.scrollTop;
+                    let scrollLeft = window.screenX || document.documentElement.scrollLeft;
 
                     window.scrollTo(scrollLeft, scrollTop);
                 }
             }
 
             this.addEventListener("touchmove", touchMoveEvent, { signal: controller.signal })
-            this.addEventListener("touchend", endTouchEvent, { signal: controller.signal })
+            document.addEventListener("touchend", touchEndEvent, { signal: controller.signal })
         }
 
         function addListeners() {
-            canvas.addEventListener("click", clickEvent);
-            canvas.addEventListener("mousemove", mouseOverEvent);
-            canvas.addEventListener("mousedown", mouseDownEvent);
-            canvas.addEventListener("touchstart", touchOverEvent);
+            globalController = new AbortController();
+            
+            canvas.addEventListener("click", clickEvent, { signal: globalController.signal });
+            canvas.addEventListener("mousemove", mouseOverEvent, { signal: globalController.signal });
+            canvas.addEventListener("mousedown", mouseDownEvent, { signal: globalController.signal });
+            canvas.addEventListener("touchstart", touchOverEvent, { signal: globalController.signal });
         }
 
         function removeListeners() {
-            canvas.removeEventListener("click", clickEvent);
-            canvas.removeEventListener("mousemove", mouseOverEvent);
-            canvas.removeEventListener("mousedown", mouseDownEvent);
-            canvas.removeEventListener("touchstart", touchOverEvent);
+            globalController.abort();
         }
 
-        pauseButton.addEventListener("click", () => {
+        pauseButton.addEventListener("click", function() {
             if (paused) {
                 removeListeners();
                 pauseButton.textContent = "Pause";
@@ -301,7 +301,7 @@ function cgol() {
             }
         });
 
-        resetButton.addEventListener("click", () => {
+        resetButton.addEventListener("click", function() {
             init(true);
             if (!paused) {
                 pauseButton.click();
