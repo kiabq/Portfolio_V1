@@ -14,15 +14,19 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
     color: var(--darkTheme) !important;
-    background-color: var(--lightTheme) !important;
+    background-color: var(--lightTheme) !important;   
 }
 
 html[data-theme="dark"] #game {
     background-color: var(--lightTheme) !important;
+    border: 2px solid var(--lightTheme);
+    border-radius: 3px;
 }
 
 html[data-theme="light"] #game {
     background-color: var(--darkTheme) !important;
+    border: 2px solid var(--darkTheme);
+    border-radius: 3px;
 }
 
 body, p, h1, h2, h3, h4, h5, h6 {
@@ -175,8 +179,8 @@ img {
 }
   
 #game {
-    height: 250px;
-    width: 250px;
+    height: 350px;
+    width: 350px;
 }
 
 .body {
