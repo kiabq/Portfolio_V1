@@ -258,10 +258,10 @@ function cgol() {
                 const area = this.getBoundingClientRect();
                 paint(area, e);
 
-                window.onscroll = function() {
-                    console.log(window.screenX, window.screenY);
+                window.onscroll = function(e) {
+                    e.preventDefault();
 
-                    let scrollTop = window.screenY - (window.screenY - 1) || document.documentElement.scrollTop;
+                    let scrollTop = window.screenY || document.documentElement.scrollTop;
                     let scrollLeft = window.screenX || document.documentElement.scrollLeft;
 
                     window.scrollTo(scrollLeft, scrollTop);
