@@ -32,7 +32,7 @@ function cgol() {
 
         // This array is proof that god had abandoned us. 
         // TODO:
-        // Use Life Paterns to generate a 2d array on the fly.
+        // Use Life Patterns to generate a 2d array on the fly.
         const initial = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -336,7 +336,7 @@ function cgol() {
             const theme = document.querySelector(".nav-theme");
 
             if (theme) {
-                theme?.addEventListener("click", () => draw());
+                theme.addEventListener("click", () => draw());
             }
         }
 
@@ -355,4 +355,3 @@ function cgol() {
 cgol();
 
 export default cgol;
-export { model }
