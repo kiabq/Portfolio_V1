@@ -239,8 +239,8 @@ img {
 /* body -> game of life */
 
 #game {
-    height: 350px;
-    width: 350px;
+    height: 275px;
+    width: 275px;
     z-index: 1;
 }
 
@@ -327,7 +327,7 @@ img {
 
 .game-container {
     background-color: black;
-    height: 350px;
+    height: 275px;
     z-index: 1;
 }
 
@@ -350,7 +350,7 @@ img {
     display: flex;
     margin-left: auto;
     align-items: center;
-    width: 30%;
+    width: 35%;
 }
 
 .banner-counter > * {
