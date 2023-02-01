@@ -11,12 +11,15 @@ import Footer from "../components/footer.astro";
 		<div class="banner mgtb-1r">
 			<div class="banner-header">
 				<h6>Conway's Game of Life</h6>
-				<span class="material-symbols-rounded">
+				<span class="material-symbols-rounded icon" id="cog">
 					&#xe8b8;
 				</span>
 			</div>
+			
 			<canvas id="game" height="800" width="800"></canvas>
-			<div class="banner-controls">
+			<input type="range" id="speed" min="25" max="200" step="25" value="200">
+			
+			<div id="banner-controls">
 				<button id="pause">Pause</button>
 				<button id="reset">Reset</button>
 				<button id="clear">Clear</button>
