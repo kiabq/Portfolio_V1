@@ -23,14 +23,12 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] #game {
     background-color: var(--lightTheme);
-    border: 2px solid var(--lightTheme);
-    border-radius: 3px;
+    border-color: var(--lightTheme);
 }
 
 html[data-theme="light"] #game {
     background-color: var(--darkTheme);
-    border: 2px solid var(--darkTheme);
-    border-radius: 3px;
+    border-color: var(--darkTheme);
 }
 
 /* Game Control Themes */
@@ -70,14 +68,15 @@ html[data-theme="light"] .banner-counter {
     color: var(--lightTheme);
 }
 
-/* html[data-theme="dark"] #speed {
+html[data-theme="dark"] #speed::-webkit-slider-runnable-track,
+html[data-theme="dark"] #speed::-moz-range-track {
     background: var(--lightTheme);
 }
 
-html[data-theme="light"] #speed {
+html[data-theme="light"] #speed::-webkit-slider-runnable-track,
+html[data-theme="light"] #speed::-moz-range-track {
     background: var(--darkTheme);
-    color: var(--lightTheme);
-} */
+}
 
 /* Root Elements */
 
@@ -239,6 +238,9 @@ img {
 /* body -> game of life */
 
 #game {
+    border-style: solid;
+    border-width: 4px 2px 2px 4px;
+    border-radius: 3px;
     height: 275px;
     width: 275px;
     z-index: 1;
@@ -278,15 +280,8 @@ img {
 }
 
 #speed::-webkit-slider-runnable-track {
-    background: red;
     border-radius: 5px;
     outline: none;
-    width: 0.25rem;
-}
-
-#speed::-moz-range-track {
-    background: red;
-    border-radius: 5px;
     width: 0.25rem;
 }
 
@@ -296,11 +291,19 @@ img {
     margin-right: -6px;
 }
 
+#speed::-moz-range-track {
+    border-radius: 5px;
+    width: 0.25rem;
+}
+
 #speed::-moz-range-thumb {
     -webkit-appearance: none;
     appearance: none;
+    border: none;
+    border-radius: none;
+    width: 1rem;
+    height: 0.5rem;
 }
-
 
 #counter {
     margin-left: auto;
@@ -327,6 +330,7 @@ img {
 
 .game-container {
     background-color: black;
+    border-radius: 3px;
     height: 275px;
     z-index: 1;
 }
@@ -344,18 +348,24 @@ img {
     border: none;
     border-top: none;
     height: 25px;
+    padding: 0 0.75rem;
 }
 
 .banner-counter {
     display: flex;
     margin-left: auto;
     align-items: center;
-    width: 42%;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    padding-top: 3px;
+    width: 100%;
 }
 
 .banner-counter > * {
     margin: auto 0;
     padding: 0 3px;
+    text-align: center;
 }
 
 .show-controls {

@@ -113,11 +113,11 @@ function cgol() {
                     yOffset = border;
 
                     if (j === boardSize - 1) {
-                        xOffset = 0;
+                        xOffset = border;
                     }
 
                     if (i === boardSize - 1) {
-                        yOffset = 0;
+                        yOffset = border;
                     }
 
                     ctx!.beginPath();
