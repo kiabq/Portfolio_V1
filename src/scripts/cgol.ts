@@ -323,7 +323,6 @@ function cgol() {
 
         gameSideControls.addEventListener("input", function() {
             speed = parseInt(gameSideControls.value);
-
             clearInterval(interval);
             interval = setInterval(newFrame, speed);
         })

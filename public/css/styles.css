@@ -201,12 +201,18 @@ img {
 }
 
 #speed {
+    width: 140px;
+    height: 14px;
     position: absolute;
     rotate: 90deg;
-    bottom: 95px;
-    right: -90px;
-    transform: translateY(24px);
+    bottom: 86px;
+    left: 83%;
+    transform: translateY(20px);
     transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    border: none;
+    z-index: -1;
 }
 
 .banner {
@@ -226,6 +232,12 @@ img {
 
 .banner-header > h6 {
     flex-grow: 1;
+}
+
+.game-container {
+    background-color: black;
+    height: 350px;
+    z-index: 1;
 }
 
 .show-controls {

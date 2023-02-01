@@ -16,10 +16,12 @@ import Footer from "../components/footer.astro";
 				</span>
 			</div>
 			
-			<canvas id="game" height="800" width="800"></canvas>
-			<input type="range" id="speed" min="25" max="200" step="25" value="200">
-			
+			<div class="game-container">
+				<canvas id="game" height="800" width="800"/>
+			</div>
+
 			<div id="banner-controls">
+				<input type="range" id="speed" min="25" max="200" step="25" value="200">
 				<button id="pause">Pause</button>
 				<button id="reset">Reset</button>
 				<button id="clear">Clear</button>
