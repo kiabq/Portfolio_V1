@@ -13,7 +13,7 @@ function cgol() {
     const clearButton = document.getElementById("clear") as HTMLButtonElement;
     const cycle = document.getElementById("counter") as HTMLElement;
     const toggleControls = document.getElementById("cog") as HTMLElement;
-    const gameBottomControls = document.getElementById("banner-controls") as HTMLElement;
+    const gameBottomControls = document.getElementById("banner-bottom") as HTMLElement;
     const gameSideControls = document.getElementById("speed") as HTMLInputElement;
 
     if (canvas !== null) {
@@ -28,7 +28,6 @@ function cgol() {
     
         let interval: number | undefined = undefined;
         let speed = 25;
-        let dSpeed = speed;
         let paused = false;
         let counter = 0;
 
@@ -302,20 +301,41 @@ function cgol() {
             globalController.abort();
         }
 
+        function disableButtons() {
+            pauseButton.setAttribute("disabled", "");
+            resetButton.setAttribute("disabled", "");
+            clearButton.setAttribute("disabled", "");
+            gameSideControls.setAttribute("disabled", "");
+        }
+
+        function enableButtons() {
+            pauseButton.removeAttribute("disabled");
+            resetButton.removeAttribute("disabled");
+            clearButton.removeAttribute("disabled");
+            gameSideControls.removeAttribute("disabled");
+        }
+
         toggleControls.addEventListener("click", function() {
             const activated = (
                 gameBottomControls.classList[0] === "show-controls" && 
-                gameSideControls.classList[0] === "show-controls"
+                gameSideControls.classList[0] === "show-slider"
             );
 
             if (gameBottomControls && gameSideControls) {
                 if (activated) {
                     gameBottomControls.classList.remove("show-controls");
-                    gameSideControls.classList.remove("show-controls")
+                    gameSideControls.classList.remove("show-slider")
                     toggleControls.style.transform = "rotate(0deg)";
+
+                    if (paused) {
+                        pauseButton.click();
+                    }
+                    
+                    disableButtons(); 
                 } else {
+                    enableButtons();
                     gameBottomControls.classList.add("show-controls");
-                    gameSideControls.classList.add("show-controls");
+                    gameSideControls.classList.add("show-slider");
                     toggleControls.style.transform = "rotate(-180deg)";
                 }
             }
@@ -323,6 +343,7 @@ function cgol() {
 
         gameSideControls.addEventListener("input", function() {
             speed = parseInt(gameSideControls.value);
+
             clearInterval(interval);
             interval = setInterval(newFrame, speed);
         })
