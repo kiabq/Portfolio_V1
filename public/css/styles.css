@@ -369,7 +369,7 @@ img {
 }
 
 .show-controls {
-    transform: translateY(0px) !important;
+    transform: translateY(3px) !important;
     transition-timing-function: ease-in-out;
 }
 
