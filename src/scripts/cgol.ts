@@ -16,6 +16,8 @@ function cgol() {
     const gameBottomControls = document.getElementById("banner-bottom") as HTMLElement;
     const gameSideControls = document.getElementById("speed") as HTMLInputElement;
 
+    const htmlBody = document.getElementsByTagName("body");
+
     if (canvas !== null) {
         const ctx = canvas.getContext("2d");
         const border = 2;
@@ -80,10 +82,11 @@ function cgol() {
                 board.push([]);
 
                 for (let j = 0; j < size; j++) {
+                    board[i].push({ alive: 0, x: j * block.x, y: i * block.y });
+
                     if (initial[i][j] === 1 && !reset) {
-                        board[i].push({ alive: 1, x: j * block.x, y: i * block.y });
-                    } else {
-                        board[i].push({ alive: 0, x: j * block.x, y: i * block.y });
+                        // board[i].push({ alive: 1, x: j * block.x, y: i * block.y });
+                        board[i][j].alive = 1;
                     }
                 }
             }
@@ -213,7 +216,7 @@ function cgol() {
     
                 if (posX && posY) {
                     const x = Math.floor(posX * scale / block.x);
-                    const y = Math.floor(posY * scale/ block.y);
+                    const y = Math.floor(posY * scale / block.y);
                     
                     const current = board[y][x];
     
@@ -264,28 +267,20 @@ function cgol() {
 
         function touchOverEvent(this: HTMLCanvasElement) {
             const controller = new AbortController();
+            htmlBody[0].style.overflowY = "hidden";
 
             function touchEndEvent(this: HTMLCanvasElement) {
-                window.onscroll = function() {};
+                htmlBody[0].style.overflowY = "";
                 controller.abort();
             }
 
             function touchMoveEvent(this: HTMLCanvasElement, e: TouchEvent) {
                 const area = this.getBoundingClientRect();
                 paint(area, e);
-
-                window.onscroll = function(e) {
-                    e.preventDefault();
-
-                    let scrollTop = window.screenY || document.documentElement.scrollTop;
-                    let scrollLeft = window.screenX || document.documentElement.scrollLeft;
-
-                    window.scrollTo(scrollLeft, scrollTop);
-                }
             }
 
-            this.addEventListener("touchmove", touchMoveEvent, { signal: controller.signal })
-            document.addEventListener("touchend", touchEndEvent, { signal: controller.signal })
+            this.addEventListener("touchmove", touchMoveEvent, { signal: controller.signal });
+            document.addEventListener("touchend", touchEndEvent, { signal: controller.signal });
         }
 
         function addListeners() {
@@ -324,7 +319,7 @@ function cgol() {
             if (gameBottomControls && gameSideControls) {
                 if (activated) {
                     gameBottomControls.classList.remove("show-controls");
-                    gameSideControls.classList.remove("show-slider")
+                    gameSideControls.classList.remove("show-slider");
                     toggleControls.style.transform = "rotate(0deg)";
 
                     if (paused) {

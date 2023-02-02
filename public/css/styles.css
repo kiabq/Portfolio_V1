@@ -225,6 +225,7 @@ img {
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
+    overscroll-behavior-y: contain;
 
     font-family: 'Josefin Sans', sans-serif;
     font-kerning: auto;
