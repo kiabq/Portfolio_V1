@@ -1,0 +1,230 @@
+/* Reset Sliders */
+input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Canvas Theme */
+
+html[data-theme="light"] #game {
+    background-color: var(--darkTheme);
+    border-color: var(--darkTheme);
+}
+
+/* Game Control Themes */
+
+html[data-theme="light"] .banner-btn {
+    background-color: var(--darkTheme);
+    color: var(--lightTheme);
+}
+
+html[data-theme="light"] .banner-btn:hover {
+    background-color: var(--darkThemeHover);
+    color: var(--lightThemeHover);
+}
+
+html[data-theme="light"] .banner-btn:hover {
+    background-color: var(--darkThemeHover);
+    color: var(--lightThemeHover);
+}
+
+html[data-theme="light"] .banner-counter {
+    background-color: var(--darkTheme);
+    color: var(--lightTheme);
+}
+
+/* Speed Slider */
+
+html[data-theme="light"] input::-moz-range-track {
+    background: var(--darkTheme);
+}
+
+html[data-theme="light"] input::-webkit-slider-runnable-track {
+    background: var(--darkTheme);
+}
+
+html[data-theme="light"] input::-moz-range-thumb {
+    background: var(--lightTheme);
+    border-color: var(--darkTheme);
+}
+
+html[data-theme="light"] input::-webkit-slider-thumb {
+    background: var(--lightTheme);
+    border-color: var(--darkTheme);
+}
+
+input[type="range"]::-moz-range-track {
+    background: var(--lightTheme);
+    border-radius: 5px;
+    height: 4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    background: var(--darkTheme);
+    border: 2px solid var(--lightTheme);
+    border-radius: 8px;
+    height: 1.5rem;
+    width: 0.75em;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--lightTheme);
+    border-radius: 5px;
+    height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    outline: none;
+    background: var(--darkTheme);  
+    border: 2px solid var(--lightTheme);
+    border-radius: 8px;
+    height: 1.5rem;
+    width: 0.75rem;
+    margin-top: -0.575rem;
+}
+
+/* Canvas */
+
+#game {
+    background-color: var(--lightTheme);
+    border-color: var(--lightTheme);
+    border-style: solid;
+    border-width: 4px 2px 2px 4px;
+    border-radius: 3px;
+    height: 280px;
+    width: 280px;
+    z-index: 1;
+}
+
+.game-container {
+    background-color: black;
+    border-radius: 3px;
+    height: 280px;
+    z-index: 1;
+}
+
+/* Canvas Controls */
+
+#cog {
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+#speed-controls {
+    rotate: 90deg;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 50%;
+    left: 55%;
+}
+
+#speed-controls .icon {
+    rotate: -90deg;
+}
+
+#speed, #speed-controls > div {
+    transform: translateY(0px);
+    transition: transform 0.4s;
+    transition-timing-function: ease-in-out;
+}
+
+#speed {
+    width: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+#banner-bottom {
+    display: flex;
+    z-index: 0;
+    transform: translateY(-24px);
+    transition: all 0.5s;
+    width: inherit;
+}
+
+#counter {
+    margin-left: auto;
+}
+
+.banner {
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.banner-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 1.5rem;
+}
+
+.banner-header > h6 {
+    flex-grow: 1;
+}
+
+
+.banner-controls {
+    width: 100%;
+}
+
+.banner-btn, .banner-counter {
+    font-size: 12px;
+}
+
+.banner-btn {
+    background-color: var(--lightTheme);
+    color: var(--darkTheme);
+    border: none;
+    border-top: none;
+    cursor: pointer;
+    height: 25px;
+    padding: 0 0.75rem;
+}
+
+.banner-btn:hover {
+    background-color: var(--lightThemeHover);
+    color: var(--darkThemeHover);
+}
+
+.banner-counter {
+    background-color: var(--lightTheme);
+    color: var(--darkTheme);
+    cursor: default;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    padding-top: 3px;
+    width: 100%;
+}
+
+.banner-counter > * {
+    margin: auto 0;
+    padding: 0 3px;
+    text-align: center;
+}
+
+/* Transition Animatons */
+
+.show-controls {
+    transform: translateY(3px) !important;
+    transition-timing-function: ease-in-out;
+}
+
+.show-slider {
+    transform: translateY(-60px) !important;
+    transition-timing-function: ease-in-out;
+}

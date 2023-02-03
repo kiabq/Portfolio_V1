@@ -19,65 +19,6 @@ html[data-theme="light"] {
     background-color: var(--lightTheme) !important;   
 }
 
-/* Canvas Theme */
-
-html[data-theme="dark"] #game {
-    background-color: var(--lightTheme);
-    border-color: var(--lightTheme);
-}
-
-html[data-theme="light"] #game {
-    background-color: var(--darkTheme);
-    border-color: var(--darkTheme);
-}
-
-/* Game Control Themes */
-
-html[data-theme="light"] .banner-btn {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
-}
-
-html[data-theme="light"] .banner-btn:hover {
-    background-color: var(--darkThemeHover);
-    color: var(--lightThemeHover);
-}
-
-html[data-theme="dark"] .banner-btn {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme);
-}
-
-html[data-theme="dark"] .banner-btn:hover {
-    background-color: var(--lightThemeHover);
-    color: var(--darkThemeHover);
-}
-
-html[data-theme="light"] .banner-btn:hover {
-    background-color: var(--darkThemeHover);
-    color: var(--lightThemeHover);
-}
-
-html[data-theme="dark"] .banner-counter {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme);
-}
-
-html[data-theme="light"] .banner-counter {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
-}
-
-html[data-theme="dark"] #speed::-webkit-slider-runnable-track,
-html[data-theme="dark"] #speed::-moz-range-track {
-    background: var(--lightTheme);
-}
-
-html[data-theme="light"] #speed::-webkit-slider-runnable-track,
-html[data-theme="light"] #speed::-moz-range-track {
-    background: var(--darkTheme);
-}
-
 /* Root Elements */
 
 body, p, h1, h2, h3, h4, h5, h6 {
@@ -106,17 +47,6 @@ ul, li {
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-input[type="range"] {
-    appearance: none;
-    -webkit-appearance: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-input[type="range"]:focus {
-    outline: none;
 }
 
 /* fonts */
@@ -226,7 +156,6 @@ img {
     flex-grow: 1;
     align-items: center;
     overscroll-behavior-y: contain;
-
     font-family: 'Josefin Sans', sans-serif;
     font-kerning: auto;
     line-height: 1.5;
@@ -234,149 +163,6 @@ img {
 
 .body-content {
     max-width: 800px;
-}
-
-/* body -> game of life */
-
-#game {
-    border-style: solid;
-    border-width: 4px 2px 2px 4px;
-    border-radius: 3px;
-    height: 275px;
-    width: 275px;
-    z-index: 1;
-}
-
-#banner-bottom {
-    display: flex;
-    z-index: 0;
-    transform: translateY(-24px);
-    transition: all 0.5s;
-    width: inherit;
-}
-
-#cog {
-    font-size: 16px;
-    transition: all 0.5s;
-}
-
-#speed {
-    appearance: slider-vertical;
-
-    width: 14px;
-    height: 140px;
-
-    bottom: 28%;
-    left: 92%;
-    position: absolute;
-
-    rotate: 180deg;
-    transform: translateX(0px);
-    
-    transition: transform 0.33s;
-    transition-timing-function: ease-in-out;
-    
-    margin: 0;
-    padding: 0;
-}
-
-#speed::-webkit-slider-runnable-track {
-    border-radius: 5px;
-    outline: none;
-    width: 0.25rem;
-}
-
-#speed::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    margin-right: -6px;
-}
-
-#speed::-moz-range-track {
-    border-radius: 5px;
-    width: 0.25rem;
-}
-
-#speed::-moz-range-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    border-radius: none;
-    width: 1rem;
-    height: 0.5rem;
-}
-
-#counter {
-    margin-left: auto;
-}
-
-.banner {
-    border-radius: 3px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.banner-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 1.5rem;
-}
-
-.banner-header > h6 {
-    flex-grow: 1;
-}
-
-.game-container {
-    background-color: black;
-    border-radius: 3px;
-    height: 275px;
-    z-index: 1;
-}
-
-.banner-controls {
-    width: 100%;
-}
-
-.banner-btn, .banner-counter {
-    font-size: 12px;
-}
-
-.banner-btn {
-    background-color: inherit;
-    border: none;
-    border-top: none;
-    height: 25px;
-    padding: 0 0.75rem;
-}
-
-.banner-counter {
-    display: flex;
-    margin-left: auto;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    padding-top: 3px;
-    width: 100%;
-}
-
-.banner-counter > * {
-    margin: auto 0;
-    padding: 0 3px;
-    text-align: center;
-}
-
-.show-controls {
-    transform: translateY(3px) !important;
-    transition-timing-function: ease-in-out;
-}
-
-.show-slider {
-    transform: translateX(-38px) !important;
-    transition-timing-function: ease-in-out;
 }
 
 /* body -> intro */
@@ -474,17 +260,7 @@ img {
 }
 
 @media (max-width: 450px) {
-    .body-intro {
-        display: flex;
-        flex-direction: column;
-    }
-
     .body-list {
-        text-align: center;
-        margin: 0 auto 1rem auto;
-    }
-
-    .body-intro-main {
-        margin-left: 0;
+        display: none;
     }
 }
