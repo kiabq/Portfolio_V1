@@ -134,6 +134,10 @@ ul, li {
     height: max-content;
 }
 
+.nav-theme-toggle::selection {
+    background: transparent;
+}
+
 #light {
     transform: translateY(0px);
 }
