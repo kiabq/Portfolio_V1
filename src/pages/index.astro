@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/header.astro";
 import Main from "../components/main.astro";
 import Footer from "../components/footer.astro";
+
+import "../../public/css/game.css";
 ---
 
 <Layout>
@@ -15,13 +17,20 @@ import Footer from "../components/footer.astro";
 					&#xe8b8;
 				</span>
 			</div>
-			
 			<div class="game-container">
 				<canvas id="game" height="800" width="800"/>
 			</div>
-
 			<div class="banner-controls">
-				<input type="range" id="speed" min="25" max="200" step="25" value="25" orient="vertical">
+				
+				<div id="speed-controls">
+					<div>
+						<span class="material-symbols-rounded icon">
+							&#xe9e4;
+						</span>
+					</div>
+					<input type="range" id="speed" min="25" max="200" step="25" value="25">
+				</div>
+				
 				<div id="banner-bottom">
 					<button id="pause" class="banner-btn">Pause</button>
 					<button id="reset" class="banner-btn">Reset</button>

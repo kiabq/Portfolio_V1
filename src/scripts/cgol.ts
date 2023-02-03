@@ -7,6 +7,8 @@ type Board = {
 }
 
 function cgol() {
+    const htmlBody = document.getElementsByTagName("body");
+
     const canvas = document.getElementById("game") as HTMLCanvasElement;
     const pauseButton = document.getElementById("pause") as HTMLButtonElement;
     const resetButton = document.getElementById("reset") as HTMLButtonElement;
@@ -14,10 +16,9 @@ function cgol() {
     const cycle = document.getElementById("counter") as HTMLElement;
     const toggleControls = document.getElementById("cog") as HTMLElement;
     const gameBottomControls = document.getElementById("banner-bottom") as HTMLElement;
-    const gameSideControls = document.getElementById("speed") as HTMLInputElement;
-
-    const htmlBody = document.getElementsByTagName("body");
-
+    const gameSideControls = document.getElementById("speed-controls");
+    const gameSlideValue = document.getElementById("speed") as HTMLInputElement;
+    
     if (canvas !== null) {
         const ctx = canvas.getContext("2d");
         const border = 2;
@@ -29,7 +30,7 @@ function cgol() {
         let xOffset = 0, yOffset = 0;
     
         let interval: number | undefined = undefined;
-        let speed = 25;
+        let speed = parseInt(gameSlideValue.value);
         let paused = false;
         let counter = 0;
 
@@ -300,26 +301,30 @@ function cgol() {
             pauseButton.setAttribute("disabled", "");
             resetButton.setAttribute("disabled", "");
             clearButton.setAttribute("disabled", "");
-            gameSideControls.setAttribute("disabled", "");
+            gameSlideValue.setAttribute("disabled", "");
         }
 
         function enableButtons() {
             pauseButton.removeAttribute("disabled");
             resetButton.removeAttribute("disabled");
             clearButton.removeAttribute("disabled");
-            gameSideControls.removeAttribute("disabled");
+            gameSlideValue.removeAttribute("disabled");
         }
 
         toggleControls.addEventListener("click", function() {
             const activated = (
                 gameBottomControls.classList[0] === "show-controls" && 
-                gameSideControls.classList[0] === "show-slider"
+                gameSlideValue.classList[0] === "show-slider"
             );
 
             if (gameBottomControls && gameSideControls) {
                 if (activated) {
                     gameBottomControls.classList.remove("show-controls");
-                    gameSideControls.classList.remove("show-slider");
+
+                    for (let i = 0; i < gameSideControls.children.length; i++) {
+                        gameSideControls.children[i].classList.remove("show-slider");
+                    }
+
                     toggleControls.style.transform = "rotate(0deg)";
 
                     if (paused) {
@@ -330,17 +335,23 @@ function cgol() {
                 } else {
                     enableButtons();
                     gameBottomControls.classList.add("show-controls");
-                    gameSideControls.classList.add("show-slider");
+
+                    for (let i = 0; i < gameSideControls.children.length; i++) {
+                        gameSideControls.children[i].classList.add("show-slider");
+                    }
+
                     toggleControls.style.transform = "rotate(-180deg)";
                 }
             }
         });
 
-        gameSideControls.addEventListener("input", function() {
-            speed = parseInt(gameSideControls.value);
+        gameSlideValue.addEventListener("input", function() {
+            speed = parseInt(gameSlideValue.value);
 
-            clearInterval(interval);
-            interval = setInterval(newFrame, speed);
+            if (!paused) {
+                clearInterval(interval);
+                interval = setInterval(newFrame, speed);
+            }
         })
 
         pauseButton.addEventListener("click", function() {
