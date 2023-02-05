@@ -39,15 +39,17 @@ import "../../public/css/styles.css";
 	
 	  	const LIGHT = STYLESHEET.cssRules[0].style.getPropertyValue("--lightTheme");
 	  	const DARK = STYLESHEET.cssRules[0].style.getPropertyValue("--darkTheme");
-	
+		
+		PRELOAD.style.setProperty("transform", "translateY(-28px)");
+		htmlTag[0].style.backgroundColor = DARK;
+		htmlTag[0].style.color = LIGHT;
+
 		if (theme === "light" || theme === null) {
 			PRELOAD.style.setProperty("transform", "translateY(0px)");
+			// localStorage.setItem("theme", "light");
+
 			htmlTag[0].style.backgroundColor = LIGHT;
 			htmlTag[0].style.color = DARK;
-		} else {
-			PRELOAD.style.setProperty("transform", "translateY(-28px)");
-			htmlTag[0].style.backgroundColor = DARK;
-			htmlTag[0].style.color = LIGHT;
 		}
 	</script>
 	
