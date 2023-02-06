@@ -9,12 +9,12 @@ html {
     text-rendering: auto;
 }
 
-html[data-theme="dark"] {
+html[data-theme="dark"], html[data-theme="light"] a:hover, html[data-theme="light"] a:focus {
     color: var(--lightTheme) !important;
     background-color: var(--darkTheme) !important;
 }
 
-html[data-theme="light"], a:hover {
+html[data-theme="light"], html[data-theme="dark"] a:hover, html[data-theme="dark"] a:focus {
     color: var(--darkTheme) !important;
     background-color: var(--lightTheme) !important;
 }
@@ -30,22 +30,8 @@ a {
     color: inherit;
     cursor: pointer;
     outline: none;
-    text-decoration: none;
-}
-
-a {
-    padding-bottom: 4px;
-    background: rgb(0,212,255);
-    background: linear-gradient(0deg, rgba(0,212,255,1) 10%, rgba(0,0,0,0) 0%); 
-}
-
-a:focus {
-    border-color: orange;
-} 
-
-a:hover {
-    background: rgb(0,212,255);
-    background: linear-gradient(180deg, rgba(0,212,255,1) 100%, rgba(0,0,0,0) 0%); 
+    text-decoration: underline;
+    padding: 4px 2px;
 }
 
 ul, li {
@@ -77,7 +63,7 @@ ul, li {
 }
 
 .animate {
-    transition: transform 0.5s, background-color 0.5s;
+    transition: transform 0.5s, background-color 0.5s, color 0.5s;
 }
 
 .icon {
