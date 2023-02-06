@@ -131,18 +131,16 @@ function cgol() {
                         Math.round(block.y - yOffset * scale),
                     );
 
-                    let hover: string = ""; 
-                    let background: string = "";
+                    let hover: string = "#423847"; 
+                    let background: string = "#FEFFFA";
                     let fill: string = "#ff5c42";
 
                     if (getTheme() === "dark") {
                         hover = "#FEFFFA";
                         background = "#423847";
-                    } else {
-                        hover = "#423847";
-                        background = "#FEFFFA";
+                        fill = "#ffbb42"
                     }
-
+                    
                     if (paused && posX && posY && ctx!.isPointInPath(posX, posY)) {
                         ctx!.fillStyle = hover;
                     } else if (board[i][j].alive === 1) {
