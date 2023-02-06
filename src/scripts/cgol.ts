@@ -8,7 +8,6 @@ type Board = {
 
 function cgol() {
     const htmlBody = document.getElementsByTagName("body");
-
     const canvas = document.getElementById("game") as HTMLCanvasElement;
     const pauseButton = document.getElementById("pause") as HTMLButtonElement;
     const resetButton = document.getElementById("reset") as HTMLButtonElement;
@@ -16,7 +15,7 @@ function cgol() {
     const cycle = document.getElementById("counter") as HTMLElement;
     const toggleControls = document.getElementById("cog") as HTMLElement;
     const gameBottomControls = document.getElementById("banner-bottom") as HTMLElement;
-    const gameSideControls = document.getElementById("speed-controls");
+    const gameSideControls = document.getElementById("speed-controls") as HTMLElement;
     const gameSlideValue = document.getElementById("speed") as HTMLInputElement;
     
     if (canvas !== null) {

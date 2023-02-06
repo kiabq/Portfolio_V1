@@ -117,7 +117,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 #cog {
     font-size: 16px;
-    transition: all 0.5s;
 }
 
 #cog::selection {

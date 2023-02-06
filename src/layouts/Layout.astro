@@ -31,7 +31,7 @@ import "../../public/css/styles.css";
 	<script async>
 		const theme = localStorage.getItem("theme");
 		const htmlTag = document.getElementsByTagName("html");
-	
+
 	  	const STYLESHEET = document.styleSheets[4];
 	  	STYLESHEET.insertRule(".preload {}", STYLESHEET.cssRules.length);
 
@@ -46,8 +46,6 @@ import "../../public/css/styles.css";
 
 		if (theme === "light" || theme === null) {
 			PRELOAD.style.setProperty("transform", "translateY(0px)");
-			// localStorage.setItem("theme", "light");
-
 			htmlTag[0].style.backgroundColor = LIGHT;
 			htmlTag[0].style.color = DARK;
 		}

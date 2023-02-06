@@ -14,9 +14,9 @@ html[data-theme="dark"] {
     background-color: var(--darkTheme) !important;
 }
 
-html[data-theme="light"] {
+html[data-theme="light"], a:hover {
     color: var(--darkTheme) !important;
-    background-color: var(--lightTheme) !important;   
+    background-color: var(--lightTheme) !important;
 }
 
 /* Root Elements */
@@ -33,12 +33,19 @@ a {
     text-decoration: none;
 }
 
+a {
+    padding-bottom: 4px;
+    background: rgb(0,212,255);
+    background: linear-gradient(0deg, rgba(0,212,255,1) 10%, rgba(0,0,0,0) 0%); 
+}
+
 a:focus {
-    border-bottom: 1px solid orange;
+    border-color: orange;
 } 
 
 a:hover {
-    border-bottom: 1px solid orange;
+    background: rgb(0,212,255);
+    background: linear-gradient(180deg, rgba(0,212,255,1) 100%, rgba(0,0,0,0) 0%); 
 }
 
 ul, li {
