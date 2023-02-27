@@ -1,5 +1,6 @@
 ---
 import "/public/css/styles.css";
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -8,7 +9,7 @@ import "/public/css/styles.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>cnwy</title>
+		<title>cnwy - {title}</title>
 		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
 		<!-- Fonts & Icons -->

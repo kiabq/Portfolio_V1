@@ -75,7 +75,7 @@ function init() {
             random(BANNER!.clientWidth),
             random(360), 
             random(360), 
-            `<img src="/images/flower${Math.floor(random(4))}.png" class='e' style="transform: translateX(${x}px)"/>`
+            `<img src="/assets/images/flower${Math.floor(random(4))}.png" class='e' style="transform: translateX(${x}px)"/>`
             ));
     }
 
