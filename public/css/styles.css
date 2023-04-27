@@ -121,6 +121,11 @@ ul, li {
 .nav-theme {
     width: 24px;
     height: 24px;
+    border: none;
+    color: inherit;
+    background: transparent;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-theme-toggle {
@@ -239,7 +244,7 @@ img {
 .footer {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin: 3rem 0 1rem 0;
 }
 
 .footer-element {
