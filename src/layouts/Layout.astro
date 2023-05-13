@@ -10,37 +10,94 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>cnwy - {title}</title>
-		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 
 		<!-- Fonts & Icons -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<!-- Material Icons -->
 		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" /> -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
 		<!-- Secular One -->
-		<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-			<!-- Ubuntu -->
-		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
-			<!-- Josefin -->
-		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 	
+		<link
+			href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Ubuntu -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Josefin -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
 
 		<script src="../scripts/theme.ts"></script>
 		<script src="../scripts/cgol.ts"></script>
+		<script>
+			const current_song: HTMLSpanElement | null = document.querySelector("#currentSong");
+			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify")
+			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
+
+			if (spotify_album) {
+				spotify_album.style.display = "none";				
+			}	
+
+			// current_song!.style.animation = "initial"
+
+			function getCurrentSong() {
+				fetch("https://spot.cnwy.dev")
+					.then((result) => {
+						return result.json();
+					})
+					.then((result) => {
+						if (result.data.is_playing) {
+							const artist = result.data.item.artists[0].name;
+							const track = result.data.item.name;
+							const album_cover = result.data.item.album.images;
+
+							spotify_album!.style.display = "inline-block";
+							spotify_album!.src = album_cover[2].url;
+							current_song!.style.animationName = "animate-around";
+
+							(current_song as HTMLElement).innerText = `${track} by ${artist}`;
+						} else {
+							(current_song as HTMLElement).innerText = "nothing playing";
+							spotify_album!.style.display = "none";
+							current_song!.style.animationName = "not-playing";
+						}
+					});
+			}
+
+			getCurrentSong();
+
+			setInterval(() => {
+				getCurrentSong();
+			}, 5000);
+		</script>
 	</head>
 
-	<script async>
+	<script defer>
 		const theme = localStorage.getItem("theme");
 		const htmlTag = document.getElementsByTagName("html");
 
-	  	const STYLESHEET = document.styleSheets[4];
-	  	STYLESHEET.insertRule(".preload {}", STYLESHEET.cssRules.length);
+		const STYLESHEET = document.styleSheets[4];
+		STYLESHEET.insertRule(".preload {}", STYLESHEET.cssRules.length);
 
-	  	const PRELOAD = [...STYLESHEET.cssRules].find((val) => val.selectorText === ".preload");
-	
-	  	const LIGHT = STYLESHEET.cssRules[0].style.getPropertyValue("--lightTheme");
-	  	const DARK = STYLESHEET.cssRules[0].style.getPropertyValue("--darkTheme");
-		
+		const PRELOAD = [...STYLESHEET.cssRules].find(
+			(val) => val.selectorText === ".preload"
+		);
+
+		const LIGHT =
+			STYLESHEET.cssRules[0].style.getPropertyValue("--lightTheme");
+		const DARK =
+			STYLESHEET.cssRules[0].style.getPropertyValue("--darkTheme");
+
 		PRELOAD.style.setProperty("transform", "translateY(-28px)");
 		htmlTag[0].style.backgroundColor = DARK;
 		htmlTag[0].style.color = LIGHT;
@@ -51,7 +108,7 @@ const { title } = Astro.props;
 			htmlTag[0].style.color = DARK;
 		}
 	</script>
-	
+
 	<body class="content-container">
 		<div class="content-wrapper">
 			<slot />
@@ -60,10 +117,10 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	html {
-		font-family: 'Ubuntu', sans-serif;
+		font-family: "Ubuntu", sans-serif;
 	}
 	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 	}
 </style>

@@ -242,13 +242,74 @@ img {
 /* footer */
 
 .footer {
-    display: flex;
-    justify-content: center;
-    margin: 3rem 0 1rem 0;
+    margin: 3rem auto 1rem auto;
+    width: 100%;
+}
+
+.footer > div {
+    text-align: center;
+    width: 200px;
+    margin: auto;
 }
 
 .footer-element {
     margin: 0 0.5rem;
+}
+
+/* footer-spotify */
+
+/* Gonna need some JS to make this animation possible */
+/* TODO:
+    - Calculate length of text
+    - Set animation to delay on initial load
+    - Animate the length of the text right to left
+*/
+
+#currentSong {
+    white-space: nowrap;
+    display: block;
+    height: 100%;
+
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animate-around {
+    from { transform: translateX(250%); }
+    to { transform: translateX(-250%); }
+}
+
+.footer-spotify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 1.5rem 0;
+    width: 100%;
+}
+
+html[data-theme="light"] .footer-spotify{
+    background-color: var(--darkTheme);
+    color: var(--lightTheme);
+}
+
+html[data-theme="dark"] .footer-spotify{
+    background-color: var(--lightTheme);
+    color: var(--darkTheme);
+}
+
+.footer-spotify-song {
+    overflow: hidden;
+    margin-right: 0.25rem;
+}
+
+.footer-spotify > * {
+    padding: 0.25rem;
+}
+
+.footer-spotify-album {
+    width: 48px;
+    height: 48px;
 }
 
 @media (max-width: 900px) {
