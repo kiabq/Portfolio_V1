@@ -44,15 +44,13 @@ const { title } = Astro.props;
 			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify")
 			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
 
-			if (spotify_album) {
-				spotify_album.style.display = "none";				
-			}	
-
-			// current_song!.style.animation = "initial"
+			spotify_album!.style.display = "none";
+			spotify_footer!.style.display = "none";
 
 			function getCurrentSong() {
 				fetch("https://spot.cnwy.dev")
 					.then((result) => {
+						spotify_footer!.style.display = "block";
 						return result.json();
 					})
 					.then((result) => {
@@ -61,17 +59,20 @@ const { title } = Astro.props;
 							const track = result.data.item.name;
 							const album_cover = result.data.item.album.images;
 
-							spotify_album!.style.display = "inline-block";
-							spotify_album!.src = album_cover[2].url;
+							spotify_album!.src = album_cover[2].url;							
 							current_song!.style.animationName = "animate-around";
 
 							(current_song as HTMLElement).innerText = `${track} by ${artist}`;
+							spotify_album!.style.display = "inline-block";
+							
 						} else {
-							(current_song as HTMLElement).innerText = "nothing playing";
+							(current_song as HTMLElement).innerText = "nothing playing";;
 							spotify_album!.style.display = "none";
 							current_song!.style.animationName = "not-playing";
 						}
-					});
+					}).catch((e) => {
+						(current_song as HTMLElement).innerText = "nothing playing";
+					})
 			}
 
 			getCurrentSong();
