@@ -39,18 +39,18 @@ const { title } = Astro.props;
 
 		<script src="../scripts/theme.ts"></script>
 		<script src="../scripts/cgol.ts"></script>
-		<script>
+		<script >
 			const current_song: HTMLSpanElement | null = document.querySelector("#currentSong");
-			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify")
+			const current_artist: HTMLSpanElement | null = document.querySelector("#currentArtist");
+			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify");
 			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
+			const spotify_container: HTMLDivElement | null = document.querySelector(".footer-spotify-info");
 
 			spotify_album!.style.display = "none";
-			spotify_footer!.style.display = "none";
 
 			function getCurrentSong() {
 				fetch("https://spot.cnwy.dev")
 					.then((result) => {
-						spotify_footer!.style.display = "block";
 						return result.json();
 					})
 					.then((result) => {
@@ -60,15 +60,14 @@ const { title } = Astro.props;
 							const album_cover = result.data.item.album.images;
 
 							spotify_album!.src = album_cover[2].url;							
-							current_song!.style.animationName = "animate-around";
+							current_song.innerText = track;
+							current_artist.innerText = artist;
 
-							(current_song as HTMLElement).innerText = `${track} by ${artist}`;
 							spotify_album!.style.display = "inline-block";
-							
 						} else {
-							(current_song as HTMLElement).innerText = "nothing playing";;
-							spotify_album!.style.display = "none";
-							current_song!.style.animationName = "not-playing";
+							current_song.innerText = "nothing playing";
+							current_artist.innerText = "";
+							spotify_album!.style.display = "none";	
 						}
 					}).catch((e) => {
 						(current_song as HTMLElement).innerText = "nothing playing";
@@ -81,7 +80,14 @@ const { title } = Astro.props;
 				getCurrentSong();
 			}, 10000);
 		</script>
+
 	</head>
+
+	<body class="content-container">
+		<div class="content-wrapper">
+			<slot />
+		</div>
+	</body>
 
 	<script defer>
 		const theme = localStorage.getItem("theme");
@@ -109,12 +115,6 @@ const { title } = Astro.props;
 			htmlTag[0].style.color = DARK;
 		}
 	</script>
-
-	<body class="content-container">
-		<div class="content-wrapper">
-			<slot />
-		</div>
-	</body>
 </html>
 <style is:global>
 	html {
