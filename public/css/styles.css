@@ -155,7 +155,6 @@ img {
 .body {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     align-items: center;
     overscroll-behavior-y: contain;
     font-family: 'Josefin Sans', sans-serif;
@@ -170,8 +169,6 @@ img {
 /* body -> intro */
 
 .body-intro {
-    display: flex;
-    flex-direction: row;
     margin: 0 auto;
 }
 
@@ -186,10 +183,6 @@ img {
 
 .body-list-element:first-child {
     margin-top: 0;
-}
-
-.body-intro-main {
-    margin-left: 1rem;
 }
 
 .body-intro-main > p {
@@ -246,7 +239,7 @@ img {
     width: 100%;
 }
 
-.footer > div {
+.footer > .footer-socials {
     text-align: center;
     width: 200px;
     margin: auto;
@@ -258,49 +251,45 @@ img {
 
 /* footer-spotify */
 
-/* Gonna need some JS to make this animation possible */
-/* TODO:
-    - Calculate length of text
-    - Set animation to delay on initial load
-    - Animate the length of the text right to left
-*/
-
 #currentSong {
     white-space: nowrap;
-    display: block;
-    height: 100%;
-
-    animation-duration: 5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    font-size: 16px;
 }
 
-@keyframes animate-around {
-    from { transform: translateX(250%); }
-    to { transform: translateX(-250%); }
+#currentArtist {
+    font-size: 12px;
+}
+
+.footer-spotify-wrapper {
+    width: 100%;
+    text-align: center;
 }
 
 .footer-spotify {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    margin: 0 0 1.5rem 0;
-    width: 100%;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    width: 200px;
+    height: 56px;
 }
 
-html[data-theme="light"] .footer-spotify{
+html[data-theme="light"] .footer-spotify-wrapper {
     background-color: var(--darkTheme);
     color: var(--lightTheme);
 }
 
-html[data-theme="dark"] .footer-spotify{
+html[data-theme="dark"] .footer-spotify-wrapper {
     background-color: var(--lightTheme);
     color: var(--darkTheme);
 }
 
-.footer-spotify-song {
+.footer-spotify-info {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    margin-right: 0.25rem;
+    text-align: left;
 }
 
 .footer-spotify > * {
