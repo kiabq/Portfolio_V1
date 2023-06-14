@@ -159,9 +159,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #banner-bottom {
-    display: flex;
     z-index: 0;
-    transform: translateY(-24px);
+    transform: translateY(-49px);
     transition: all 0.5s;
     width: inherit;
 }
@@ -195,9 +194,27 @@ input[type="range"]::-webkit-slider-thumb {
     padding-left: 3px;
 }
 
-
 .banner-controls {
     width: 100%;
+}
+
+.banner-bottom-buttons {
+    display: flex;
+    white-space: nowrap;
+}
+
+.banner-bottom-encoder {
+    display: flex;
+    height: 25px;
+}
+
+.encoder-text {
+    width: 79.9%;
+    border-radius: 0;
+}
+
+.encoder-btn {
+    flex-basis: auto;    
 }
 
 .banner-btn, .banner-counter {

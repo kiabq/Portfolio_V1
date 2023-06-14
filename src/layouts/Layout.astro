@@ -39,7 +39,7 @@ const { title } = Astro.props;
 
 		<script src="../scripts/theme.ts"></script>
 		<script src="../scripts/cgol.ts"></script>
-		<script >
+		<script>
 			const current_song: HTMLSpanElement | null = document.querySelector("#currentSong");
 			const current_artist: HTMLSpanElement | null = document.querySelector("#currentArtist");
 			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify");
@@ -75,7 +75,7 @@ const { title } = Astro.props;
 			}
 
 			getCurrentSong();
-
+			
 			setInterval(() => {
 				getCurrentSong();
 			}, 10000);
