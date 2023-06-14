@@ -80,14 +80,7 @@ const { title } = Astro.props;
 				getCurrentSong();
 			}, 10000);
 		</script>
-
 	</head>
-
-	<body class="content-container">
-		<div class="content-wrapper">
-			<slot />
-		</div>
-	</body>
 
 	<script defer>
 		const theme = localStorage.getItem("theme");
@@ -115,6 +108,12 @@ const { title } = Astro.props;
 			htmlTag[0].style.color = DARK;
 		}
 	</script>
+
+	<body class="content-container">
+		<div class="content-wrapper">
+			<slot />
+		</div>
+	</body>
 </html>
 <style is:global>
 	html {
