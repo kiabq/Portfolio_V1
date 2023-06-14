@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/header.astro";
 import Main from "../components/main.astro";
 import Footer from "../components/footer.astro";
+import Project from "../components/project.astro";
 
 import "/public/css/game.css";
 ---
@@ -10,55 +11,96 @@ import "/public/css/game.css";
 <Layout title="home">
 	<Header />
 	<Main>
-		<div class="banner mgtb-1r">
-			<div class="banner-header">
-				<h6>Conway's Game of Life</h6>
-				<span class="material-symbols-rounded icon" id="cog">
-					&#xe8b8;
-				</span>
-			</div>
-			<div class="game-container">
-				<canvas id="game" height="800" width="800"/>
-			</div>
-			<div class="banner-controls">
-				<div id="speed-controls">
-					<div>
-						<span class="material-symbols-rounded icon">
-							&#xe9e4;
-						</span>
-					</div>
-					<input type="range" id="speed" min="25" max="200" step="25" value="25">
-				</div>
-				
-				<div id="banner-bottom">
-					<button id="pause" class="banner-btn" disabled>Pause</button>
-					<button id="reset" class="banner-btn" disabled>Reset</button>
-					<button id="clear" class="banner-btn" disabled>Clear</button>
-					<div class="banner-counter">
-						<p>Life Cycle:</p>
-						<span id="counter"></span>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="body-content">
 			<div class="body-intro">
 				<div class="body-intro-main">
-					<p>Welcome! I'm Joseph. I enjoy doing frontend work and messing around on browsers.</p>
-					<br>
-					<p>My main languages include TypeScript, JavaScript, and Rust. I occasionally touch C, Lua, and Bash.</p>
-					<br>
-					<p>I'm currently working on understanding web browsers more, and I hope to be able to create or contribute to some sort of browser project.</p>
-					<br>
-					<p>In my time away from computers, I enjoy film photography, vintage cars, calisthenics, and reading.</p>
+					<p>
+						Welcome! I'm Joseph. I enjoy doing frontend work and
+						messing around on browsers.
+					</p>
+					<br />
+					<p>
+						My main languages include TypeScript, JavaScript, and
+						Rust. I occasionally touch C, Lua, and Bash.
+					</p>
+					<br />
+					<p>
+						I'm currently working on understanding web browsers
+						more, and I hope to be able to create or contribute to
+						some sort of browser project.
+					</p>
+					<br />
+					<p>
+						In my time away from computers, I enjoy film
+						photography, vintage cars, calisthenics, and reading.
+					</p>
 				</div>
 			</div>
-			<div class="body-about">
-				<div>
-					<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam esse, doloremque labore dolore dolor quo distinctio minima? Quod pariatur ratione ipsum maiores laboriosam incidunt sunt.</p> -->
+			<div class="body-info">
+				<h3 class="body-info-header">Projects</h3>
+				<div class="body-projects">
+					<div class="banner">
+						<div class="banner-header">
+							<h6>Conway's Game of Life</h6>
+							<span
+								class="material-symbols-rounded icon"
+								id="cog"
+							>
+								&#xe8b8;
+							</span>
+						</div>
+						<div class="game-container">
+							<canvas id="game" height="800" width="800"></canvas>
+						</div>
+						<div class="banner-controls">
+							<div id="speed-controls">
+								<div>
+									<span class="material-symbols-rounded icon">
+										&#xe9e4;
+									</span>
+								</div>
+								<input
+									type="range"
+									id="speed"
+									min="25"
+									max="200"
+									step="25"
+									value="25"
+								/>
+							</div>
+
+							<div id="banner-bottom">
+								<button id="pause" class="banner-btn" disabled
+									>Pause</button
+								>
+								<button id="reset" class="banner-btn" disabled
+									>Reset</button
+								>
+								<button id="clear" class="banner-btn" disabled
+									>Clear</button
+								>
+								<div class="banner-counter">
+									<p>Life Cycle:</p>
+									<span id="counter"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="body-projects-list">
+						<Project 
+							title="Minesweeper"
+							description="This is a simple recreation of the game built using React and TypeScript."
+							link="https://github.com/kiabq/minesweeper-clone"
+						/>
+						<Project 
+							title="Minispot"
+							description="A Small API built in Python using FastAPI which fetches Spotify account data."
+							link="https://github.com/kiabq/minispot"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
 	</Main>
-	<Footer/>
+	<Footer />
 </Layout>

@@ -170,6 +170,7 @@ img {
 
 .body-intro {
     margin: 0 auto;
+    padding: 2rem 0;
 }
 
 .body-list {
@@ -193,11 +194,38 @@ img {
     margin: 0;
 }
 
-/* body -> about */
+/* body -> projects */
 
 #body-change-toggle {
     color: orange;
     cursor: pointer;
+}
+
+.body-info {
+    padding: 2rem 0;
+}
+
+.body-info-header {
+    padding-bottom: 1rem;
+}
+
+.body-projects {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.body-projects-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin-right: 2rem;
+}
+
+.body-project-item {
+    width: 45%;
+    height: max-content;
+    margin-right: 1rem;
 }
 
 .img-banner {
@@ -235,7 +263,7 @@ img {
 /* footer */
 
 .footer {
-    margin: 3rem auto 1rem auto;
+    margin: 1rem auto 1rem auto;
     width: 100%;
 }
 
@@ -312,6 +340,23 @@ html[data-theme="dark"] .footer-spotify-wrapper {
 }
 
 @media (max-width: 450px) {
+    .body-info {
+        padding-bottom: 0;
+    }
+
+    .body-projects {
+        flex-direction: column-reverse;
+    }
+
+    .body-project-item {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .banner {
+        margin: 2rem auto;
+    }
+
     .body-list {
         display: none;
     }
