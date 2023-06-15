@@ -400,9 +400,9 @@ function cgol() {
         })
 
         gameEncoderForm.addEventListener("submit", function(e) {
-            gameEncoder.value = encoder().encode(board);
             e.preventDefault();
             const code = gameEncoder.value;
+            gameEncoder.value = encoder().encode(board);
             board = encoder().decode(code, board);
             draw();
         })
