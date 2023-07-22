@@ -228,36 +228,32 @@ img {
     margin-right: 1rem;
 }
 
+.body-project-item h4 {
+    align-items: center;
+}
+
+.project-img {
+    background-color: var(--lightTheme);
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-left: 0.25rem;
+    padding: 0;
+    mask: url("/public/assets/images/github-mark-white.svg");
+    mask-size: contain;
+}
+
+.project-img:hover {
+    background-color: var(--darkTheme);
+}
+
+html[data-theme="light"] .project-img {
+    background-color: var(--darkTheme);
+}
+
 .img-banner {
     width: 800px !important;
     height: 400px !important;
-}
-
-/* body -> blog */
-
-.petals {
-    height: 100px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.e {
-    color: black;
-    overflow-y: hidden;
-    position: absolute;
-    width: 24px;
-    height: 24px;
-}
-
-.blog {
-    width: 75%;
-}
-
-.blog-post {
-    border: 3px solid black;
-    padding: 1rem;
-    margin: 1rem;
 }
 
 /* footer */
