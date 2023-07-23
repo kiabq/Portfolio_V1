@@ -239,12 +239,10 @@ img {
     height: 20px;
     margin-left: 0.25rem;
     padding: 0;
-    mask: url("/public/assets/images/github-mark-white.svg");
+    mask-image: url("/public/assets/images/github-mark-white.svg");
     mask-size: contain;
-}
-
-.project-img:hover {
-    background-color: var(--darkTheme);
+    -webkit-mask-image: url("/public/assets/images/github-mark-white.svg");
+    -webkit-mask-size: contain;
 }
 
 html[data-theme="light"] .project-img {
