@@ -42,7 +42,7 @@ const pulsar = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-function cgol() {
+(function cgol() {
     const htmlBody = document.getElementsByTagName("body");
     const canvas = document.getElementById("game") as HTMLCanvasElement;
     const pauseButton = document.getElementById("pause") as HTMLButtonElement;
@@ -72,9 +72,6 @@ function cgol() {
         let paused = false;
         let counter = 0;
 
-        // initial creating a board array, 
-        // only for a createBoard function to be called
-        // later on... hmmm 
         const initial = pulsar;
         const boardSize = initial.length;
 
@@ -241,7 +238,7 @@ function cgol() {
         }
         
         function updateCode() {
-            gameEncoder.value = encoder().encode(board);
+            gameEncoder.value = encoder.encode(board);
         }
 
         let globalController: AbortController = new AbortController;
@@ -402,8 +399,8 @@ function cgol() {
         gameEncoderForm.addEventListener("submit", function(e) {
             e.preventDefault();
             const code = gameEncoder.value;
-            gameEncoder.value = encoder().encode(board);
-            board = encoder().decode(code, board);
+            gameEncoder.value = encoder.encode(board);
+            board = encoder.decode(code, board);
             draw();
         })
 
@@ -425,8 +422,4 @@ function cgol() {
             init(false);
         }
     }
-}
-
-cgol();
-
-export default cgol;
+})();

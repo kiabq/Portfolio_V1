@@ -1,0 +1,87 @@
+---
+import "/public/css/game.css";
+---
+
+<div class="banner">
+    <p
+        style="font-family: 'Reenie Beanie', cursive; font-size: 24px; position: absolute; transform: translateY(-30px) translateX(-55px)"
+    >
+        Draw your own cells!
+    </p>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:svgjs="http://svgjs.dev/svgjs"
+        viewBox="0 0 800 800"
+        style="height: 135px; width: 135px; position: absolute; transform: translateY(-50px) translateX(60px)"
+        ><g
+            stroke-width="10"
+            class="banner-arrow"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-dasharray="6 39"
+            transform="rotate(333, 400, 400)"
+            ><path
+                d="M350 170Q567.5178527832031 225 800 440 "
+                marker-end="url(#SvgjsMarker1738)"></path>
+        </g><defs
+            ><marker
+                markerWidth="5.5"
+                markerHeight="5.5"
+                refX="2.75"
+                refY="1"
+                viewBox="0 0 5.5 5.5"
+                orient="75"
+                id="SvgjsMarker1738"
+                ><polygon points="0,5.5 0,0 5.5,2.75" class="banner-arrowhead"
+                ></polygon>
+            </marker>
+        </defs>
+    </svg>
+    <div class="banner-header">
+        <h6>Conway's Game of Life</h6>
+        <span class="material-symbols-rounded icon" id="cog">&#xe8b8;</span>
+    </div>
+    <div class="game-container">
+        <canvas id="game" height="800" width="800"></canvas>
+    </div>
+    <div class="banner-controls">
+        <div id="speed-controls">
+            <div>
+                <span class="material-symbols-rounded icon">&#xe9e4;</span>
+            </div>
+            <input
+                type="range"
+                id="speed"
+                min="25"
+                max="200"
+                step="25"
+                value="25"
+            />
+        </div>
+        <div id="banner-bottom">
+            <div class="banner-bottom-buttons">
+                <button id="pause" class="banner-btn" disabled>Pause</button>
+                <button id="reset" class="banner-btn" disabled>Reset</button>
+                <button id="clear" class="banner-btn" disabled>Clear</button>
+                <div class="banner-counter">
+                    <p>Life Cycle:</p>
+                    <span id="counter"></span>
+                </div>
+            </div>
+            <form class="banner-bottom-encoder">
+                <input
+                    type="text"
+                    class="encoder-text"
+                    placeholder="Game of Life Code"
+                    disabled
+                />
+                <button type="submit" class="encoder-btn banner-btn" disabled
+                    >Load</button
+                >
+            </form>
+        </div>
+    </div>
+</div>

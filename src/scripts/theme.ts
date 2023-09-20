@@ -9,7 +9,7 @@ export function getTheme() {
     }
 }
 
-function theme() {
+(function theme() {
     const page = document.getElementsByTagName("html")[0];
     const theme = document.querySelector(".nav-theme");
     const toggle = document.querySelector(".nav-theme-toggle");
@@ -52,8 +52,4 @@ function theme() {
             localStorage.setItem("theme", getTheme());
         })
     }
-}
-
-theme();
-
-export default theme
+})()

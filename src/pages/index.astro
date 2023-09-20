@@ -4,6 +4,7 @@ import Header from "../components/header.astro";
 import Main from "../components/main.astro";
 import Footer from "../components/footer.astro";
 import Project from "../components/project.astro";
+import Gameoflife from "../components/gameoflife.astro";
 
 import "/public/css/game.css";
 ---
@@ -20,7 +21,8 @@ import "/public/css/game.css";
 					</p>
 					<br />
 					<p>
-						My main language is TypeScript, but I occasionally touch C and Python.
+						My main language is TypeScript, but I occasionally touch
+						C and Python.
 					</p>
 					<br />
 					<p>
@@ -38,67 +40,21 @@ import "/public/css/game.css";
 			<div class="body-info">
 				<h3 class="body-info-header">Projects</h3>
 				<div class="body-projects">
-					<div class="banner">
-						<div class="banner-header">
-							<h6>Conway's Game of Life</h6>
-							<span
-								class="material-symbols-rounded icon"
-								id="cog"
-							>
-								&#xe8b8;
-							</span>
-						</div>
-						<div class="game-container">
-							<canvas id="game" height="800" width="800"></canvas>
-						</div>
-						<div class="banner-controls">
-							<div id="speed-controls">
-								<div>
-									<span class="material-symbols-rounded icon">
-										&#xe9e4;
-									</span>
-								</div>
-								<input
-									type="range"
-									id="speed"
-									min="25"
-									max="200"
-									step="25"
-									value="25"
-								/>
-							</div>
-
-							<div id="banner-bottom">
-								<div class="banner-bottom-buttons">
-									<button id="pause" class="banner-btn" disabled>Pause</button>
-									<button id="reset" class="banner-btn" disabled>Reset</button>
-									<button id="clear" class="banner-btn" disabled>Clear</button>
-									<div class="banner-counter">
-										<p>Life Cycle:</p>
-										<span id="counter"></span>
-									</div>
-								</div>
-								<form class="banner-bottom-encoder">
-									<input type="text" class="encoder-text" placeholder="Game of Life Code" disabled/>
-									<button type="submit" class="encoder-btn banner-btn" disabled>Load</button>
-								</form>
-							</div>
-						</div>
-					</div>
+					<Gameoflife />
 					<div class="body-projects-list">
-						<Project 
+						<Project
 							title="Minesweeper"
 							description="This is a simple recreation of the game built using React and TypeScript."
 							source="https://github.com/kiabq/minesweeper-clone"
 							link="https://minesweeper98.netlify.app/"
 						/>
-						<Project 
+						<Project
 							title="Minispot"
 							description="A Small API built in Python using FastAPI which fetches Spotify account data."
 							source="https://github.com/kiabq/minispot"
 							link="https://github.com/kiabq/minispot"
 						/>
-						<Project 
+						<Project
 							title="HyperSlice"
 							description="A Link shortener built using Astro, Koa, and SQL."
 							source="https://github.com/kiabq/hyperslice"

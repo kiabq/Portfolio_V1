@@ -179,6 +179,22 @@ input[type="range"]::-webkit-slider-thumb {
     margin-left: auto;
 }
 
+html[data-theme="light"] .banner-arrow {
+    stroke: var(--darkTheme);
+}
+
+html[data-theme="light"] .banner-arrowhead {
+    fill: var(--darkTheme);
+}
+
+.banner-arrow {
+    stroke: var(--lightTheme);
+}
+
+.banner-arrowhead {
+    fill: var(--lightTheme);
+}
+
 .banner-header {
     background-color: var(--lightTheme);
     color: var(--darkTheme);
