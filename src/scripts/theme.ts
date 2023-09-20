@@ -52,4 +52,4 @@ export function getTheme() {
             localStorage.setItem("theme", getTheme());
         })
     }
-})()
+})();

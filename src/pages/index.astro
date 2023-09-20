@@ -6,6 +6,14 @@ import Footer from "../components/footer.astro";
 import Project from "../components/project.astro";
 import Gameoflife from "../components/gameoflife.astro";
 
+import React from "../components/atoms/react.astro";
+import Postgres from "../components/atoms/postgres.astro";
+import Python from "../components/atoms/python.astro";
+import TypeScript from "../components/atoms/typescript.astro";
+import Node from "../components/atoms/node.astro";
+import AstroIcon from "../components/atoms/astro.astro";
+import CSS from "../components/atoms/css.astro";
+
 import "/public/css/game.css";
 ---
 
@@ -47,19 +55,34 @@ import "/public/css/game.css";
 							description="This is a simple recreation of the game built using React and TypeScript."
 							source="https://github.com/kiabq/minesweeper-clone"
 							link="https://minesweeper98.netlify.app/"
-						/>
+						>
+							<!-- Project Technology Icons -->
+							<TypeScript />
+							<React />
+							<CSS />
+						</Project>
 						<Project
 							title="Minispot"
 							description="A Small API built in Python using FastAPI which fetches Spotify account data."
 							source="https://github.com/kiabq/minispot"
 							link="https://github.com/kiabq/minispot"
-						/>
+						>
+							<!-- Project Technology Icons -->		
+							<Python />
+						</Project>
 						<Project
 							title="HyperSlice"
 							description="A Link shortener built using Astro, Koa, and SQL."
 							source="https://github.com/kiabq/hyperslice"
 							link="https://link.cnwy.dev"
-						/>
+						>
+							<!-- Project Technology Icons -->
+							<AstroIcon />
+							<TypeScript />
+							<Node />
+							<CSS />
+							<Postgres />	
+						</Project>
 					</div>
 				</div>
 			</div>

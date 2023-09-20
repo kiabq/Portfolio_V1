@@ -1,11 +1,14 @@
 ---
-const { title, description, source, link } = Astro.props;
+const { title, description, source, link, icons } = Astro.props;
 ---
 
 <div class="body-project-item">
-    <h4 style="display: flex">
+    <h4 style="display: flex; justify-content: space-between;">
         <a href={link} target="_blank">{title}</a>
         <a href={source} class="project-img"></a>
     </h4>
     <p class="body-project-description">{description}</p>
+    <li class="project-icons">
+        <slot />
+    </li>
 </div>

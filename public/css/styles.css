@@ -219,13 +219,27 @@ img {
     flex-wrap: wrap;
 
     width: 100%;
-    margin-right: 2rem;
+}
+
+html[data-theme="light"] .body-project-item {
+    border-color: var(--darkTheme);
+    fill: var(--darkTheme);
 }
 
 .body-project-item {
+    border: 2px solid var(--lightTheme);
+    border-radius: 4px;
+    fill: var(--lightTheme);
+    padding: 4px;
+    position: relative;
     width: 45%;
-    height: max-content;
-    margin-right: 1rem;
+    height: 150px;
+    margin: 0px 8px 0px 4px;
+    transition: transform 0.3s;
+}
+
+.body-project-item:hover {
+    transform: rotate3d(-1, 1, 0, 15deg);
 }
 
 .body-project-item h4 {
@@ -243,6 +257,19 @@ img {
     mask-size: contain;
     -webkit-mask-image: url("/public/assets/images/github-mark-white.svg");
     -webkit-mask-size: contain;
+}
+
+.project-icons {
+    bottom: 0;
+    position: absolute;
+}
+
+.project-icons * {
+    margin-right: 4px;
+}
+
+.project-icon {
+    fill: pink;
 }
 
 html[data-theme="light"] .project-img {
@@ -344,7 +371,7 @@ html[data-theme="dark"] .footer-spotify-wrapper {
 
     .body-project-item {
         width: 100%;
-        padding: 1rem 0;
+        margin: 0.5em;
     }
 
     .banner {
