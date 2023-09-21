@@ -137,12 +137,12 @@ const pulsar = [
 
                     let hover: string = "#423847"; 
                     let background: string = "#FEFFFA";
-                    let fill: string = "#ff5c42";
+                    let fill: string = "#FF5C42";
 
                     if (getTheme() === "dark") {
                         hover = "#FEFFFA";
                         background = "#423847";
-                        fill = "#ffbb42"
+                        fill = "#FFBB42"
                     }
                     
                     if (paused && posX && posY && ctx!.isPointInPath(posX, posY)) {

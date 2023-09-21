@@ -54,11 +54,11 @@ ul, li {
 /* helpers */
 
 .pdtb-1r {
-    padding: 1rem 0;
+    padding: 1em 0;
 }
 
 .mgtb-1r {
-    margin: 1rem 0;
+    margin: 1em 0;
 }
 
 .animate {
@@ -99,7 +99,7 @@ ul, li {
 }
 
 .nav {
-    margin-top: 1rem;
+    margin-top: 1em;
     width: 100%;
 }
   
@@ -118,7 +118,7 @@ ul, li {
 }
 
 .nav-element {
-    margin: 0 0.5rem;
+    margin: 0 0.5em;
     font-size: 14pt;
 }
 
@@ -174,16 +174,16 @@ img {
 
 .body-intro {
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2em 0;
 }
 
 .body-list {
-    margin-right: 1rem;
+    margin-right: 1em;
 }
 
 .body-list-element {
     white-space: nowrap;
-    margin: 0.5rem 0;
+    margin: 0.5em 0;
 }
 
 .body-list-element:first-child {
@@ -191,7 +191,7 @@ img {
 }
 
 .body-intro-main > p {
-    margin: 1rem 0;
+    margin: 1em 0;
 }
 
 .body-intro-main > p {
@@ -206,11 +206,11 @@ img {
 }
 
 .body-info {
-    padding: 2rem 0;
+    padding: 2em 0;
 }
 
 .body-info-header {
-    padding-bottom: 1rem;
+    padding-bottom: 1em;
 }
 
 .body-projects {
@@ -258,7 +258,7 @@ html[data-theme="light"] .project-img {
     background-size: contain;
     width: 20px;
     height: 20px;
-    margin-left: 0.25rem;
+    margin-left: 0.25em;
     padding: 0;
     mask-image: url("/public/assets/images/github-mark-white.svg");
     mask-size: contain;
@@ -283,8 +283,11 @@ html[data-theme="light"] .project-img {
 /* footer */
 
 .footer {
-    margin: 1em auto 1em auto;
+    display: flex;
     width: 100%;
+    border-top: 2px solid var(--lightTheme);
+    padding-top: 0.75em;
+    border-radius: none;
 }
 
 .footer > .footer-socials {
@@ -298,10 +301,6 @@ html[data-theme="light"] .footer-img {
 
 .footer-img {
     fill: var(--lightTheme);
-}
-
-.footer-img * {
-    margin: 0.5em 0;
 }
 
 .footer-img:first-child {
@@ -319,17 +318,9 @@ html[data-theme="light"] .footer-img {
     font-size: 12px;
 }
 
-.footer-spotify-wrapper {
-    width: 100%;
-    text-align: center;
-}
-
 .footer-spotify {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
     width: 200px;
     height: 56px;
 }
@@ -349,15 +340,13 @@ html[data-theme="dark"] .footer-spotify-wrapper {
     flex-direction: column;
     overflow: hidden;
     text-align: left;
-}
-
-.footer-spotify > * {
-    padding: 0.25rem;
+    margin-left: 0.5em;
 }
 
 .footer-spotify-album {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
 }
 
 @media (max-width: 900px) {
@@ -385,7 +374,7 @@ html[data-theme="dark"] .footer-spotify-wrapper {
     }
 
     .banner {
-        margin: 2rem auto;
+        margin: 2em auto;
     }
 
     .body-list {

@@ -52,24 +52,31 @@ const { title } = Astro.props;
 			spotify_album!.style.display = "none";
 
 			function getCurrentSong() {
-				fetch("https://spot.cnwy.dev")
+				fetch("http://localhost:8000")
 					.then((result) => {
 						return result.json();
 					})
 					.then((result) => {
 						if (result.data.is_playing) {
-							const artist = result.data.item.artists[0].name;
+							current_artist.innerText = "";
+							const artists = result.data.item.artists;
 							const track = result.data.item.name;
 							const album_cover = result.data.item.album.images;
 
 							spotify_album!.src = album_cover[2].url;							
 							current_song.innerText = track;
-							current_artist.innerText = artist;
+
+							for (let i = 0; i < artists.length; i++) {
+								if (i > 0) {
+									current_artist.textContent += ", ";
+								}
+								current_artist.textContent += artists[i].name;
+							}
 
 							spotify_album!.style.display = "inline-block";
 						} else {
-							current_song.innerText = "nothing playing";
-							current_artist.innerText = "";
+							current_song.textContent = "nothing playing";
+							current_artist.textContent = "";
 							spotify_album!.style.display = "none";	
 						}
 					}).catch((e) => {
@@ -81,7 +88,7 @@ const { title } = Astro.props;
 			
 			setInterval(() => {
 				getCurrentSong();
-			}, 10000);
+			}, 5000);
 		</script>
 	</head>
 
