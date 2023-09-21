@@ -9,12 +9,12 @@ html {
     text-rendering: auto;
 }
 
-html[data-theme="dark"], html[data-theme="light"] a:hover, html[data-theme="light"] a:focus {
+html[data-theme="dark"], html[data-theme="light"] .anchor-text:hover, html[data-theme="light"] .anchor-text:focus {
     color: var(--lightTheme) !important;
     background-color: var(--darkTheme) !important;
 }
 
-html[data-theme="light"], html[data-theme="dark"] a:hover, html[data-theme="dark"] a:focus {
+html[data-theme="light"], html[data-theme="dark"] .anchor-text:hover, html[data-theme="dark"] .anchor-text:focus {
     color: var(--darkTheme) !important;
     background-color: var(--lightTheme) !important;
 }
@@ -30,8 +30,7 @@ a {
     color: inherit;
     cursor: pointer;
     outline: none;
-    text-decoration: underline;
-    padding: 4px 2px;
+
 }
 
 ul, li {
@@ -93,6 +92,11 @@ ul, li {
 }
 
 /* nav */
+
+.anchor-text {
+    text-decoration: underline;
+    padding: 4px 2px;
+}
 
 .nav {
     margin-top: 1rem;
@@ -217,7 +221,6 @@ img {
 .body-projects-list {
     display: flex;
     flex-wrap: wrap;
-
     width: 100%;
 }
 
@@ -246,6 +249,10 @@ html[data-theme="light"] .body-project-item {
     align-items: center;
 }
 
+html[data-theme="light"] .project-img {
+    background-color: var(--darkTheme);
+}
+
 .project-img {
     background-color: var(--lightTheme);
     background-size: contain;
@@ -268,14 +275,6 @@ html[data-theme="light"] .body-project-item {
     margin-right: 4px;
 }
 
-.project-icon {
-    fill: pink;
-}
-
-html[data-theme="light"] .project-img {
-    background-color: var(--darkTheme);
-}
-
 .img-banner {
     width: 800px !important;
     height: 400px !important;
@@ -284,18 +283,29 @@ html[data-theme="light"] .project-img {
 /* footer */
 
 .footer {
-    margin: 1rem auto 1rem auto;
+    margin: 1em auto 1em auto;
     width: 100%;
 }
 
 .footer > .footer-socials {
-    text-align: center;
-    width: 200px;
-    margin: auto;
+    width: max-content;
+    margin-left: auto;
 }
 
-.footer-element {
-    margin: 0 0.5rem;
+html[data-theme="light"] .footer-img {
+    fill: var(--darkTheme);
+}
+
+.footer-img {
+    fill: var(--lightTheme);
+}
+
+.footer-img * {
+    margin: 0.5em 0;
+}
+
+.footer-img:first-child {
+    margin-right: 0.5em;
 }
 
 /* footer-spotify */
@@ -319,7 +329,7 @@ html[data-theme="light"] .project-img {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem auto;
+    margin: 0 auto;
     width: 200px;
     height: 56px;
 }

@@ -1,3 +1,8 @@
+---
+import Github from "./atoms/github.astro";
+import Linkedin from "./atoms/linkedin.astro";
+---
+
 <footer class="footer pdtb-1rem">
     <div class="footer-spotify-wrapper">
         <div class="footer-spotify">
@@ -9,15 +14,11 @@
         </div>
     </div>
     <div class="footer-socials">
-        <a href="https://github.com/kiabq" 
-            class="footer-element" 
-            target="_blank">
-            github
+        <a href="https://www.linkedin.com/in/joseph-e-conway/" target="_blank" class="footer-img">
+            <Linkedin />
         </a>
-        <a href="https://www.linkedin.com/in/joseph-e-conway/" 
-            class="footer-element"
-            target="_blank">
-            linkedin
+        <a href="https://github.com/kiabq" target="_blank" class="footer-img">
+            <Github />
         </a>
     </div>
 </footer>
