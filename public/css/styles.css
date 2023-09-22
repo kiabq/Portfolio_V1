@@ -282,6 +282,10 @@ html[data-theme="light"] .project-img {
 
 /* footer */
 
+html[data-theme="light"] .footer {
+    border-top: 2px solid var(--darkTheme);
+}
+
 .footer {
     display: flex;
     width: 100%;
@@ -323,16 +327,6 @@ html[data-theme="light"] .footer-img {
     flex-direction: row;
     width: 200px;
     height: 56px;
-}
-
-html[data-theme="light"] .footer-spotify-wrapper {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
-}
-
-html[data-theme="dark"] .footer-spotify-wrapper {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme);
 }
 
 .footer-spotify-info {
