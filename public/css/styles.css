@@ -30,7 +30,6 @@ a {
     color: inherit;
     cursor: pointer;
     outline: none;
-
 }
 
 ul, li {
@@ -291,10 +290,11 @@ html[data-theme="light"] .footer {
     width: 100%;
     border-top: 2px solid var(--lightTheme);
     padding-top: 0.75em;
+    position: relative;
     border-radius: none;
 }
 
-.footer > .footer-socials {
+.footer-socials {
     width: max-content;
     margin-left: auto;
 }
@@ -313,6 +313,7 @@ html[data-theme="light"] .footer-img {
 
 /* footer-spotify */
 
+
 #currentSong {
     white-space: nowrap;
     font-size: 16px;
@@ -320,26 +321,122 @@ html[data-theme="light"] .footer-img {
 
 #currentArtist {
     font-size: 12px;
+    white-space: nowrap;
 }
+
+#currentSongText, .currentArtistName {
+    text-decoration: none;
+}
+
+#currentSongText:hover, .currentArtistName:hover, #currentSongText:focus, .currentArtistName:focus {
+    text-decoration: underline;
+}
+
+.footer-song-scroll {
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+
+.footer-song-scroll:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(-75%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
 
 .footer-spotify {
     display: flex;
+    position: relative;
     flex-direction: row;
-    width: 200px;
+    overflow: hidden;
+    width: 250px;
     height: 56px;
 }
 
+.spotify-info-wrapper {
+    width: 210px;
+    height: auto;
+}
+
+html[data-theme="light"] .dark-gradient {
+    opacity: 0;
+}
+
+html[data-theme="dark"] .light-gradient {
+    opacity: 0;
+}
+
+html[data-theme="light"] .light-gradient {
+    opacity: 1;
+    transition: opacity 3s;
+
+}
+
+html[data-theme="dark"] .dark-gradient {
+    opacity: 1;
+    transition: opacity 3s;
+}
+
+.dark-gradient, .light-gradient {
+    z-index: 9999;
+    position: absolute;
+    width: 215px;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-gradient {
+    background: linear-gradient(to left, 
+        var(--darkTheme) 1%,
+        transparent 10%,
+        transparent 95%, 
+        var(--darkTheme) 99%
+    );
+}
+
+.light-gradient {
+    background: linear-gradient(to left, 
+        var(--lightTheme) 1%,
+        transparent 10%,
+        transparent 95%,
+        var(--lightTheme) 99%
+    );
+}
+
 .footer-spotify-info {
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     text-align: left;
-    margin-left: 0.5em;
+    height: 100%;
+}
+
+html[data-theme="light"] .footer-spotify-album {
+    border-color: var(--darkTheme);
 }
 
 .footer-spotify-album {
+    z-index: 2;
     width: 36px;
     height: 36px;
+    background-color: var(--lightTheme);
+    background-image: url("/public/assets/images/album.png");
+    background-size: contain;
+    border: 2px solid var(--lightTheme);
     border-radius: 6px;
 }
 
@@ -368,6 +465,7 @@ html[data-theme="light"] .footer-img {
     }
 
     .banner {
+        padding-top: 50px;
         margin: 2em auto;
     }
 
