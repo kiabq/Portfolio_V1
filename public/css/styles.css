@@ -445,6 +445,11 @@ html[data-theme="light"] .footer-spotify-album {
         width: 90%;
     }
 
+    .body-project-item {
+        width: 95%;
+        margin-bottom: 5%;
+    }
+
     h2, h1 {
         text-align: center;
     }

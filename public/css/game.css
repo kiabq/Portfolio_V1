@@ -280,3 +280,9 @@ html[data-theme="light"] .banner-arrowhead {
     transform: translateY(-60px) !important;
     transition-timing-function: ease-in-out;
 }
+
+@media (max-width: 900px) {
+    #speed-controls {
+        bottom: 70%;
+    }
+}
