@@ -324,6 +324,10 @@ html[data-theme="light"] .footer-img {
     white-space: nowrap;
 }
 
+#currentSongText {
+    width: auto;
+}
+
 #currentSongText, .currentArtistName {
     text-decoration: none;
 }
@@ -333,15 +337,57 @@ html[data-theme="light"] .footer-img {
 }
 
 .footer-song-scroll {
-    animation-name: scroll;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
+    -webkit-animation: scroll 30s linear infinite;
+    -moz-animation: scroll 30s linear infinite;
+    -o-animation: scroll 30s linear infinite;
+    animation: scroll 30s linear infinite;  
 }
 
 .footer-song-scroll:hover {
     animation-play-state: paused;
 }
 
+@-webkit-keyframes scroll {
+    from {
+        -webkit-transform: translateX(0%);
+    }
+
+    50% {
+        -webkit-transform: translateX(-75%);
+    }
+
+    to {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+@-moz-keyframes scroll {
+    from {
+        -moz-transform: translateX(0%);
+    }
+
+    50% {
+        -moz-transform: translateX(-75%);
+    }
+
+    to {
+        -moz-transform: translateX(0%);
+    }
+}
+
+@-o-keyframes scroll {
+    from {
+        -o-transform: translateX(0%);
+    }
+
+    50% {
+        -o-transform: translateX(-75%);
+    }
+
+    to {
+        -o-transform: translateX(0%);
+    }
+}
 @keyframes scroll {
     from {
         transform: translateX(0%);
@@ -355,7 +401,6 @@ html[data-theme="light"] .footer-img {
         transform: translateX(0%);
     }
 }
-
 
 .footer-spotify {
     display: flex;

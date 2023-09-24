@@ -44,8 +44,8 @@ const { title } = Astro.props;
 		<script src="../scripts/theme.ts"></script>
 		<script src="../scripts/cgol.ts"></script>
 		<script>
-			const current_song: HTMLSpanElement | null = document.querySelector("#currentSong");
-			const current_artist: HTMLSpanElement | null = document.querySelector("#currentArtist");
+			const current_song: HTMLDivElement | null = document.querySelector("#currentSong");
+			const current_artist: HTMLDivElement | null = document.querySelector("#currentArtist");
 			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify");
 			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
 			const spotify_container: HTMLDivElement | null = document.querySelector(".footer-spotify-info");
@@ -66,7 +66,7 @@ const { title } = Astro.props;
 							const artists = result.data.item.artists;
 							const track = result.data.item;
 							const album_cover = result.data.item.album.images;
-	
+							
 							spotify_album!.src = album_cover[2].url;							
 							spotify_album!.style.display = "inline-block";
 
@@ -85,7 +85,7 @@ const { title } = Astro.props;
 								current_artist.textContent += artists[i].name;
 							}
 
-							if ((current_song.firstChild.scrollWidth - current_song.clientWidth) > 50) {
+							if ((current_song.firstChild.offsetWidth - current_song.clientWidth) > 50) {
 								current_song.classList.add("footer-song-scroll");
 							} else {
 								current_song.classList.remove("footer-song-scroll");
