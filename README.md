@@ -1,3 +1,2 @@
-# Portfolio built in [Astro](https://astro.build/)
-
-## Work In Progress
+# About
+This is my personal site (Built using [Astro](https://astro.build/)) where you can see all of my projects.
