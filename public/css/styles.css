@@ -231,17 +231,15 @@ html[data-theme="light"] .body-project-item {
 .body-project-item {
     border: 2px solid var(--lightTheme);
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
     fill: var(--lightTheme);
     padding: 4px;
     position: relative;
     width: 45%;
     height: 150px;
     margin: 0px 8px 0px 4px;
-    transition: transform 0.3s;
-}
-
-.body-project-item:hover {
-    transform: rotate3d(-1, 1, 0, 15deg);
+    justify-content: space-between;
 }
 
 .body-project-item h4 {
@@ -263,11 +261,6 @@ html[data-theme="light"] .project-img {
     mask-size: contain;
     -webkit-mask-image: url("/public/assets/images/github-mark-white.svg");
     -webkit-mask-size: contain;
-}
-
-.project-icons {
-    bottom: 0;
-    position: absolute;
 }
 
 .project-icons * {
