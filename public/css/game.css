@@ -10,64 +10,10 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
 }
 
-/* Canvas Theme */
-
-html[data-theme="light"] #game {
-    background-color: var(--darkTheme);
-    border-color: var(--darkTheme);
-}
-
-/* Game Header */
-
-html[data-theme="light"] .banner-header {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
-}
-
-/* Game Control Themes */
-
-html[data-theme="light"] .banner-btn {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
-}
-
-html[data-theme="light"] .banner-btn:hover {
-    background-color: var(--darkThemeHover);
-    color: var(--lightThemeHover);
-}
-
-html[data-theme="light"] .banner-btn:hover {
-    background-color: var(--darkThemeHover);
-    color: var(--lightThemeHover);
-}
-
-html[data-theme="light"] .banner-counter {
-    background-color: var(--darkTheme);
-    color: var(--lightTheme);
-}
-
 /* Speed Slider */
 
-html[data-theme="light"] input::-moz-range-track {
-    background: var(--darkTheme);
-}
-
-html[data-theme="light"] input::-webkit-slider-runnable-track {
-    background: var(--darkTheme);
-}
-
-html[data-theme="light"] input::-moz-range-thumb {
-    background: var(--lightTheme);
-    border-color: var(--darkTheme);
-}
-
-html[data-theme="light"] input::-webkit-slider-thumb {
-    background: var(--lightTheme);
-    border-color: var(--darkTheme);
-}
-
 input[type="range"]::-moz-range-track {
-    background: var(--lightTheme);
+    background: var(--theme-text);
     border-radius: 5px;
     height: 4px;
 }
@@ -77,23 +23,23 @@ input[type="range"]::-moz-range-thumb {
     margin: 0;
     padding: 0;
     outline: none;
-    background: var(--darkTheme);
-    border: 2px solid var(--lightTheme);
+    background: var(--theme-bg);
+    border: 2px solid var(--theme-text);
     border-radius: 8px;
     height: 1.5rem;
     width: 0.75em;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    background: var(--lightTheme);
+    background: var(--theme-text);
     border-radius: 5px;
     height: 4px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     outline: none;
-    background: var(--darkTheme);  
-    border: 2px solid var(--lightTheme);
+    background: var(--theme-bg);  
+    border: 2px solid var(--theme-text);
     border-radius: 8px;
     height: 1.5rem;
     width: 0.75rem;
@@ -103,8 +49,8 @@ input[type="range"]::-webkit-slider-thumb {
 /* Canvas */
 
 #game {
-    background-color: var(--lightTheme);
-    border-color: var(--lightTheme);
+    background-color: var(--theme-text);
+    border-color: var(--theme-text);
     border-style: solid;
     border-width: 4px 2px 2px 4px;
     border-radius: 0 0 3px 3px;
@@ -114,7 +60,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .game-container {
-    background-color: black;
+    background-color: var(--theme-bg);
     border-radius: 3px;
     height: 280px;
     z-index: 1;
@@ -179,25 +125,17 @@ input[type="range"]::-webkit-slider-thumb {
     margin-left: auto;
 }
 
-html[data-theme="light"] .banner-arrow {
-    stroke: var(--darkTheme);
-}
-
-html[data-theme="light"] .banner-arrowhead {
-    fill: var(--darkTheme);
-}
-
 .banner-arrow {
-    stroke: var(--lightTheme);
+    stroke: var(--theme-text);
 }
 
 .banner-arrowhead {
-    fill: var(--lightTheme);
+    fill: var(--theme-text);
 }
 
 .banner-header {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme);
+    background-color: var(--theme-text);
+    color: var(--theme-bg);
     display: flex;
     align-items: center;
     width: 100%;
@@ -228,6 +166,7 @@ html[data-theme="light"] .banner-arrowhead {
 .encoder-text {
     width: 79.9%;
     border-radius: 0;
+    border-color: initial;
 }
 
 .encoder-btn {
@@ -239,23 +178,22 @@ html[data-theme="light"] .banner-arrowhead {
 }
 
 .banner-btn {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme);
+    background-color: var(--theme-text);
+    color: var(--theme-bg);
     border: none;
-    border-top: none;
     cursor: pointer;
     height: 25px;
     padding: 0 0.75rem;
 }
 
 .banner-btn:hover {
-    background-color: var(--lightThemeHover);
-    color: var(--darkThemeHover);
+    background-color: var(--theme-hover-bg);
+    color: var(--theme-hover-text);
 }
 
 .banner-counter {
-    background-color: var(--lightTheme);
-    color: var(--darkTheme);
+    background-color: var(--theme-text);
+    color: var(--theme-bg);
     cursor: default;
     display: flex;
     margin-left: auto;

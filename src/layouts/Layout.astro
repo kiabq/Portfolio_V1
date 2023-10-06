@@ -65,7 +65,7 @@ const { title } = Astro.props;
 			})
 
 			function getCurrentSong() {
-				fetch("https://spot.cnwy.dev")
+				fetch("http://localhost:8000")
 					.then((result) => {
 						return result.json();
 					})
@@ -133,8 +133,9 @@ const { title } = Astro.props;
 			(val) => val.selectorText === ".preload"
 		);
 
-		const LIGHT = STYLESHEET.cssRules[0].style.getPropertyValue("--lightTheme");
-		const DARK = STYLESHEET.cssRules[0].style.getPropertyValue("--darkTheme");
+		const LIGHT = STYLESHEET.cssRules[0].style.getPropertyValue("--light");
+		const DARK = STYLESHEET.cssRules[0].style.getPropertyValue("--dark");
+
 		PRELOAD.style.setProperty("transform", "translateY(-28px)");
 		htmlTag[0].style.backgroundColor = DARK;
 		htmlTag[0].style.color = LIGHT;
@@ -144,6 +145,13 @@ const { title } = Astro.props;
 			htmlTag[0].style.backgroundColor = LIGHT;
 			htmlTag[0].style.color = DARK;
 		}
+
+		function clearStyle() {
+			htmlTag[0].style = "";
+			window.removeEventListener("load", clearStyle)
+		}
+
+		window.addEventListener("load", clearStyle)
 	</script>
 
 	<body class="content-container">
