@@ -135,13 +135,13 @@ const pulsar = [
                         Math.round(block.y - yOffset * scale),
                     );
 
-                    let hover: string = "#423847"; 
+                    let hover: string = "#29242b"; 
                     let background: string = "#FEFFFA";
                     let fill: string = "#FF5C42";
 
                     if (getTheme() === "dark") {
                         hover = "#FEFFFA";
-                        background = "#423847";
+                        background = "#29242b";
                         fill = "#FFBB42"
                     }
                     

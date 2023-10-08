@@ -1,23 +1,23 @@
 :root {
     --light: #FEFFFA;
-    --dark: #423847;
+    --dark: #29242b;
     --lightHover: #e5e6e3;
     --darkHover: #2b242e;
 }
 
 @layer base {
     html[data-theme="dark"] {
-        --theme-bg: #423847;
-        --theme-text: #FEFFFA;
-        --theme-hover-bg: #e5e6e3;
-        --theme-hover-text: #2b242e;
+        --theme-bg: var(--dark);
+        --theme-text: var(--light);
+        --theme-hover-bg: var(--lightHover);
+        --theme-hover-text: var(--darkHover);
     }
 
     html[data-theme="light"] {
-        --theme-bg: #FEFFFA;
-        --theme-text: #423847;
-        --theme-hover-bg: #2b242e;
-        --theme-hover-text: #e5e6e3;
+        --theme-bg: var(--light);
+        --theme-text: var(--dark);
+        --theme-hover-bg: var(--darkHover);
+        --theme-hover-text: var(--lightHover);
     }
 }
 
@@ -101,6 +101,11 @@ ul, li {
 /* nav */
 
 .anchor-text {
+    &:hover, &:focus {
+        background-color: var(--theme-hover-bg);
+        color: var(--theme-hover-text);
+    }
+
     text-decoration: underline;
     padding: 4px 2px;
 }
