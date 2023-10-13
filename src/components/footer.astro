@@ -1,8 +1,17 @@
 ---
 import Github from "./atoms/github.astro";
 import Linkedin from "./atoms/linkedin.astro";
+import DarkSubway from "./atoms/dark-subway.svg";
+import LightSubway from "./atoms/light-subway.svg";
 ---
 
+<div class="footer-subway-wrapper">
+    <div class="footer-subway-tunnel"></div>
+    <div class="footer-subway">
+        <img data-train="dark" class="footer-subway-car" src={DarkSubway.src} width={DarkSubway.width} height={DarkSubway.height} />        
+        <img data-train="light" class="footer-subway-car" src={LightSubway.src} width={LightSubway.width} height={LightSubway.height} />
+    </div>
+</div>
 <footer class="footer pdtb-1rem">
     <div class="footer-spotify">
         <img src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' class="footer-spotify-album"/>

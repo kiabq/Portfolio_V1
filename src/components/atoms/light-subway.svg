@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 96 32" width="96px" height="32px" class="train" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="47.893" y1="1.98" x2="47.893" y2="26.171" id="gradient-2-1" xlink:href="#gradient-2"/>
+    <linearGradient id="gradient-2" bx:pinned="true">
+      <stop offset="0.007" style="stop-color: rgb(247, 247, 247);"/>
+      <stop offset="0.184" style="stop-color: rgb(184, 184, 184);"/>
+      <stop offset="0.862" style="stop-color: rgb(198, 198, 198);"/>
+      <stop offset="0.998" style="stop-color: rgb(232, 232, 232);"/>
+    </linearGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="20.542" cy="16.115" r="4.736" id="gradient-5-1" gradientTransform="matrix(0.043587, 2.122511, -2.27751, 0.04677, 56.348697, -28.239328)" xlink:href="#gradient-5"/>
+    <linearGradient id="gradient-5" bx:pinned="true">
+      <stop offset="0.107" style="stop-color: rgb(220, 220, 220);"/>
+      <stop offset="1" style="stop-color: rgb(194, 194, 194);"/>
+    </linearGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="20.542" cy="16.115" r="4.736" id="gradient-5-3" gradientTransform="matrix(0.043587, 2.122511, -2.27751, 0.04677, 56.348697, -28.239328)" xlink:href="#gradient-5"/>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="20.542" cy="16.115" r="4.736" id="gradient-5-2" gradientTransform="matrix(0.043587, 2.122511, -2.27751, 0.04677, 56.348697, -28.239328)" xlink:href="#gradient-5"/>
+  </defs>
+  <g>
+    <title>Wheel Front</title>
+    <rect x="17.25" y="26.351" width="6.653" height="2.156" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(122, 122, 122);"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(58, 58, 58);" cx="14.749" cy="28.001" r="3.114"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(58, 58, 58);" cx="26.378" cy="28.001" r="3.114"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(122, 122, 122);" cx="26.324" cy="28.025" r="1.256"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(122, 122, 122);" cx="14.748" cy="28.041" r="1.256"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 54.788909912109375, 0.020114000886678696)">
+    <title>Wheel Back</title>
+    <rect x="17.25" y="26.351" width="6.653" height="2.156" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(122, 122, 122);"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(58, 58, 58);" cx="14.749" cy="28.001" r="3.114"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(58, 58, 58);" cx="26.378" cy="28.001" r="3.114"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(122, 122, 122);" cx="26.324" cy="28.025" r="1.256"/>
+    <circle style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(122, 122, 122);" cx="14.748" cy="28.041" r="1.256"/>
+  </g>
+  <rect x="3.316" y="1.98" width="89.155" height="24.191" rx="2.629" ry="2.629" style="stroke-width: 0.5px; paint-order: fill; stroke: rgb(0, 0, 0); fill: url('#gradient-2-1');"/>
+  <rect x="29.071" y="6.37" width="10.223" height="8.275" rx="2" ry="2" style="stroke: rgb(0, 0, 0); stroke-miterlimit: 1; stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+  <g transform="matrix(1, 0, 0, 1, 0, 0.24163700640201569)" style="">
+    <title>Door</title>
+    <rect x="15.806" y="6.28" width="9.472" height="19.671" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: url('#gradient-5-1');"/>
+    <rect x="16.904" y="8.108" width="2.773" height="6.355" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+    <rect x="21.371" y="8.167" width="2.773" height="6.355" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+    <rect x="20.289" y="7.312" width="0.441" height="17.708" rx="0.221" ry="0.221" style="stroke-width: 0px; stroke: rgb(0, 0, 0);"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 27.47632598876953, 0.11007499694824219)" style="">
+    <title>Door</title>
+    <rect x="15.806" y="6.28" width="9.472" height="19.671" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: url('#gradient-5-3');"/>
+    <rect x="16.904" y="8.108" width="2.773" height="6.355" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+    <rect x="21.371" y="8.167" width="2.773" height="6.355" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+    <rect x="20.289" y="7.312" width="0.441" height="17.708" rx="0.221" ry="0.221" style="stroke-width: 0px; stroke: rgb(0, 0, 0);"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 55.09254837036133, 0.10159900784492493)" style="">
+    <title>Door</title>
+    <rect x="15.806" y="6.28" width="9.472" height="19.671" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: url('#gradient-5-2');"/>
+    <rect x="16.904" y="8.108" width="2.773" height="6.355" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+    <rect x="21.371" y="8.167" width="2.773" height="6.355" rx="1" ry="1" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+    <rect x="20.289" y="7.312" width="0.441" height="17.708" rx="0.221" ry="0.221" style="stroke-width: 0px; stroke: rgb(0, 0, 0);"/>
+  </g>
+  <rect x="56.565" y="6.297" width="10.223" height="8.275" rx="2" ry="2" style="stroke: rgb(0, 0, 0); stroke-miterlimit: 1; stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+  <rect x="83.853" y="6.237" width="5.072" height="8.275" rx="1.161" ry="1.161" style="stroke: rgb(0, 0, 0); stroke-miterlimit: 1; stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+  <rect x="7.029" y="6.272" width="5.072" height="8.275" rx="1.214" ry="1.214" style="stroke: rgb(0, 0, 0); stroke-miterlimit: 1; stroke-width: 0.5px; fill: rgb(185, 237, 251);"/>
+  <rect x="3.317" y="6.362" width="2.625" height="6.807" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);" rx="0.575" ry="0.575"/>
+  <rect x="90.209" y="6.363" width="2.282" height="6.807" style="stroke: rgb(0, 0, 0); stroke-width: 0.5px; fill: rgb(185, 237, 251);" rx="0.575" ry="0.575"/>
+  <rect x="6.839" y="16.469" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="6.859" y="18.37" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="6.906" y="20.257" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="6.874" y="22.275" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="27.354" y="16.513" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="27.295" y="18.462" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="27.253" y="20.342" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="27.258" y="22.319" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="54.731" y="16.505" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="54.672" y="18.454" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="54.63" y="20.334" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="54.635" y="22.311" width="14.185" height="0.268" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="83.752" y="16.507" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="83.772" y="18.408" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="83.819" y="20.295" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="83.787" y="22.313" width="5.486" height="0.353" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="6.541" y="2.865" width="82.808" height="0.234" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <rect x="6.52" y="3.691" width="82.808" height="0.234" rx="0.176" ry="0.176" style="stroke-width: 0.25px; stroke: rgb(0, 0, 0);"/>
+  <g>
+    <title>Lattice</title>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 0.5px; stroke-linecap: round;" x1="0.904" y1="14.441" x2="5.601" y2="19.658"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 0.5px;" x1="0.829" y1="19.779" x2="5.663" y2="14.392"/>
+    <polygon style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 0.5px; fill-opacity: 0;" points="0.922 17.005 3.235 14.495 5.691 17.13 3.36 19.64"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 0.5px; stroke-linecap: round;" x1="0.868" y1="13.778" x2="0.796" y2="20.895"/>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-width: 0.5px;" d="M 5.673 13.151 C 5.717 13.151 5.655 24.965 5.655 24.965"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 89.4529571533203, -0.04726500064134598)">
+    <title>Lattice</title>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 0.5px; stroke-linecap: round;" x1="0.904" y1="14.441" x2="5.601" y2="19.658"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 0.5px;" x1="0.829" y1="19.779" x2="5.663" y2="14.392"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 0.5px; stroke-linecap: round;" x1="0.789" y1="12.773" x2="0.789" y2="24.93"/>
+    <polygon style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 0.5px; fill-opacity: 0;" points="0.922 17.005 3.235 14.495 5.691 17.13 3.36 19.64"/>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-width: 0.5px; transform-box: fill-box; transform-origin: 50% 50%;" d="M 5.666 13.987 C 5.687 13.987 5.655 20.864 5.655 20.864"/>
+  </g>
+</svg>

@@ -3,6 +3,7 @@
     --dark: #29242b;
     --lightHover: #e5e6e3;
     --darkHover: #2b242e;
+    --track-width: 800px;
 }
 
 @layer base {
@@ -11,6 +12,16 @@
         --theme-text: var(--light);
         --theme-hover-bg: var(--lightHover);
         --theme-hover-text: var(--darkHover);
+
+        .footer-subway {
+            background: rgb(243,246,130);
+            background: radial-gradient(circle, rgba(243,246,130,0.6274944567627494) 0%, rgba(244,247,149,0) 67%, rgba(198,199,161,0) 100%);
+            background-position-y: 70px;
+        }
+
+        .footer-subway-car[data-train="dark"] {
+            visibility: visible !important;
+        }
     }
 
     html[data-theme="light"] {
@@ -18,6 +29,10 @@
         --theme-text: var(--dark);
         --theme-hover-bg: var(--darkHover);
         --theme-hover-text: var(--lightHover);
+
+        .footer-subway-car[data-train="light"] {
+            visibility: visible !important;
+        }
     }
 }
 
@@ -46,6 +61,12 @@ ul, li {
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+img {
+    height: 128px;
+    width: 128px;
+    justify-content: center;
 }
 
 /* fonts */
@@ -92,13 +113,21 @@ ul, li {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 100%;
+    height: auto;
     margin: 0 auto;
     max-width: 800px;
     position: relative;
 }
 
 /* nav */
+
+#light {
+    transform: translateY(0px);
+}
+
+#dark {
+    transform: translateY(-28px);
+}
 
 .anchor-text {
     &:hover, &:focus {
@@ -152,21 +181,7 @@ ul, li {
     background: transparent;
 }
 
-#light {
-    transform: translateY(0px);
-}
-
-#dark {
-    transform: translateY(-28px);
-}
-
 /* body */
-
-img {
-    height: 128px;
-    width: 128px;
-    justify-content: center;
-}
 
 .body {
     display: flex;
@@ -218,7 +233,7 @@ img {
 }
 
 .body-info {
-    padding: 2em 0;
+    padding-top: 2em;
 }
 
 .body-info-header {
@@ -287,6 +302,63 @@ img {
     border-radius: none;
 }
 
+.footer-subway-wrapper {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    border-bottom: 2px solid var(--theme-text);
+    overflow: hidden;
+}
+
+.footer-subway-tunnel {
+    height: 120%;
+    background-color: var(--theme-text);
+    width: 4px;
+    position: absolute;
+    z-index: 4;
+}
+
+.footer-subway {
+    animation: 15s infinite linear choochoo, 1.2s infinite linear bounce;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+    height: 200px;
+    width: 200px;
+    z-index: 3;
+}
+
+@keyframes choochoo {
+    from {
+        transform: translate(var(--track-width), -75px);
+    }
+
+    to {
+        transform: translate(-100%, -75px);
+    }
+}
+
+@keyframes bounce {
+    from {
+        margin-top: 1px;
+    }
+
+    to {
+        margin-top: 0;
+    }
+}
+
+.footer-subway-car {
+    height: 32px;
+    width: 96px;
+    position: absolute;
+    visibility: hidden;
+    display: inline;
+}
+
 .footer-socials {
     width: max-content;
     margin-left: auto;
@@ -301,7 +373,6 @@ img {
 }
 
 /* footer-spotify */
-
 
 #currentSong {
     white-space: nowrap;
@@ -424,7 +495,7 @@ html[data-theme="dark"] .dark-gradient {
 }
 
 .dark-gradient, .light-gradient {
-    z-index: 9999;
+    z-index: 2;
     position: absolute;
     width: 215px;
     height: 100%;
@@ -465,7 +536,6 @@ html[data-theme="dark"] .dark-gradient {
     background-color: var(--light);
     background-image: url("/public/assets/images/album.png");
     background-size: contain;
-    border: 2px solid var(--theme-text);
     border-radius: 6px;
 }
 

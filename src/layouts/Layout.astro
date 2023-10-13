@@ -23,6 +23,7 @@ const { title } = Astro.props;
 		<title>cnwy - {title}</title>
 		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 
+		<!-- TODO: Add font files instead of CDN -->
 		<!-- Fonts & Icons -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,14 +55,22 @@ const { title } = Astro.props;
 		<script src="../scripts/theme.ts"></script>
 		<script src="../scripts/cgol.ts"></script>
 		<script>
+			const subway: HTMLDivElement | null = document.querySelector(".footer-subway-wrapper");
+
+			function initTrackWidth() {
+				document.documentElement.style.setProperty('--track-width', `${subway!.offsetWidth}px`);
+			}
+			
+			window.addEventListener("resize", initTrackWidth);
+			window.addEventListener("load", initTrackWidth);
+		</script>
+		<script>
 			const current_song: HTMLDivElement | null = document.querySelector("#currentSong");
 			const current_artist: HTMLDivElement | null = document.querySelector("#currentArtist");
-			const spotify_footer: HTMLDivElement | null = document.querySelector(".footer-spotify");
 			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
-			const spotify_container: HTMLDivElement | null = document.querySelector(".footer-spotify-info");
 
-			window.addEventListener("load", (event) => {
-				getCurrentSong();
+			window.addEventListener("load", () => {
+				// getCurrentSong();
 			})
 
 			function getCurrentSong() {
@@ -71,11 +80,11 @@ const { title } = Astro.props;
 					})
 					.then((result) => {
 						if (result.data.is_playing) {
-							if (current_song.firstChild) {
-								current_song.removeChild(current_song.firstChild);
+							if (current_song!.firstChild) {
+								current_song!.removeChild(current_song!.firstChild);
 							}
 
-							current_artist.textContent = "";
+							current_artist!.textContent = "";
 							
 							const artists = result.data.item.artists;
 							const track = result.data.item;
@@ -90,34 +99,34 @@ const { title } = Astro.props;
 							song.setAttribute("target", "_blank");
 							const song_text = document.createTextNode(track.name);
 							song.appendChild(song_text);
-							current_song.appendChild(song);
+							current_song!.appendChild(song);
 
 							for (let i = 0; i < artists.length; i++) {
 								if (i > 0) {
-									current_artist.textContent += ", ";
+									current_artist!.textContent += ", ";
 								}
-								current_artist.textContent += artists[i].name;
+								current_artist!.textContent += artists[i].name;
 							}
 
-							if ((current_song.firstChild.offsetWidth - current_song.clientWidth) > 50) {
-								current_song.classList.add("footer-song-scroll");
+							if ((current_song!.firstChild!.offsetWidth - current_song!.clientWidth) > 50) {
+								current_song!.classList.add("footer-song-scroll");
 							} else {
-								current_song.classList.remove("footer-song-scroll");
+								current_song!.classList.remove("footer-song-scroll");
 							}
 						} else {
 							spotify_album!.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";							
-							current_song.classList.remove("footer-song-scroll");
-							current_song.textContent = "nothing playing";
-							current_artist.textContent = "at the moment";
+							current_song!.classList.remove("footer-song-scroll");
+							current_song!.textContent = "nothing playing";
+							current_artist!.textContent = "at the moment";
 						}
 					}).catch((e) => {
-						current_song.textContent = "nothing playing";
-						current_artist.textContent = "at the moment";
+						current_song!.textContent = "nothing playing";
+						current_artist!.textContent = "at the moment";
 					})
 			}
 
 			setInterval(() => {
-				getCurrentSong();
+				// getCurrentSong();
 			}, 5000);
 		</script>
 	</head>
