@@ -536,6 +536,7 @@ html[data-theme="dark"] .dark-gradient {
     background-color: var(--light);
     background-image: url("/public/assets/images/album.png");
     background-size: contain;
+    border: 2px solid var(--theme-text);
     border-radius: 6px;
 }
 
