@@ -201,7 +201,7 @@ img {
 
 .body-intro {
     margin: 0 auto;
-    padding: 2em 0;
+    padding: 2em 0 1em;
 }
 
 .body-list {
@@ -233,7 +233,7 @@ img {
 }
 
 .body-info {
-    padding-top: 2em;
+    padding-top: 1em;
 }
 
 .body-info-header {
@@ -261,7 +261,7 @@ img {
     position: relative;
     width: 45%;
     height: 150px;
-    margin: 0px 8px 0px 4px;
+    margin-right: 12px;
     justify-content: space-between;
 }
 
