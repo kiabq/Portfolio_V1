@@ -113,7 +113,7 @@ img {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: auto;
+    height: inherit;
     margin: 0 auto;
     max-width: 800px;
     position: relative;
@@ -217,12 +217,12 @@ img {
     margin-top: 0;
 }
 
-.body-intro-main > p {
-    margin: 1em 0;
+.body-summary {
+    width: 75%;
 }
 
-.body-intro-main > p {
-    margin: 0;
+.body-summary:not(:last-child) {
+    padding-bottom: 0.5em
 }
 
 /* body -> projects */
@@ -558,6 +558,10 @@ html[data-theme="dark"] .dark-gradient {
 @media (max-width: 450px) {
     .body-info {
         padding-bottom: 0;
+    }
+
+    .body-summary {
+        width: 100%;
     }
 
     .body-projects {
