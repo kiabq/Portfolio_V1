@@ -10,13 +10,23 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- OG Image -->
 		<meta property="og:title" content="cnwy.dev: software and stuff">
 		<meta property="og:description" content="A website all about software, learning, and fun.">
 		<meta property="og:url" content="https://www.cnwy.dev">
 		<meta property="og:locale" content="en-US">
 		<meta property="og:type" content=website>
 		<meta property="og:image:type" content="image/png">
-		<meta property="og:image" content="/assets/images/og.png">
+		<meta property="og:image" content="https://www.cnwy.dev/assets/images/og.png">
+		
+		<!-- Twitter Image-->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://www.cnwy.dev">
+		<meta property="twitter:title" content="cnwy.dev: software and stuff">
+		<meta property="twitter:description" content="A website all about software, learning, and fun.">
+		<meta property="twitter:image" content="https://www.cnwy.dev/assets/images/og.png">
+		
 		<title>cnwy - {title}</title>
 		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 
