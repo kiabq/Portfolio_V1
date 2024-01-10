@@ -113,7 +113,7 @@ img {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: inherit;
+    height: auto;
     margin: 0 auto;
     max-width: 800px;
     position: relative;
@@ -320,7 +320,6 @@ img {
 
 .footer-subway {
     animation: 15s infinite linear choochoo, 1.2s infinite linear bounce;
-    
     display: flex;
     justify-content: center;
     align-items: center;

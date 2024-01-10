@@ -126,7 +126,7 @@ const { title } = Astro.props;
 							current_song!.textContent = "nothing playing";
 							current_artist!.textContent = "at the moment";
 						}
-					}).catch((e) => {
+					}).catch(() => {
 						current_song!.textContent = "nothing playing";
 						current_artist!.textContent = "at the moment";
 					})
