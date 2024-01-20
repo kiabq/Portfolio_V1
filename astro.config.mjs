@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://kiabq.github.io"
+    site: "https://www.cnwy.dev",
+    integrations: [sitemap()]
 });
