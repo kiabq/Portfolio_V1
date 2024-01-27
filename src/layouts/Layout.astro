@@ -1,5 +1,6 @@
 ---
 import "/public/css/styles.css";
+import { transparentPng } from "../components/assets";
 
 const { title } = Astro.props;
 ---
@@ -72,6 +73,7 @@ const { title } = Astro.props;
 		</script>
 		<script>
 			const current_song: HTMLDivElement | null = document.querySelector("#currentSong");
+import { transparentPng } from "../components/assets";
 			const current_artist: HTMLDivElement | null = document.querySelector("#currentArtist");
 			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
 
@@ -120,7 +122,7 @@ const { title } = Astro.props;
 								current_song!.classList.remove("footer-song-scroll");
 							}
 						} else {
-							spotify_album!.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";							
+							spotify_album!.src = transparentPng;							
 							current_song!.classList.remove("footer-song-scroll");
 							current_song!.textContent = "nothing playing";
 							current_artist!.textContent = "at the moment";
