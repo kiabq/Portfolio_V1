@@ -1,8 +1,8 @@
 ---
-import Github from "./atoms/github.astro";
-import Linkedin from "./atoms/linkedin.astro";
-import DarkSubway from "./atoms/dark-subway.svg";
-import LightSubway from "./atoms/light-subway.svg";
+import LinkedIn from "../images/svgs/linkedin.svg?raw";
+import Github from "../images/svgs/github.svg?raw";
+import DarkSubway from "../images/svgs/dark-subway.svg";
+import LightSubway from "../images/svgs/light-subway.svg";
 ---
 
 <div class="footer-subway-wrapper">
@@ -26,10 +26,10 @@ import LightSubway from "./atoms/light-subway.svg";
     </div>
     <div class="footer-socials">
         <a href="https://www.linkedin.com/in/joseph-e-conway/" target="_blank" rel="noreferrer noopener" class="footer-img">
-            <Linkedin />
+            <Fragment set:html={LinkedIn} />
         </a>
         <a href="https://github.com/kiabq" target="_blank" rel="noreferrer noopener" class="footer-img">
-            <Github />
+            <Fragment set:html={Github} />
         </a>
     </div>
 </footer>

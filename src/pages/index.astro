@@ -6,12 +6,12 @@ import Footer from "../components/footer.astro";
 import Project from "../components/project.astro";
 import Gameoflife from "../components/gameoflife.astro";
 
-import React from "../components/atoms/react.astro";
-import Postgres from "../components/atoms/postgres.astro";
-import Python from "../components/atoms/python.astro";
-import TypeScript from "../components/atoms/typescript.astro";
-import Node from "../components/atoms/node.astro";
-import AstroIcon from "../components/atoms/astro.astro";
+import React from "../images/svgs/react.svg?raw";
+import Postgres from "../images/svgs/postgres.svg?raw";
+import Python from "../images/svgs/python.svg?raw";
+import TypeScript from "../images/svgs/typescript.svg?raw";
+import Node from "../images/svgs/node.svg?raw";
+import AstroIcon from "../images/svgs/astro.svg?raw";
 
 import "/public/css/game.css";
 ---
@@ -46,8 +46,8 @@ import "/public/css/game.css";
 							link="https://minesweeper98.netlify.app/"
 						>
 							<!-- Project Technology Icons -->
-							<TypeScript />
-							<React />
+							<Fragment set:html={TypeScript} />
+							<Fragment set:html={React} />
 						</Project>
 						<Project
 							title="Minispot"
@@ -56,7 +56,7 @@ import "/public/css/game.css";
 							link="https://github.com/kiabq/minispot"
 						>
 							<!-- Project Technology Icons -->		
-							<Python />
+							<Fragment set:html={Python} />
 						</Project>
 						<Project
 							title="HyperSlice"
@@ -65,10 +65,10 @@ import "/public/css/game.css";
 							link="https://link.cnwy.dev"
 						>
 							<!-- Project Technology Icons -->
-							<AstroIcon />
-							<TypeScript />
-							<Node />
-							<Postgres />	
+							<Fragment set:html={AstroIcon} />
+							<Fragment set:html={TypeScript} />
+							<Fragment set:html={Node} />
+							<Fragment set:html={Postgres} />
 						</Project>
 					</div>
 				</div>
