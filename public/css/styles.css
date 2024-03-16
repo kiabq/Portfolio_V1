@@ -63,11 +63,6 @@ ul, li {
     margin: 0;
 }
 
-img {
-    height: 128px;
-    width: 128px;
-    justify-content: center;
-}
 
 /* fonts */
 
@@ -276,9 +271,9 @@ img {
     height: 20px;
     margin-left: 0.25em;
     padding: 0;
-    mask-image: url("/public/assets/images/github-mark-white.svg");
+    mask-image: url("/assets/images/github-mark-white.svg");
     mask-size: contain;
-    -webkit-mask-image: url("/public/assets/images/github-mark-white.svg");
+    -webkit-mask-image: url("/assets/images/github-mark-white.svg");
     -webkit-mask-size: contain;
 }
 
@@ -533,10 +528,15 @@ html[data-theme="dark"] .dark-gradient {
     width: 36px;
     height: 36px;
     background-color: var(--light);
-    background-image: url("/public/assets/images/album.png");
+    background-image: url("/assets/images/album.png");
     background-size: contain;
     border: 2px solid var(--theme-text);
     border-radius: 6px;
+}
+
+.footer-socials a {
+    fill: var(--theme-text);
+    display: inline-block;
 }
 
 @media (max-width: 900px) {
