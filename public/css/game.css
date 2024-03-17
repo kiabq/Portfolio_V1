@@ -125,6 +125,16 @@ input[type="range"]::-webkit-slider-thumb {
     margin-left: auto;
 }
 
+.banner-caption {
+    /* style="font-family: 'Reenie_Beanie', cursive; font-size: 24px; position: absolute; transform: translateY(-30px) translateX(-55px)" */
+    font-family: "Reenie Beanie", cursive;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    transform: translateY(-30px) translateX(-55px);
+}
+
 .banner-arrow {
     stroke: var(--theme-text);
 }
