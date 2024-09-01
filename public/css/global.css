@@ -1,0 +1,36 @@
+/* Rules */
+@font-face {
+    font-family: "Josefin Slab";
+    src: url('/fonts/Josefin_Slab/JosefinSlab-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Josefin Sans";
+    src: url('/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Reenie Beanie";
+    src: url('/fonts/Reenie_Beanie/ReenieBeanie-Regular.ttf') format('truetype');
+}
+
+@layer theme {
+    @layer light, dark, user;
+
+    @media (prefers-color-scheme: dark) {
+        @layer dark {
+            :root {
+                --bg: #5f6f65;
+                --text: white;
+                --hover: rgb(243, 243, 243);
+            }
+        }
+    }
+}
+
+/* Styles */
+html[data-theme="light"] {
+    --bg: #fffbf2;
+    --text: black;
+    --hover: rgb(29, 29, 29);
+}
