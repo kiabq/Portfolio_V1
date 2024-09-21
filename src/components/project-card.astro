@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components"
+
+const { name, description } = Astro.props;
+---
+
+<div class="project-card">
+    <div class="project-nav">
+        <div class="project-link">
+            <h3>{name}</h3>
+            <Icon class="link-icon" name="link"/>
+        </div>
+        
+        <span class="project-links">
+            <a href="">
+                <Icon name="github" size={24} />
+            </a>
+        </span>
+    </div>
+    <p style="height: 100%;">{description}</p>
+    <div class="project-icons">
+        <slot/> 
+    </div>
+</div>
+
+<style>
+    .project-card {
+        display: flex;
+        justify-content: space-aroun;
+        flex-direction: column;
+        position: relative;
+        width: 49%;
+        max-width: 250px;
+        border: 2px solid var(--text);
+        border-radius: 6px;
+        padding: 0.15rem 0.25rem;
+    }
+    
+    .project-card > * {
+        margin: 0.5rem 0;
+    }
+
+    .project-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .link-icon {
+        display: none;
+    }
+
+    .project-link {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        text-decoration: underline 2px;
+        &:hover {
+            .link-icon {
+                display: unset;
+            }
+            cursor: pointer;
+        }
+    }
+
+    .project-links {
+        display: inherit;
+        gap: 0.75rem;
+        color: var(--text);
+    }
+
+    .project-icons {
+        display: flex;
+    }
+</style>

@@ -1,4 +1,4 @@
-import type { Board } from "./cgol";
+import type { Board } from "./life";
 
 export const encoder = {
     random() {

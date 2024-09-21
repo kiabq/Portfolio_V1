@@ -4,9 +4,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-import Header from '../components/header.astro';
-
 ---
 
 <!doctype html>
@@ -39,20 +36,6 @@ import Header from '../components/header.astro';
 		<link rel="sitemap" href="/sitemap-index.xml">
 	</head>
 	<body>
-		<Header page={title} />
-		<main id="content-wrapper">
-			<slot />
-		</main>
-		<slot name="footer" />
-		<script src="../scripts/life.ts"/>
+		<slot />
 	</body>
 </html>
-
-<style>
-	#content-wrapper {
-		display: flex;
-		flex-direction: column;
-		font-family: "Josefin Sans";
-		min-height: 600px;
-	}
-</style>

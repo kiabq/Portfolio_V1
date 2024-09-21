@@ -1,0 +1,119 @@
+<div class="banner-controls">
+    <div id="speed-controls">
+        <label for="speed" style="visibility: hidden;">Speed</label>
+        <div>
+            <span class="material-symbols-rounded icon">&#xe9e4;</span>
+        </div>
+        <input
+            type="range"
+            id="speed"
+            min="25"
+            max="200"
+            step="25"
+            value="25"
+        />
+    </div>
+    <div id="banner-bottom">
+        <div class="banner-bottom-buttons">
+            <button id="pause" class="banner-btn" disabled>Pause</button>
+            <button id="reset" class="banner-btn" disabled>Reset</button>
+            <button id="clear" class="banner-btn" disabled>Clear</button>
+            <div class="banner-counter">
+                <p>Life Cycle:</p>
+                <span id="counter"></span>
+            </div>
+        </div>
+        <form class="banner-bottom-encoder">
+            <input
+                type="text"
+                class="encoder-text"
+                placeholder="Game of Life Code"
+                disabled
+            />
+            <button type="submit" class="encoder-btn banner-btn" disabled
+                >Load</button
+            >
+        </form>
+    </div>
+</div>
+
+<style>
+    #speed-controls {
+        display: none;
+    }
+
+    #banner-bottom {
+        position: relative;
+        transition: transform 0.5s;
+        transform: translateY(-50px);
+        z-index: -1;
+    }
+
+    .banner-controls {
+        width: 100%;
+        position: relative;
+    }
+
+    .banner-bottom-buttons {
+        display: flex;
+        white-space: nowrap;
+    }
+
+    .banner-bottom-encoder {
+        background-color: var(--text);
+        display: flex;
+        height: 25px;
+    }
+
+    .encoder-text {
+        width: 80%;
+        border-radius: 0;
+        border: 2px solid var(--text);
+    }
+
+    .encoder-btn {
+        width: 20%;
+    }
+
+    .banner-btn,
+    .banner-counter {
+        font-size: 12px;
+    }
+
+    .banner-btn {
+        background-color: var(--text);
+        color: var(--bg);
+        border: none;
+        cursor: pointer;
+        height: 25px;
+        padding: 0 0.75rem;
+    }
+
+    .banner-btn:hover {
+        background-color: var(--hover);
+        color: var(--bg);
+    }
+
+    .banner-counter {
+        background-color: var(--text);
+        color: var(--bg);
+        cursor: default;
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+        padding-top: 3px;
+        width: 100%;
+    }
+
+    .banner-counter > * {
+        margin: auto 0;
+        padding: 0 3px;
+        text-align: center;
+    }
+
+    .show-controls {
+        transform: translateY(0px) !important;
+        transition-timing-function: ease-in-out;
+        z-index: 9998 !important;
+    }
+</style>

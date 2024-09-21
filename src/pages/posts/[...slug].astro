@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('writings');
+  return entries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title="about">
+  <div class="header">
+    <h1>{entry.data.title}</h1>
+    <p>posted {entry.data.date}</p>
+  </div>
+  <div class="content">
+    <Content />
+  </div>
+</Layout>
+
+<style>
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    & h1 {
+      font-weight: normal;
+    }
+  }
+
+  .content {
+    margin-top: 1rem;
+  }
+</style>

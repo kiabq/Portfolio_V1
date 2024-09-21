@@ -1,0 +1,25 @@
+---
+import LifeHeader from "../components/life/life-header.astro"
+import LifeControls from "../components/life/life-controls.astro"
+import LifeGame from "./life/life-game.astro"
+---
+
+<div class="banner">
+    <div>
+        <LifeHeader />
+        <LifeGame />
+    </div>
+    <LifeControls />
+</div>
+
+<style>
+    .banner > div {
+        background-color: var(--text);
+        border: 2px solid var(--text);
+        border-left: 4px solid var(--text);
+    }
+
+    .banner * {
+        user-select: none;
+    }
+</style>

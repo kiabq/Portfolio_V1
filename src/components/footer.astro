@@ -1,47 +1,302 @@
 ---
-import LinkedIn from "../images/svgs/linkedin.svg?raw";
-import Github from "../images/svgs/github.svg?raw";
-import DarkSubway from "../images/svgs/dark-subway.svg";
-import LightSubway from "../images/svgs/light-subway.svg";
+import { Icon } from "astro-icon/components"
 ---
 
-<div class="footer-subway-wrapper">
-    <div class="footer-subway-tunnel"></div>
-    <div class="footer-subway">
-        <img data-train="dark" class="footer-subway-car" alt="Subway Car Art" src={DarkSubway.src} width={DarkSubway.width} height={DarkSubway.height} />        
-        <img data-train="light" class="footer-subway-car" alt="Subway Car Art" src={LightSubway.src} width={LightSubway.width} height={LightSubway.height} />
+<footer slot="footer">
+    <div class="infrastructure">
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <span/>
     </div>
-</div>
-<footer class="footer pdtb-1rem">
-    <div class="footer-spotify">
-        <img alt="Album image for 'currently listening to' song" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="footer-spotify-album"/>
-        <div class="spotify-info-wrapper">
-            <div class="dark-gradient"></div>
-            <div class="light-gradient"></div>
-            <div class="footer-spotify-info">
-                <div id="currentSong">nothing playing</div>
-                <div id="currentArtist">at the moment</div>    
+    <div class="footer-info">
+        <div class="footer-spotify">
+            <div class="footer-spotify-img">
+                <Icon name="spotify" size={48} />
+                <img id="spotify-img" src="../icons/spotify.svg"/>
+            </div>
+            <div class="footer-spotify-meta">
+                <span>
+                    <a 
+                        href="" 
+                        id="spotify-song"
+                        rel="noreferrer"
+                        style="display: none;"
+                    >
+                    </a>
+                    <span id="spotify-song-not">nothing playing</span>
+                </span>
+                <span id="spotify-artists">
+                at the moment
+                </span>
             </div>
         </div>
-    </div>
-    <div class="footer-socials">
-        <a 
-            href="https://www.linkedin.com/in/joseph-e-conway/" 
-            target="_blank" 
-            rel="noreferrer noopener" 
-            class="footer-img"
-            aria-label="Connect with me on LinkedIn"
-        >
-            <Fragment set:html={LinkedIn} />
-        </a>
-        <a 
-            href="https://github.com/kiabq" 
-            target="_blank"
-            rel="noreferrer noopener" 
-            class="footer-img"
-            aria-label="Connect with me on GitHub"
-        >
-            <Fragment set:html={Github} />
-        </a>
+        <div class="footer-nav">
+            <a 
+                href="https://www.linkedin.com/in/joseph-e-conway/"
+                target="_blank"
+                rel="noreferrer"
+            >
+                <Icon name="linkedin" size={24}/>
+            </a>
+            <a 
+                href="https://github.com/kiabq" 
+                target="_blank"
+                rel="noreferrer"
+            >
+                <Icon name="git" size={28}/>
+            </a>
+        </div>
     </div>
 </footer>
+
+<style>
+    footer {
+        background-color: var(--bg);
+        width: 100%;
+        position: relative;
+    }
+
+    footer img {
+        border: 2px solid var(--text);
+        border-radius: 6px;
+        display: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #spotify-artists {
+        font-size: 0.75rem;
+    }
+
+    .infrastructure {
+        border-left: 4px solid var(--text);
+        border-bottom: 4px solid var(--text);
+        display: flex;
+        height: 32px;
+        width: 100%;
+        margin-top: auto;
+        position: relative;
+        justify-content: space-around;
+
+        & > span {
+            position: relative;
+            bottom: -30px;
+            background-color: var(--text);
+            width: 8px;
+            height: 4px;
+            border-radius: 2px;
+        }
+    }
+
+    .tunnel {
+        height: 46px;
+        width: 20px;
+        position: absolute;
+        background-color: var(--bg);
+        filter: brightness(85%);
+        bottom: 0px;
+        border: 4px dashed var(--text);
+        /* border-right-color: rgb(200, 200, 200); */
+        border-right-width: 2px;
+        border-top-width: 2px;
+        border-bottom: none;
+        border-radius: 1rem;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        transform: rotateY(1rad);
+    }
+
+    .footer-info {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 1rem;
+        width: 100%;
+    }
+
+    .footer-spotify {
+        display: flex;
+        line-height: 1.15;
+        gap: 0.5rem;
+    }
+
+    .footer-spotify-img {
+        height: 48px;
+        width: 48px;
+        background-color: var(--text);
+        border-radius: 6px;
+    
+        & > svg {
+            color: var(--bg);
+            position: absolute;
+            rotate: 20deg;
+        }
+    }
+
+    .footer-spotify-meta {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        & > a {
+            height: max-content;
+        }
+    }
+</style>
+
+<script>
+    type TExternalUrls = Record<string, string>
+
+    type TActions = {
+        disallows: {
+            resuming: boolean,
+            toggling_repeat_context: boolean,
+            toggling_repeat_track: boolean,
+            toggling_shufle: boolean
+        }
+    }
+
+    type TContext = {
+        external_urls: TExternalUrls,
+        href: string,
+        type: string,
+        uri: string
+    }
+
+    type TArtist = {
+        external_urls: TExternalUrls,
+        href: string,
+        id: string,
+        name: string,
+        type: string,
+        uri: string
+    }
+
+    type TImage = {
+        height: number,
+        url: string,
+        width: number
+    }
+
+    interface SpotifyJSON {
+        data: {
+            actions: TActions,
+            context: TContext,
+            currently_playing_type: string,
+            is_playing: boolean,
+            item: {
+                album: {
+                    artists: TArtist[],
+                    external_urls: TExternalUrls,
+                    href: string,
+                    id: string,
+                    images: TImage[],
+                    name: string,
+                    release_date: string,
+                    uri: string
+                },
+                name: string,
+                external_urls: TExternalUrls,
+            },
+            progress_ms: number,
+            timestamp: number
+        }
+    }
+
+    const SPOTIFYALBUM = document.getElementById("spotify-img") as HTMLImageElement;
+    const SPOTIFYSONG = document.getElementById("spotify-song") as HTMLAnchorElement;
+    const SPOTIFYSONGNOT = document.getElementById("spotify-song-not") as HTMLSpanElement;
+    const SPOTIFYARTIST = document.getElementById("spotify-artists") as HTMLSpanElement;
+
+    async function getCurrentSong() {
+        const spot = await fetch("http://localhost:8000");
+        const data: SpotifyJSON = await spot.json();
+
+        if (!data.data.is_playing) {
+            SPOTIFYSONGNOT.style.display = "unset";
+            SPOTIFYSONG.style.display = "none";
+            SPOTIFYALBUM.style.display = "none";
+            SPOTIFYARTIST.innerText = "at the moment";
+            return;
+        }
+
+        const images = data.data.item.album.images;
+        const thumbnail = images[images.length - 1];
+        const imageUrl = thumbnail.url;
+
+        const song = data.data.item.name;
+        const songUrl = data.data.item.external_urls["spotify"];
+        const artists =  data.data.item.album.artists;
+
+        // set Spotify album image
+        SPOTIFYALBUM.src = imageUrl;
+        SPOTIFYALBUM.style.display = "unset";
+
+        // set Spotify song name
+        SPOTIFYSONGNOT.style.display = "none";
+        SPOTIFYSONG.style.display = "unset";
+        SPOTIFYSONG.innerText = song;
+        SPOTIFYSONG.href = songUrl;
+        SPOTIFYSONG.target = "blank";
+        SPOTIFYSONG.rel = "noreferrer"
+
+        // set Spotify artist names
+        SPOTIFYARTIST.textContent = null;        
+        for (let i = 0; i < artists.length; i++) {
+            let anchor = document.createElement("a");
+            anchor.innerText = artists[i].name;
+            anchor.href = artists[i].external_urls["spotify"];
+            anchor.rel = "noreferrer"
+            anchor.target = "blank";
+            SPOTIFYARTIST.appendChild(anchor);
+            
+            if (i != artists.length - 1) {
+                SPOTIFYARTIST.append(", ")
+            }
+        }
+    }    
+
+    window.addEventListener("load", async () => {
+
+
+        const _ = await getCurrentSong();
+        setInterval(async () => {
+            const _ = await getCurrentSong();
+        }, 5000)
+    })
+</script>
