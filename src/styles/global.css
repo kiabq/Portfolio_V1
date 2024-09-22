@@ -20,7 +20,7 @@
     @media (prefers-color-scheme: dark) {
         @layer dark {
             :root {
-                --bg: #5f6f65;
+                --bg: #202321;
                 --text: white;
                 --hover: rgb(243, 243, 243);
             }
@@ -52,4 +52,8 @@ a:visited, a:link {
 a:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+p {
+    line-height: 1.35;
 }
