@@ -10,7 +10,7 @@ const writings = await getCollection("writings");
             <h1>posts</h1>
             <ul>
                 {writings.map(writing => {
-                    return (
+                    return ( 
                         <li>
                             <a href={`/posts/${writing.slug}`} class="post-card">
                                 <p class="post-title">{writing.data.title}</p>
@@ -18,6 +18,7 @@ const writings = await getCollection("writings");
                                 <p class="post-date">{writing.data.date}</p>
                             </a>
                         </li>
+                        <hr/>
                     )
                 })}
             </ul>
@@ -26,11 +27,15 @@ const writings = await getCollection("writings");
 </Layout>
 
 <style>
+    hr {
+        margin: 1.5rem 0;
+    }
+
     h1 {
         margin-bottom: 1.5rem;
         font-size: 2rem;
         font-weight: normal;
-        width: max-content;
+        text-align: center;
     }
 
     ul {
@@ -44,6 +49,11 @@ const writings = await getCollection("writings");
         width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        width: 500px;
     }
 
     .post-card {
