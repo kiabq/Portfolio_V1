@@ -68,7 +68,6 @@ const PROJECTS = [
 </Layout>
 
 <style>
-
 	#content {
 		display: flex;
 		width: 100%;
@@ -115,9 +114,26 @@ const PROJECTS = [
 		& > span {
 			display: block;
 		}
+
+
 	}
 
 	.spacer {
 		padding: 0.5rem 0;
+	}
+
+	@media (max-width: 900px) {
+		#content {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.project-cards {
+			justify-content: center;
+		}
+
+		.summary {
+			width: 100%;
+		}
 	}
 </style>

@@ -42,6 +42,7 @@ body {
     background-color: var(--bg);
     color: var(--text);
     font-family: "Josefin Sans";
+    overflow-x: hidden;
 }
 
 a:visited, a:link {
@@ -56,4 +57,10 @@ a:hover {
 
 p {
     line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+    body {
+        width: 90%;
+    }
 }

@@ -26,10 +26,10 @@ const { name, description } = Astro.props;
 <style>
     .project-card {
         display: flex;
-        justify-content: space-aroun;
         flex-direction: column;
         position: relative;
         width: 49%;
+        height: 165px;
         max-width: 250px;
         border: 2px solid var(--text);
         border-radius: 6px;
@@ -71,5 +71,12 @@ const { name, description } = Astro.props;
 
     .project-icons {
         display: flex;
+    }
+
+    @media (max-width: 900px) {
+        .project-card {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 </style>

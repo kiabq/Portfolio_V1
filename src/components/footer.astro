@@ -39,8 +39,10 @@ import { Icon } from "astro-icon/components"
         <div class="footer-spotify">
             <div class="footer-spotify-img">
                 <Icon name="spotify" size={48} />
+                <img id="spotify-img" />
             </div>
             <div class="footer-spotify-meta">
+                <span class="gradient" style="width: 100%; height: 100%; position: absolute;"/>
                 <span>
                     <a 
                         href="" 
@@ -158,12 +160,17 @@ import { Icon } from "astro-icon/components"
             color: var(--bg);
             position: absolute;
             rotate: 20deg;
+            width: 48px;
         }
     }
 
     .footer-spotify-meta {
+        width: 250px;
         display: flex;
         flex-direction: column;
+        text-wrap: nowrap;
+        overflow: hidden;
+        position: relative;
     }
 
     .footer-nav {
@@ -176,8 +183,24 @@ import { Icon } from "astro-icon/components"
             height: max-content;
         }
     }
+
+    .gradient {
+        pointer-events: none;
+        background: linear-gradient(to left, 
+            var(--bg) 1%,
+            transparent 30%,
+            transparent 95%, 
+            transparent 99%
+        );    
+    }
 </style>
 
+<!-- Autoscroll -->
+<script>
+
+</script>
+
+<!-- Spotify Fetch -->
 <script>
     type TExternalUrls = Record<string, string>
 
@@ -245,7 +268,7 @@ import { Icon } from "astro-icon/components"
     async function getCurrentSong() {
         const spot = await fetch("http://localhost:8000");
         const data: SpotifyJSON = await spot.json();
-
+        
         if (!data.data.is_playing) {
             SPOTIFYSONGNOT.style.display = "unset";
             SPOTIFYSONG.style.display = "none";
@@ -291,11 +314,9 @@ import { Icon } from "astro-icon/components"
     }    
 
     window.addEventListener("load", async () => {
-
-
-        const _ = await getCurrentSong();
+        await getCurrentSong();
         setInterval(async () => {
-            const _ = await getCurrentSong();
+            await getCurrentSong();
         }, 5000)
     })
 </script>
