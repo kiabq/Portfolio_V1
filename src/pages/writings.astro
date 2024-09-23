@@ -54,6 +54,10 @@ const writings = await getCollection("writings");
 
     .content {
         width: 500px;
+
+        @media (max-width: 900px) {
+            width: 90%;
+        }
     }
 
     .post-card {
