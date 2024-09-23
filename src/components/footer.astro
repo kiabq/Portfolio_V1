@@ -266,7 +266,7 @@ import { Icon } from "astro-icon/components"
     const SPOTIFYARTIST = document.getElementById("spotify-artists") as HTMLSpanElement;
 
     async function getCurrentSong() {
-        const spot = await fetch("https://spot.cnwy.dev");
+        const spot = await fetch("http://localhost:8000");
         const data: SpotifyJSON = await spot.json();
         
         if (!data.data.is_playing) {
