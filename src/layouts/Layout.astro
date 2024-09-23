@@ -1,165 +1,32 @@
 ---
-import "/public/css/styles.css";
+interface Props {
+	title: string;
+}
 
 const { title } = Astro.props;
+
+import Header from '../components/header.astro';
+import Head from '../components/head.astro';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Development website of Joseph Conway" />
-		
-		<!-- OG Image -->
-		<meta property="og:title" content="cnwy.dev: software and stuff">
-		<meta property="og:description" content="A website all about software, learning, and fun.">
-		<meta property="og:url" content="https://www.cnwy.dev">
-		<meta property="og:locale" content="en-US">
-		<meta property="og:type" content=website>
-		<meta property="og:image:type" content="image/png">
-		<meta property="og:image" content="https://www.cnwy.dev/assets/images/og.png">
-		
-		<!-- Twitter Image-->
-		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content="https://www.cnwy.dev">
-		<meta property="twitter:title" content="cnwy.dev: software and stuff">
-		<meta property="twitter:description" content="A website all about software, learning, and fun.">
-		<meta property="twitter:image" content="https://www.cnwy.dev/assets/images/og.png">
-		<title>cnwy - {title}</title>
-		<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-
-		<!-- Fonts & Icons -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- Material Icons -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-		<script defer data-domain="cnwy.dev" data-api="https://personal.cnwy.workers.dev/personal/event" src="https://personal.cnwy.workers.dev/personal/script.js"></script>
-		<script src="../scripts/theme.ts"></script>
-		<script src="../scripts/cgol.ts"></script>
-		<script>
-			const subway: HTMLDivElement | null = document.querySelector(".footer-subway-wrapper");
-
-			function initTrackWidth() {
-				document.documentElement.style.setProperty('--track-width', `${subway!.offsetWidth}px`);
-			}
-			
-			window.addEventListener("resize", initTrackWidth);
-			window.addEventListener("load", initTrackWidth);
-		</script>
-		<script>
-			const current_song: HTMLDivElement | null = document.querySelector("#currentSong");
-			const current_artist: HTMLDivElement | null = document.querySelector("#currentArtist");
-			const spotify_album: HTMLImageElement | null = document.querySelector(".footer-spotify-album");
-
-			window.addEventListener("load", () => {
-				getCurrentSong();
-			})
-
-			function getCurrentSong() {
-				fetch("https://spot.cnwy.dev")
-					.then((result) => {
-						return result.json();
-					})
-					.then((result) => {
-						if (result.data.is_playing) {
-							if (current_song!.firstChild) {
-								current_song!.removeChild(current_song!.firstChild);
-							}
-
-							current_artist!.textContent = "";
-							
-							const artists = result.data.item.artists;
-							const track = result.data.item;
-							const album_cover = result.data.item.album.images;
-							
-							spotify_album!.src = album_cover[2].url;							
-							spotify_album!.style.display = "inline-block";
-
-							const song = document.createElement("a");
-							song.setAttribute("id", "currentSongText");
-							song.setAttribute("href", track.external_urls.spotify);
-							song.setAttribute("target", "_blank");
-							const song_text = document.createTextNode(track.name);
-							song.appendChild(song_text);
-							current_song!.appendChild(song);
-
-							for (let i = 0; i < artists.length; i++) {
-								if (i > 0) {
-									current_artist!.textContent += ", ";
-								}
-								current_artist!.textContent += artists[i].name;
-							}
-
-							if ((current_song!.firstChild!.offsetWidth - current_song!.clientWidth) > 50) {
-								current_song!.classList.add("footer-song-scroll");
-							} else {
-								current_song!.classList.remove("footer-song-scroll");
-							}
-						} else {
-							spotify_album!.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";							
-							current_song!.classList.remove("footer-song-scroll");
-							current_song!.textContent = "nothing playing";
-							current_artist!.textContent = "at the moment";
-						}
-					}).catch(() => {
-						current_song!.textContent = "nothing playing";
-						current_artist!.textContent = "at the moment";
-					})
-			}
-
-			setInterval(() => {
-				getCurrentSong();
-			}, 5000);
-		</script>
-	</head>
-
-	<script is:inline defer>
-		const theme = localStorage.getItem("theme");
-		const htmlTag = document.getElementsByTagName("html");
-
-		const STYLESHEET = document.styleSheets[5];
-		STYLESHEET.insertRule(".preload {}", STYLESHEET.cssRules.length);
-
-		const PRELOAD = [...STYLESHEET.cssRules].find(
-			(val) => val.selectorText === ".preload"
-		);
-
-		const LIGHT = STYLESHEET.cssRules[0].style.getPropertyValue("--light");
-		const DARK = STYLESHEET.cssRules[0].style.getPropertyValue("--dark");
-
-		PRELOAD.style.setProperty("transform", "translateY(-28px)");
-		htmlTag[0].style.backgroundColor = DARK;
-		htmlTag[0].style.color = LIGHT;
-
-		if (theme === "light" || theme === null) {
-			PRELOAD.style.setProperty("transform", "translateY(0px)");
-			htmlTag[0].style.backgroundColor = LIGHT;
-			htmlTag[0].style.color = DARK;
-		}
-
-		function clearStyle() {
-			htmlTag[0].style = "";
-			window.removeEventListener("load", clearStyle)
-		}
-
-		window.addEventListener("load", clearStyle)
-	</script>
-
-	<body class="content-container">
-		<div class="content-wrapper">
+	<Head title={title}/>	
+	<body>
+		<Header page={title} />
+		<main id="content-wrapper">
 			<slot />
-		</div>
+		</main>
+		<slot name="footer" />
+		<script src="../scripts/life.ts"/>
 	</body>
 </html>
-<style is:global>
-	html {
-		font-family: "Ubuntu", sans-serif;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+<style>
+	#content-wrapper {
+		display: flex;
+		flex-direction: column;
+		font-family: "Josefin Sans";
+		min-height: 600px;
 	}
 </style>

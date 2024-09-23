@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components"
+---
+
+<div class="banner-header">
+    <h6>Conway's Game of Life</h6>
+    <span id="cog">
+        <Icon name="cog"/>
+    </span>
+<div>
+
+<style>
+    * {
+        user-select: none;
+    }
+
+    #cog {
+        transition: transform 0.5s;
+        margin-left: auto;
+    }
+
+    #cog:hover {
+        cursor: pointer;
+    }
+
+    .banner-header {
+        background-color: var(--color);
+        color: var(--bg);
+        display: flex;
+        padding: 0.25rem 0;
+        text-align: center;
+    }
+</style>

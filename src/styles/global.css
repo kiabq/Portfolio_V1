@@ -1,0 +1,66 @@
+/* Rules */
+@font-face {
+    font-family: "Josefin Slab";
+    src: url('/fonts/Josefin_Slab/JosefinSlab-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Josefin Sans";
+    src: url('/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Reenie Beanie";
+    src: url('/fonts/Reenie_Beanie/ReenieBeanie-Regular.ttf') format('truetype');
+}
+
+@layer theme {
+    @layer light, dark, user;
+
+    @media (prefers-color-scheme: dark) {
+        @layer dark {
+            :root {
+                --bg: #202321;
+                --text: white;
+                --hover: rgb(243, 243, 243);
+            }
+        }
+    }
+}
+
+/* Styles */
+html[data-theme="light"] {
+    --bg: #fffbf2;
+    --text: black;
+    --hover: rgb(29, 29, 29);
+}
+
+body {
+    width: 800px;
+    margin: auto;
+    position: relative;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: "Josefin Sans";
+    overflow-x: hidden;
+}
+
+a:visited, a:link {
+    color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+p {
+    line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+    body {
+        width: 90%;
+    }
+}

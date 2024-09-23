@@ -1,20 +1,116 @@
+---
+import { Icon } from "astro-icon/components"
+interface Props {
+	page: string;
+}
+
+const { page } = Astro.props;
+---
+
 <header>
-    <div class="nav pdtb-1rem">
-        <div class="nav-title">
-          <h3><a href="/" class="anchor-text">cnwy</a></h3>
+    <nav>
+        <a href="/" style="min-height: inherit;" class={page == "home" ? "selected" : ""}>cnwy</a>
+        <div id="nav">
+            <a href="/writings" class={page == "writings" ? "selected" : ""}>writings</a>
+            <button id="nav-theme-toggle" tabindex="0">
+                <Icon class="toggle-light" name="sun"/>
+                <Icon class="toggle-dark" name="moon-and-stars"/>
+            </button>
         </div>
-        <div class="nav-links">
-          <h3 class="nav-element"><a href="https://github.com/kiabq" class="anchor-text" target="_blank">github</a></h3>
-          <button class="nav-theme icon" tabindex="0">
-            <div class="nav-theme-toggle preload">
-              <span class="material-symbols-rounded">
-                &#xe518;
-              </span>
-              <span class="material-symbols-rounded">
-                &#xe51c;
-              </span>
-            </div>
-          </button>
-        </div>
-      </div>
+    </nav>
 </header>
+
+<style>
+    header {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0 1.5rem 0;
+        font-size: 1.5rem;
+        font-family: "Josefin Slab";
+        font-weight: 900;
+        min-height: 36px;
+    }
+    
+    nav > h1,h2,h3,h4,h5,h6,p {
+        font-size: 1.5rem;
+    }
+
+    #title {
+        display: block;
+        min-height: inherit;
+    }
+
+    #nav{
+        display: inherit;
+        align-items: inherit;
+        gap: 0.5rem;
+    }
+
+    #nav-theme-toggle {
+        position: relative;
+        background: transparent;
+        border: none;
+        color: var(--text);
+        width: 36px;
+        height: 36px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    html[data-theme="light"] .toggle-dark {
+        display: none;
+    }
+
+    html[data-theme="dark"] .toggle-light {
+        display: none;
+    }
+
+    .selected {
+        text-decoration: underline;
+    }
+</style>
+
+<script is:inline>
+    const ROOT = document.getElementsByTagName("html")[0];
+    const TOGGLE = document.getElementById("nav-theme-toggle");
+    let isDark = true;
+
+    function getTheme() {
+        const LOCAL_THEME = localStorage.getItem("theme");
+        const PREFERRED_THEME = (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+        if (LOCAL_THEME !== null) {
+            return LOCAL_THEME;
+        } else {
+            return PREFERRED_THEME;
+        }
+    }
+
+    function initTheme() {
+        const THEME = getTheme();
+        ROOT.dataset["theme"] = THEME;
+        localStorage.setItem("theme", THEME);
+    }
+
+    TOGGLE.addEventListener("click", () => {
+        isDark = !isDark;
+
+        if (isDark) {
+            localStorage.setItem("theme", "light");
+        } else {
+            localStorage.setItem("theme", "dark");
+        }
+
+        ROOT.dataset["theme"] = getTheme();
+    })
+
+    initTheme()
+</script>

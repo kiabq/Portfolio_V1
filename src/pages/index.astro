@@ -1,79 +1,139 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/header.astro";
-import Main from "../components/main.astro";
 import Footer from "../components/footer.astro";
-import Project from "../components/project.astro";
-import Gameoflife from "../components/gameoflife.astro";
+import ProjectCard from "../components/project-card.astro";
+import Life from "../components/life.astro";
+import LifeDraw from "../components/life/life-draw.astro";
 
-import React from "../images/svgs/react.svg?raw";
-import Postgres from "../images/svgs/postgres.svg?raw";
-import Python from "../images/svgs/python.svg?raw";
-import TypeScript from "../images/svgs/typescript.svg?raw";
-import Node from "../images/svgs/node.svg?raw";
-import AstroIcon from "../images/svgs/astro.svg?raw";
-
-import "/public/css/game.css";
+const PROJECTS = [
+	{
+		name: "HyperSlice",
+		description: "A Link shortener built using Astro, Koa, and SQL.",
+		icons: ["typescript"]
+	},
+	{
+		name: "Minispot",
+		description: "A Small API built in Python using FastAPI which fetches Spotify account data.",
+		icons: ["python"]
+	},
+	{
+		name: "Minesweeper",
+		description: "This is a simple recreation of the game built using React and TypeScript.",
+		icons: ["typescript"]
+	},
+]
 ---
 
 <Layout title="home">
-	<Header />
-	<Main>
-		<div class="body-content">
-			<div class="body-intro">
-				<div class="body-intro-main">
-					<p class="body-summary">
-						Welcome! I'm Joseph. I enjoy doing web stuff and
-						messing around on browsers. I'm currently a student majoring in Computer Science.
-					</p>
-					<p class="body-summary">
-						I'm interested in all things software from compilers and browsers to web development. I'm currently learning C++ and Data Structures and Algorithms in my own time.
-					</p>
-					<p class="body-summary">
-						In my time away from computers, I enjoy film photography, vintage cars, calisthenics, and reading. 
-					</p>
-				</div>
+	<p class="summary">
+		<span
+			>Welcome! I'm Joseph. I enjoy doing web stuff and messing around
+			on browsers. I'm currently a student majoring in Computer
+			Science.</span
+		>
+		<span class="spacer"
+			>I'm interested in all things software from compilers and
+			browsers to web development. At the moment, I'm working
+			full-time with Go.</span
+		>
+		<span
+			>In my time away from computers, I enjoy film rock climbing,
+			calisthenics, vintage cars, and reading.</span
+		>
+	</p>
+	<div id="content">
+		<section id="projects">
+			<h2>projects</h2>
+			<div class="project-cards">
+				{PROJECTS.map(project => {
+					return <ProjectCard
+						name={project.name}
+						description={project.description}
+					>
+						{project.icons.map(icon => {
+							return <Icon name={icon} size={24} />
+						})}
+					</ProjectCard>
+				})}
 			</div>
-			<div class="body-info">
-				<h3 class="body-info-header">Projects</h3>
-				<div class="body-projects">
-					<Gameoflife />
-					<div class="body-projects-list">
-						<Project
-							title="Minesweeper"
-							description="This is a simple recreation of the game built using React and TypeScript."
-							source="https://github.com/kiabq/minesweeper-clone"
-							link="https://minesweeper98.netlify.app/"
-						>
-							<!-- Project Technology Icons -->
-							<Fragment set:html={TypeScript} />
-							<Fragment set:html={React} />
-						</Project>
-						<Project
-							title="Minispot"
-							description="A Small API built in Python using FastAPI which fetches Spotify account data."
-							source="https://github.com/kiabq/minispot"
-							link="https://github.com/kiabq/minispot"
-						>
-							<!-- Project Technology Icons -->		
-							<Fragment set:html={Python} />
-						</Project>
-						<Project
-							title="HyperSlice"
-							description="A Link shortener built using Astro, Koa, and SQL."
-							source="https://github.com/kiabq/hyperslice"
-							link="https://link.cnwy.dev"
-						>
-							<!-- Project Technology Icons -->
-							<Fragment set:html={AstroIcon} />
-							<Fragment set:html={TypeScript} />
-							<Fragment set:html={Node} />
-							<Fragment set:html={Postgres} />
-						</Project>
-					</div>
-				</div>
-			</div>
-		</div>
-	</Main>
+		</section>
+		<section id="life">
+			<LifeDraw />
+			<Life />
+		</section>
+	</div>
 	<Footer />
 </Layout>
+
+<style>
+	#content {
+		display: flex;
+		width: 100%;
+		padding: 2rem 0 1rem 0;
+	}
+
+	/* Projects */
+
+	#projects {
+		padding-right: 0.25rem;
+		flex-grow: 6.5;
+	}
+
+	#projects > h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 400;
+		font-size: 1.5rem;
+	}
+
+	.project-cards {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 1rem;
+		column-gap: 0.5rem;
+		row-gap: 0.5rem;
+	}
+
+	/* Game of Life */
+
+	#life {
+		padding-left: 0.25rem;
+		flex-grow: 3.5;
+		margin-top: 1rem;
+		max-width: 300px;
+	}
+
+	.summary {
+		width: 630px;
+
+		& > span {
+			display: block;
+		}
+
+
+	}
+
+	.spacer {
+		padding: 0.5rem 0;
+	}
+
+	@media (max-width: 900px) {
+		#content {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.project-cards {
+			justify-content: center;
+		}
+
+		.summary {
+			width: 100%;
+		}
+	}
+</style>

@@ -1,0 +1,36 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Development website of Joseph Conway" />
+    
+    <!-- OG Image -->
+    <meta property="og:title" content="cnwy.dev: software and stuff">
+    <meta property="og:description" content="A website all about software, learning, and fun.">
+    <meta property="og:url" content="https://www.cnwy.dev">
+    <meta property="og:locale" content="en-US">
+    <meta property="og:type" content=website>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image" content="https://www.cnwy.dev/assets/images/og.png">
+    
+    <!-- Twitter Image-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.cnwy.dev">
+    <meta property="twitter:title" content="cnwy.dev: software and stuff">
+    <meta property="twitter:description" content="A website all about software, learning, and fun.">
+    <meta property="twitter:image" content="https://www.cnwy.dev/assets/images/og.png">
+    <title>cnwy - {title}</title>
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="sitemap" href="/sitemap-index.xml">
+    <script defer data-domain="cnwy.dev" data-api="https://personal.cnwy.workers.dev/personal/event" src="https://personal.cnwy.workers.dev/personal/script.js"></script>
+</head>

@@ -1,26 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout>
-    <div class="error">
-        <sup>404 Page Not Found :(</sup>
-        <a href="/">
-            <sup>Go Back</sup>
-        </a>
+<BaseLayout title="404">
+    <div>
+        <p>404</p>
+        <a href="/">go home</a>
     </div>
-</Layout>
+</BaseLayout>
 
 <style>
-    .error { 
-        margin: auto;
+    div {
+        height: 100vh;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
 
-    .error > a {
-        margin: 1rem;
-        width: max-content;
+    p {
+        font-size: 5rem;
+        font-weight: bold;
     }
 </style>
