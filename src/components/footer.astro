@@ -145,6 +145,7 @@ import { Icon } from "astro-icon/components"
     }
 
     .footer-spotify {
+        width: 100%;
         display: flex;
         line-height: 1.15;
         gap: 0.5rem;
@@ -171,6 +172,10 @@ import { Icon } from "astro-icon/components"
         text-wrap: nowrap;
         overflow: hidden;
         position: relative;
+
+        @media (max-width: 900px) {
+            width: 200px;
+        }
     }
 
     .footer-nav {
@@ -181,6 +186,7 @@ import { Icon } from "astro-icon/components"
 
         & > a {
             height: max-content;
+            width: 28px;
         }
     }
 
@@ -295,7 +301,7 @@ import { Icon } from "astro-icon/components"
         SPOTIFYSONG.innerText = song;
         SPOTIFYSONG.href = songUrl;
         SPOTIFYSONG.target = "blank";
-        SPOTIFYSONG.rel = "noreferrer"
+        SPOTIFYSONG.rel = "noreferrer";
 
         // set Spotify artist names
         SPOTIFYARTIST.textContent = null;        
@@ -308,7 +314,7 @@ import { Icon } from "astro-icon/components"
             SPOTIFYARTIST.appendChild(anchor);
             
             if (i != artists.length - 1) {
-                SPOTIFYARTIST.append(", ")
+                SPOTIFYARTIST.append(", ");
             }
         }
     }    
