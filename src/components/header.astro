@@ -64,7 +64,7 @@ const { page } = Astro.props;
 
     html[data-theme="light"] #nav-theme-toggle {
         mask-image: url("../icons/sun.svg");
-        --webkit-mask-image: url("../icons/sun.svg");
+        -webkit-mask-image: url("../icons/sun.svg");
     }
 
     html[data-theme="light"] .toggle-dark {
@@ -73,7 +73,7 @@ const { page } = Astro.props;
 
     html[data-theme="dark"] #nav-theme-toggle {
         mask-image: url("../icons/moon-and-stars.svg");
-        --webkit-mask-image: url("../icons/moon-and-stars.svg");
+        -webkit-mask-image: url("../icons/moon-and-stars.svg");
     }
 
     html[data-theme="dark"] .toggle-light {
