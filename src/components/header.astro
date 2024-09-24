@@ -11,7 +11,6 @@ const { page } = Astro.props;
         <a href="/" style="min-height: inherit;" class={page == "home" ? "selected" : ""}>cnwy</a>
         <div id="nav">
             <a href="/writings" class={page == "writings" ? "selected" : ""}>writings</a>
-
             <button id="nav-theme-toggle" tabindex="0"/>
         </div>
     </nav>
@@ -57,9 +56,10 @@ const { page } = Astro.props;
         width: 24px;
         height: 24px;
         z-index: 2;
-        &:hover {
-            cursor: pointer;
-        }
+    }
+
+    #nav-theme-toggle:hover {
+        cursor: pointer;
     }
 
     html[data-theme="light"] #nav-theme-toggle {
@@ -67,7 +67,7 @@ const { page } = Astro.props;
     }
 
     html[data-theme="light"] .toggle-dark {
-            display: none;
+        display: none;
     }
 
     html[data-theme="dark"] #nav-theme-toggle {
@@ -75,7 +75,7 @@ const { page } = Astro.props;
     }
 
     html[data-theme="dark"] .toggle-light {
-            display: none;
+        display: none;
     }
 
     .selected {
