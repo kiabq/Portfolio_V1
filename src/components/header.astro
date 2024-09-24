@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components"
 interface Props {
 	page: string;
 }
@@ -12,10 +11,8 @@ const { page } = Astro.props;
         <a href="/" style="min-height: inherit;" class={page == "home" ? "selected" : ""}>cnwy</a>
         <div id="nav">
             <a href="/writings" class={page == "writings" ? "selected" : ""}>writings</a>
-            <button id="nav-theme-toggle" tabindex="0">
-                <Icon class="toggle-light" name="sun"/>
-                <Icon class="toggle-dark" name="moon-and-stars"/>
-            </button>
+
+            <button id="nav-theme-toggle" tabindex="0" style={`mask-image`}></button>
         </div>
     </nav>
 </header>
@@ -54,24 +51,32 @@ const { page } = Astro.props;
 
     #nav-theme-toggle {
         position: relative;
-        background: none;
         border: none;
+        background-color: var(--text);
         color: var(--text);
-        width: 36px;
-        height: 36px;
+        width: 24px;
+        height: 24px;
         z-index: 2;
         &:hover {
             cursor: pointer;
         }
     }
 
-    /* html[data-theme="light"] .toggle-dark {
-        display: none;
+    html[data-theme="light"] #nav-theme-toggle {
+        mask-image: url("../icons/sun.svg")
+    }
+
+    html[data-theme="light"] .toggle-dark {
+            display: none;
+    }
+
+    html[data-theme="dark"] #nav-theme-toggle {
+        mask-image: url("../icons/moon-and-stars.svg")
     }
 
     html[data-theme="dark"] .toggle-light {
-        display: none;
-    } */
+            display: none;
+    }
 
     .selected {
         text-decoration: underline;
