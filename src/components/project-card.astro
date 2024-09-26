@@ -1,18 +1,20 @@
 ---
 import { Icon } from "astro-icon/components"
 
-const { name, description } = Astro.props;
+const { name, description, github, url } = Astro.props;
 ---
 
 <div class="project-card">
     <div class="project-nav">
         <div class="project-link">
-            <h3>{name}</h3>
+            <h3>
+                <a href={url} rel="noreferrer" target="_blank">{name}</a>
+            </h3>
             <Icon class="link-icon" name="link"/>
         </div>
         
         <span class="project-links">
-            <a href="">
+            <a href={github} rel="noreferrer" target="_blank">
                 <Icon name="github" size={24} />
             </a>
         </span>
