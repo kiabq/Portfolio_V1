@@ -33,7 +33,6 @@ import { Icon } from "astro-icon/components"
         <span/>
         <span/>
         <span/>
-        <span/>
     </div>
     <div class="footer-info">
         <div class="footer-spotify">
@@ -107,7 +106,7 @@ import { Icon } from "astro-icon/components"
         position: relative;
         justify-content: space-around;
 
-        & > span {
+        span {
             position: relative;
             bottom: -30px;
             background-color: var(--text);
@@ -116,6 +115,8 @@ import { Icon } from "astro-icon/components"
             border-radius: 2px;
         }
     }
+
+
 
     .tunnel {
         height: 46px;
@@ -198,6 +199,22 @@ import { Icon } from "astro-icon/components"
             transparent 95%, 
             transparent 99%
         );    
+    }
+
+    @media (max-width: 800px) {
+        .infrastructure {
+            span:nth-child(n+21) {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        .infrastructure {
+            span:nth-child(n+14) {
+                display: none;
+            }
+        }
     }
 </style>
 
