@@ -291,7 +291,11 @@ import { Icon } from "astro-icon/components"
     async function getCurrentSong() {
         const spot = await fetch("https://spot.cnwy.dev");
         const data: SpotifyJSON = await spot.json();
-        
+
+        if (data == null) {
+            return;
+        }
+
         if (!data.data.is_playing) {
             SPOTIFYSONGNOT.style.display = "unset";
             SPOTIFYSONG.style.display = "none";
