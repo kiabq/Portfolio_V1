@@ -3,4 +3,4 @@ This is my personal site (Built using [Astro](https://astro.build/)) where you c
 
 Check it out [here](https://www.cnwy.dev).
 
-![image](https://github.com/kiabq/Portfolio_V1/assets/44178907/69a9a98d-64cc-4ed2-8e1c-ca1d0d6d9787)
+![image](https://github.com/user-attachments/assets/37526031-0f7f-413f-abaf-2e6fece55dfc)
