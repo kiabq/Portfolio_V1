@@ -35,6 +35,12 @@ html[data-theme="light"] {
     --hover: rgb(29, 29, 29);
 }
 
+html[data-theme="dark"] {
+    --bg: #202321;
+    --text: white;
+    --hover: rgb(243, 243, 243);    
+}
+
 body {
     width: 800px;
     margin: auto;
