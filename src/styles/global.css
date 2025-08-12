@@ -70,3 +70,42 @@ p {
         width: 90%;
     }
 }
+
+
+{/* Posts */}
+.dates {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.updated {
+    color: var(--text);
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.updated::before {
+    content: "·";
+    margin-right: 8px;
+}
+
+.photo-section {
+    flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+    .dates {
+        flex-direction: column
+    }
+
+    .updated::before {
+        content: none;
+    }
+}
+
+@media (min-width: 1000px) {
+    .photo-section {
+        flex-direction: row;
+    }
+}
