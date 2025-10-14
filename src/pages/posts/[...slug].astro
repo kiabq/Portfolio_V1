@@ -41,7 +41,13 @@ const { Content } = await entry.render();
     & h1 {
       font-weight: normal;
     }
+
+    .updated::before {
+      content: "·";
+      margin-right: 8px;
+    }
   }
+
 
   .content {
     margin-top: 1rem;

@@ -13,12 +13,16 @@ const writings = await getCollection("writings");
                     return ( 
                         <li>
                             <a href={`/posts/${writing.slug}`} class="post-card">
-                                <p class="post-title">{writing.data.title}</p>
-                                <p>{writing.data.description}</p>
-                                <p class="post-date">{writing.data.date}</p>
+                                <div class="post-data">
+                                    <p class="post-title">{writing.data.title}</p>
+                                    <p>{writing.data.description}</p>
+                                </div>
+                                <div>
+                                    <p class="post-date">posted {writing.data.date}</p>
+                                    <p class="updated">updated {writing.data.updated_at}</p>
+                                </div>
                             </a>
                         </li>
-                        <hr/>
                     )
                 })}
             </ul>
@@ -53,32 +57,38 @@ const writings = await getCollection("writings");
     }
 
     .content {
-        width: 500px;
-
-        @media (max-width: 900px) {
-            width: 90%;
-        }
+        width: inherit;
     }
 
     .post-card {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
         gap: 1rem;
+        padding: 1rem;
+
+        .post-data {
+            flex: 1;
+            display: flex;
+            align-items: inherit;
+        }
 
         .post-title {
             font-size: 1.25rem;
+
+            &::after {
+                content: "•";
+                padding: 0 1rem;
+            }
         }
 
-        .post-date {
+        .post-date, .updated {
             font-size: 0.75rem;
         }
         
         &:hover {
             text-decoration: none;
-
-            .post-title {
-                text-decoration: underline;
-            }
+            border-bottom: 1px solid white;
         }
     }
 </style>
