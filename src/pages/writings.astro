@@ -15,11 +15,11 @@ const writings = await getCollection("writings");
                             <a href={`/posts/${writing.slug}`} class="post-card">
                                 <div class="post-data">
                                     <p class="post-title">{writing.data.title}</p>
-                                    <p>{writing.data.description}</p>
+                                    <p class="post-description">{writing.data.description}</p>
                                 </div>
-                                <div>
-                                    <p class="post-date">posted {writing.data.date}</p>
-                                    <p class="updated">updated {writing.data.updated_at}</p>
+                                <div class="post-meta">
+                                    <p class="posted">posted {writing.data.date}</p>
+                                    {writing.data.updated_at && <p class="updated">updated {writing.data.updated_at}</p>}
                                 </div>
                             </a>
                         </li>
@@ -68,27 +68,28 @@ const writings = await getCollection("writings");
         padding: 1rem;
 
         .post-data {
-            flex: 1;
+            flex: 3;
             display: flex;
             align-items: inherit;
         }
 
         .post-title {
             font-size: 1.25rem;
-
-            &::after {
-                content: "•";
-                padding: 0 1rem;
-            }
+            flex: 1;
         }
 
-        .post-date, .updated {
+        .post-description {
+            flex: 4;
+        }
+
+        .post-meta {
+            flex: 1;
             font-size: 0.75rem;
         }
         
         &:hover {
             text-decoration: none;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid var(--text);
         }
     }
 </style>

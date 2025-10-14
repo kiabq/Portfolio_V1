@@ -18,7 +18,7 @@ const { Content } = await entry.render();
     <h1>{entry.data.title}</h1>
     <div class="dates">
         <p>posted {entry.data.date}</p>
-        <p class="updated">updated {entry.data.updated_at}</p>
+        {entry.data.updated_at && <p class="updated">updated {entry.data.updated_at}</p>}
     </div>
   </div>
   <div class="content">
