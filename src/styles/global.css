@@ -85,11 +85,6 @@ p {
     font-style: italic;
 }
 
-.updated::before {
-    content: "·";
-    margin-right: 8px;
-}
-
 .photo-section {
     flex-direction: column;
 }

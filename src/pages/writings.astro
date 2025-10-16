@@ -13,12 +13,16 @@ const writings = await getCollection("writings");
                     return ( 
                         <li>
                             <a href={`/posts/${writing.slug}`} class="post-card">
-                                <p class="post-title">{writing.data.title}</p>
-                                <p>{writing.data.description}</p>
-                                <p class="post-date">{writing.data.date}</p>
+                                <div class="post-data">
+                                    <p class="post-title">{writing.data.title}</p>
+                                    <p class="post-description">{writing.data.description}</p>
+                                </div>
+                                <div class="post-meta">
+                                    <p class="posted">posted {writing.data.date}</p>
+                                    {writing.data.updated_at && <p class="updated">updated {writing.data.updated_at}</p>}
+                                </div>
                             </a>
                         </li>
-                        <hr/>
                     )
                 })}
             </ul>
@@ -53,31 +57,55 @@ const writings = await getCollection("writings");
     }
 
     .content {
-        width: 500px;
-
-        @media (max-width: 900px) {
-            width: 90%;
-        }
+        width: inherit;
     }
 
     .post-card {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
         gap: 1rem;
+        margin: 1rem;
+
+        .post-data {
+            display: flex;
+            flex: 3;
+            align-items: inherit;
+        }
 
         .post-title {
+            flex: 1;
             font-size: 1.25rem;
         }
 
-        .post-date {
+        .post-description {
+            flex: 4;
+        }
+
+        .post-meta {
+            flex: 1;
             font-size: 0.75rem;
         }
         
         &:hover {
             text-decoration: none;
+            border-bottom: 1px solid var(--text);
+        }
+    }
 
-            .post-title {
-                text-decoration: underline;
+    @media screen and (max-width: 500px) {
+        li:not(:last-child) {
+            border-bottom: 1px dashed var(--text);
+        }
+
+        .post-card {
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 2rem;
+
+            .post-data {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     }

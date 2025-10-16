@@ -18,7 +18,7 @@ const { Content } = await entry.render();
     <h1>{entry.data.title}</h1>
     <div class="dates">
         <p>posted {entry.data.date}</p>
-        <p class="updated">updated {entry.data.updated_at}</p>
+        {entry.data.updated_at && <p class="updated">updated {entry.data.updated_at}</p>}
     </div>
   </div>
   <div class="content">
@@ -41,9 +41,26 @@ const { Content } = await entry.render();
     & h1 {
       font-weight: normal;
     }
+
+    .updated::before {
+      content: "·";
+      margin-right: 8px;
+    }
   }
+
 
   .content {
     margin-top: 1rem;
   }
 </style>
+
+<script is:inline>
+    const options = {
+        root: document.querySelector("#scrollArea"),
+        rootMargin: "0px",
+        scrollMargin: "0px",
+        threshold: 1.0,
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+</script>

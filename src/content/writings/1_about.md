@@ -5,6 +5,7 @@ updated_at: "august 11, 2025"
 description: "introduction to who i am and what i do"
 tags: []
 ---
+
 <p style="padding: 1rem 0 2rem 0">Welcome to my site, I'm Joseph. I work full-time as a Software Engineer. I have two cats, CiCi and Raven, and I live in North Carolina.<p>
 <p style="padding-bottom: 2rem">Outside of programming and studying, I enjoy trying new things. I'm into computers (that's not programming, right?), fashion, cars, and motorcycles.</p>
 <p style="padding-bottom: 2rem">Staying active is a big part of my life, and I believe in a "strong body, strong mind" philosophy. I'm often at the climbing gym solving indoor boulder problems, training calisthenics, or doing something a little more daring--like that one time I went skydiving (I highly recommend btw).</p>
