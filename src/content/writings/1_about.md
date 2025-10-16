@@ -14,7 +14,7 @@ tags: []
         src="https://res.cloudinary.com/dioruqrnz/image/upload/v1726967067/IMG_2474_vym3rw.jpg"
         style="max-width: 300px; border-radius: 6px;"
         alt="me climbing a yellow v4"
-    />a
+    />
     <span style="margin-top: 0.5rem"><em>me climbing a yellow v4</em></span>
 </div>
 <br>
