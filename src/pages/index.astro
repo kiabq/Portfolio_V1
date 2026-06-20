@@ -1,9 +1,12 @@
 ---
 import IndexLayout from "../layouts/IndexLayout.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
 ---
 
 <IndexLayout>
-    <header>header</header>
-    <div>content</div>
-    <footer>footer</footer>
+    <Header />
+    <div>this is content without font sentient <span class="font-sentient">and this is content with font sentient!</span></div>
+    <div class="font-sentient italic">this one even has italics!</div>
+    <Footer />
 </IndexLayout>

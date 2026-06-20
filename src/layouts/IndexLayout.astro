@@ -1,19 +1,36 @@
 ---
-import '../styles/reset.css'
-import '../styles/globals.css'
-import '../styles/index.css'
+import '../styles/reset.css';
+import '../styles/global.css';
+import { Font } from 'astro:assets';
 ---
 
-<html lang="en">
+
+<script>
+    const theme = localStorage.getItem('theme');
+
+    if (theme) {
+        document.documentElement.dataset["theme"] = theme;
+    } else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.dataset["theme"] = "dark";
+            localStorage.setItem('theme', "dark");
+        } else {
+            document.documentElement.dataset["theme"] = "light";
+            localStorage.setItem('theme', "light");
+        }
+    }
+</script>
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
+    <Font cssVariable='--font-sentient'/>
 </head>
-<body>
+<body class="bg-white text-font-dark dark:bg-dark dark:text-font-light">
     <div id="root">
         <slot></slot>
     </div>

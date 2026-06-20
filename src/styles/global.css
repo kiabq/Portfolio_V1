@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+    --color-light: #F4F2F0;
+    --color-dark: #1c1c1b;
+
+    --color-font-light: #f6f5f4;
+    --color-font-dark: #2B2B2B;
+
+    --font-sentient: var(--font-sentient);
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 64px);
+    position: absolute;
+    bottom: 0;
+    width: 640px;
+}

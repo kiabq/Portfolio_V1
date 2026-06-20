@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<script>
+function toggleTheme() {
+    let current = document.documentElement.dataset["theme"];
+
+    if (current === "dark") {
+        current = "light";
+    } else {
+        current = "dark";
+    }
+
+    document.documentElement.dataset["theme"] = current;
+    localStorage.setItem("theme", current);
+}
+
+const toggle = document.getElementById('theme-toggle');
+toggle?.addEventListener('click', () => toggleTheme());
+</script>
+<header class="h-16 font-sentient flex justify-between items-center">
+    <h1 class="text-md">cnwy</h1>
+    <div id="theme-toggle" class="hover:cursor-pointer h-[16px]">
+        <span class="hidden dark:inline ">
+            <Icon name="moon" />
+        </span>
+        <span class="dark:hidden inline ">
+            <Icon name="sun" />
+        </span>
+    </div>
+</header>
