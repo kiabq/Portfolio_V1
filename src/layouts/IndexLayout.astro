@@ -1,38 +1,66 @@
 ---
-import '../styles/reset.css';
-import '../styles/global.css';
-import { Font } from 'astro:assets';
+import "../styles/reset.css";
+import "../styles/global.css";
+import { Font } from "astro:assets";
 ---
 
+<script>
+  const theme = localStorage.getItem("theme");
+
+  if (theme) {
+    document.documentElement.dataset["theme"] = theme;
+  } else {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.dataset["theme"] = "dark";
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.dataset["theme"] = "light";
+      localStorage.setItem("theme", "light");
+    }
+  }
+</script>
 
 <script>
-    const theme = localStorage.getItem('theme');
+  import { TRANSITION_DURATION, TRANSITION_IN, TRANSITION_OUT } from "../lib";
 
-    if (theme) {
-        document.documentElement.dataset["theme"] = theme;
-    } else {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.documentElement.dataset["theme"] = "dark";
-            localStorage.setItem('theme', "dark");
-        } else {
-            document.documentElement.dataset["theme"] = "light";
-            localStorage.setItem('theme', "light");
+  const observerOptions = {
+    root: null, // Tracks visibility relative to the device viewport
+    rootMargin: "0px",
+    threshold: 0.2, // Triggers when 20% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        const element = document.getElementById(entry.target.id);
+        if (element) {
+          element.style.transitionDuration = `${TRANSITION_DURATION + index * 250}ms`;
         }
-    }
+        entry.target.classList.add(...TRANSITION_IN);
+        entry.target.classList.remove(...TRANSITION_OUT);
+      }
+    });
+  }, observerOptions);
+
+  const hiddenElements = document.querySelectorAll("[data-observe]");
+  hiddenElements.forEach((hiddenElement, index) => {
+    observer.observe(hiddenElement);
+  });
 </script>
+
 <html lang="en" data-theme="dark">
-<head>
+  <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
-    <Font cssVariable='--font-sentient'/>
-</head>
-<body class="bg-white text-font-dark dark:bg-dark dark:text-font-light">
+    <Font cssVariable="--font-sentient" />
+  </head>
+  <body class="text-font-dark dark:bg-dark dark:text-font-light bg-white">
     <div id="root">
-        <slot></slot>
+      <slot />
     </div>
-</body>
+  </body>
 </html>

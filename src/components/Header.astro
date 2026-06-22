@@ -1,32 +1,38 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
+import { TRANSITION } from "../lib";
 ---
 
 <script>
-function toggleTheme() {
+  function toggleTheme() {
     let current = document.documentElement.dataset["theme"];
 
     if (current === "dark") {
-        current = "light";
+      current = "light";
     } else {
-        current = "dark";
+      current = "dark";
     }
 
     document.documentElement.dataset["theme"] = current;
     localStorage.setItem("theme", current);
-}
+  }
 
-const toggle = document.getElementById('theme-toggle');
-toggle?.addEventListener('click', () => toggleTheme());
+  const toggle = document.getElementById("theme-toggle");
+  toggle?.addEventListener("click", () => toggleTheme());
 </script>
-<header class="h-16 font-sentient flex justify-between items-center">
-    <h1 class="text-md">cnwy</h1>
-    <div id="theme-toggle" class="hover:cursor-pointer h-[16px]">
-        <span class="hidden dark:inline ">
-            <Icon name="moon" />
-        </span>
-        <span class="dark:hidden inline ">
-            <Icon name="sun" />
-        </span>
-    </div>
+
+<header
+  data-observe
+  class={`max-h-16 py-8 font-sentient flex justify-between items-center ${TRANSITION.join(" ")}`}
+  id="header"
+>
+  <h1 class="text-md tracking-[.05em]">cnwy</h1>
+  <div id="theme-toggle" class="h-[16px] hover:cursor-pointer">
+    <span class="hidden dark:inline">
+      <Icon name="moon" />
+    </span>
+    <span class="inline dark:hidden">
+      <Icon name="sun" />
+    </span>
+  </div>
 </header>

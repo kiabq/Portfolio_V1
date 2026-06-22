@@ -1,12 +1,22 @@
 ---
-import IndexLayout from "../layouts/IndexLayout.astro"
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
+import IndexLayout from "../layouts/IndexLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { TRANSITION } from "../lib";
 ---
 
 <IndexLayout>
-    <Header />
-    <div>this is content without font sentient <span class="font-sentient">and this is content with font sentient!</span></div>
+  <Header />
+  <div
+    data-observe
+    class={`flex justify-between items-center ${TRANSITION.join(" ")}`}
+    id="body"
+  >
+    <div>
+      this is content without font sentient <span class="font-sentient"
+        >and this is content with font sentient!</span>
+    </div>
     <div class="font-sentient italic">this one even has italics!</div>
-    <Footer />
+  </div>
+  <Footer />
 </IndexLayout>
