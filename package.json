@@ -13,6 +13,7 @@
     "pretty": "NODE_OPTIONS=\"--experimental-strip-types\" prettier . --write"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.7",
     "astro-icon": "^1.1.5",
