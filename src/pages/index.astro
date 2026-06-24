@@ -9,14 +9,29 @@ import { TRANSITION } from "../lib";
   <Header />
   <div
     data-observe
-    class={`flex justify-between items-center ${TRANSITION.join(" ")}`}
+    class={`flex flex-col py-4 ${TRANSITION.join(" ")}`}
     id="body"
   >
-    <div>
-      this is content without font sentient <span class="font-sentient"
-        >and this is content with font sentient!</span>
+    <div class="flex flex-col gap-4 tracking-[0.01em]">
+      <p>I'm Joseph, an associate software engineer at Signal Mine.</p>
+      <p>
+        I spend most of my time in Go and TypeScript, and I'm drawn to
+        understanding how things work.
+      </p>
+      <p>
+        When I'm not at a desk, I'm out climbing, riding my motorcycle, or in a
+        book.
+      </p>
     </div>
-    <div class="font-sentient italic">this one even has italics!</div>
+    <div class="flex">
+      <div>
+        <h2>PROJECTS</h2>
+      </div>
+      <div>
+        <h2>WRITINGS</h2>
+        <a href="/writings/test">my first post ever</a>
+      </div>
+    </div>
   </div>
   <Footer />
 </IndexLayout>
