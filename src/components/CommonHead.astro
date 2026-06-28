@@ -1,0 +1,61 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
+---
+
+<script>
+  const theme = localStorage.getItem("theme");
+
+  if (theme) {
+    document.documentElement.dataset["theme"] = theme;
+  } else {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.dataset["theme"] = "dark";
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.dataset["theme"] = "light";
+      localStorage.setItem("theme", "light");
+    }
+  }
+</script>
+
+<script>
+  import { TRANSITION_DURATION, TRANSITION_IN, TRANSITION_OUT } from "../lib";
+
+  function setupObserver() {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          const element = document.getElementById(entry.target.id);
+          if (element) {
+            element.style.transitionDuration = `${TRANSITION_DURATION + index * 250}ms`;
+          }
+          entry.target.classList.add(...TRANSITION_IN);
+          entry.target.classList.remove(...TRANSITION_OUT);
+        }
+      });
+    }, observerOptions);
+
+    const hiddenElements = document.querySelectorAll("[data-observe]");
+    hiddenElements.forEach((hiddenElement) => {
+      observer.observe(hiddenElement);
+    });
+  }
+
+  document.addEventListener("astro:page-load", setupObserver);
+</script>
+
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+<title>Astro</title>
+<Font cssVariable="--font-sentient" />
+<ClientRouter />

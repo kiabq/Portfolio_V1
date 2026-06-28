@@ -29,3 +29,17 @@ body {
   bottom: 0;
   width: 640px;
 }
+
+@keyframes title-slide-out {
+  to {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
+}
+
+@keyframes title-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
+}
