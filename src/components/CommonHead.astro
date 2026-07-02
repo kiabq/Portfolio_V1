@@ -3,26 +3,32 @@ import { ClientRouter } from "astro:transitions";
 import { Font } from "astro:assets";
 ---
 
-<script>
-  const theme = localStorage.getItem("theme");
+<script is:inline>
+  function setTheme() {
+    const theme = localStorage.getItem("theme");
 
-  if (theme) {
-    document.documentElement.dataset["theme"] = theme;
-  } else {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.dataset["theme"] = "dark";
-      localStorage.setItem("theme", "dark");
+    if (theme) {
+      document.documentElement.dataset["theme"] = theme;
     } else {
-      document.documentElement.dataset["theme"] = "light";
-      localStorage.setItem("theme", "light");
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.dataset["theme"] = "dark";
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.dataset["theme"] = "light";
+        localStorage.setItem("theme", "light");
+      }
     }
   }
+
+  setTheme();
 </script>
 
 <script>
   import { TRANSITION_DURATION, TRANSITION_IN, TRANSITION_OUT } from "../lib";
 
   function setupObserver() {
+    const hasObserverTriggered =
+      localStorage?.getItem("observerTriggered")?.toLowerCase() === "true";
     const observerOptions = {
       root: null,
       rootMargin: "0px",
@@ -31,6 +37,12 @@ import { Font } from "astro:assets";
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
+        if (hasObserverTriggered) {
+          entry.target.classList.add(...TRANSITION_IN);
+          entry.target.classList.remove(...TRANSITION_OUT);
+          return;
+        }
+
         if (entry.isIntersecting) {
           const element = document.getElementById(entry.target.id);
           if (element) {
@@ -38,6 +50,10 @@ import { Font } from "astro:assets";
           }
           entry.target.classList.add(...TRANSITION_IN);
           entry.target.classList.remove(...TRANSITION_OUT);
+
+          if (index === entries.length - 1) {
+            localStorage.setItem("observerTriggered", "true");
+          }
         }
       });
     }, observerOptions);
@@ -48,7 +64,7 @@ import { Font } from "astro:assets";
     });
   }
 
-  document.addEventListener("astro:page-load", setupObserver);
+  document.addEventListener("DOMContentLoaded", setupObserver);
 </script>
 
 <meta charset="utf-8" />
@@ -58,4 +74,3 @@ import { Font } from "astro:assets";
 <meta name="generator" content={Astro.generator} />
 <title>Astro</title>
 <Font cssVariable="--font-sentient" />
-<ClientRouter />

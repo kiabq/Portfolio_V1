@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import IndexLayout from "../../layouts/IndexLayout.astro";
-import { customTransition, titleSlide } from "../../lib";
 
 export async function getStaticPaths() {
   const entries = await getCollection("writings");
@@ -17,10 +16,7 @@ const { Content } = await render(entry);
 ---
 
 <IndexLayout>
-  <h1
-    transition:name={`heading-${entry.id}`}
-    transition:animate={customTransition(titleSlide)}
-  >
+  <h1>
     {entry.data.title}
   </h1>
   <Content />

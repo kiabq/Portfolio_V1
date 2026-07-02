@@ -2,7 +2,7 @@
 import IndexLayout from "../layouts/IndexLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { TRANSITION, titleSlide, customTransition } from "../lib";
+import { TRANSITION } from "../lib";
 
 import { getCollection } from "astro:content";
 const posts = await getCollection("writings");
@@ -34,13 +34,7 @@ const posts = await getCollection("writings");
         <h2>WRITINGS</h2>
         {
           posts.map((post) => (
-            <a
-              href={`/writings/${post.id}`}
-              transition:name={`link-${post.id}`}
-              transition:animate={customTransition(titleSlide)}
-            >
-              {post.data.title}
-            </a>
+            <a href={`/writings/${post.id}`}>{post.data.title}</a>
           ))
         }
       </div>

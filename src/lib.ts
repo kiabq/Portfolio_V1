@@ -9,23 +9,3 @@ export const TRANSITION = [
   "motion-reduce:transition-none",
   "motion-reduce:translate-none",
 ];
-
-export const titleSlide = {
-  old: {
-    name: "title-slide-out",
-    duration: "0.2s",
-    easing: "ease-in",
-    fillMode: "both" as const,
-  },
-  new: {
-    name: "title-slide-in",
-    duration: "0.3s",
-    easing: "ease-out",
-    fillMode: "both" as const,
-  },
-};
-
-export const customTransition = (animation: any) => ({
-  forwards: animation,
-  backwards: animation,
-});
