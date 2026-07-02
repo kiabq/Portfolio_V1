@@ -24,10 +24,8 @@ body {
 #root {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
   position: absolute;
   bottom: 0;
-  width: 640px;
 }
 
 @keyframes title-slide-out {

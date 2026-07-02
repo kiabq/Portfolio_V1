@@ -1,5 +1,5 @@
 ---
-title: "about me"
+title: "more about me"
 date: "september 21, 2024"
 updated_at: "august 11, 2025"
 description: "introduction to who i am and what i do"

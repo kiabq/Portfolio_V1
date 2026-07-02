@@ -1,5 +1,5 @@
 ---
-title: "europe_1"
+title: "some photos from europe"
 date: "october 14, 2025"
 description: "some pictures i took while in austria and croatia"
 tags: []
