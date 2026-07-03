@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+  title: any;
+  src: any;
+  description?: string;
+  authors: string[];
+}
+
+const { title, src, description, authors } = Astro.props;
+---
+
+<div>
+  <p>{title} by {authors?.join(", ")}</p>
+  <Image src={src} alt={title} class="h-[100px] w-auto" />
+  <p>{description}</p>
+</div>

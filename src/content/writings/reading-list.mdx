@@ -1,0 +1,77 @@
+---
+title: "reading list"
+date: "october 14, 2025"
+description: "some pictures i took while in austria and croatia"
+tags: []
+---
+
+import { Image } from "astro:assets";
+import ReadingListItem from "../../components/ReadingListItem.astro";
+import PracticalTypography from "../../assets/images/practical_typography.jpg";
+import PragmaticProgrammer from "../../assets/images/the_pragmatic_programmer.jpg";
+import CrimeAndPunishment from "../../assets/images/crime_and_punishment.jpg";
+import NoLongerHuman from "../../assets/images/no_longer_human.jpg";
+
+<div>
+    <p>Technical Books</p>
+    <ReadingListItem
+        title='Practical Typography'
+        src={PracticalTypography}
+        authors={['Matthew Butterick']}
+    />
+    <ReadingListItem
+        title='The Pragmatic Programmer'
+        src={PragmaticProgrammer}
+        authors={['David Thomas', 'Andrew Hunt']}
+    />
+    <p>Other books</p>
+    <ReadingListItem
+        title='Crime and Punishment'
+        src={CrimeAndPunishment}
+        authors={['Fyodor Dostoevsky']}
+    />
+    <ReadingListItem
+        title='No Longer Human'
+        src={NoLongerHuman}
+        authors={['David Thomas', 'Andrew Hunt']}
+    />
+[//]: # (    <div>)
+
+[//]: # '        <Image src={PragmaticProgrammer} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>The Pragmatic Programmer by David Thomas and Andrew Hunt</p>"
+[//]: # "<p>Other Books</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={CrimeAndPunishment} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>Crime and Punishment by Fyodor Dostoevsky (currently reading)</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={NoLongerHuman} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>No Longer Human by Osamu Dazai</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={PracticalTypography} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>Metamorphosis by Franz Kafka</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={PracticalTypography} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>Sunrise on the Reaping by Suzanne Collins</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={PracticalTypography} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>Rabid by Bill Wasik and Monica Murphy</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={PracticalTypography} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>The Midnight Library by Matt Haig</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={PracticalTypography} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>A Hymn to Life by Giselle Pelicot</p>"
+[//]: # "    <div>"
+[//]: # '        <Image src={PracticalTypography} alt="Practical Typography Cover"/>'
+[//]: # "    </div>"
+[//]: # "<p>How you say it by Katherine D. Kinzler</p>"
+
+</div>

@@ -2,17 +2,17 @@
   {
     "id": 0,
     "name": "HyperSlice",
-    "description": "",
+    "description": "A Link shortener built using Astro, Koa, and SQL.",
     "url": "",
-    "repository": "",
+    "repository": "https://github.com/kiabq/hyperslice",
     "preview": ""
   },
   {
     "id": 1,
     "name": "Minesweeper",
-    "description": "",
-    "url": "",
-    "repository": "",
+    "description": "This is a simple recreation built using React and TypeScript.",
+    "url": "https://minesweeper98.netlify.app/",
+    "repository": "https://github.com/kiabq/minesweeper-clone",
     "preview": ""
   }
 ]

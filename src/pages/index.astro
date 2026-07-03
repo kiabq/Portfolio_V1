@@ -41,7 +41,16 @@ import projects from "../data/projects.json";
       `}
       >
         <h2 class="pb-2">Projects</h2>
-        {projects.map((project) => <p>{project.name}</p>)}
+        {
+          projects.map((project) => (
+            <div>
+              <a href={project.repository} target="_blank">
+                {project.name}
+              </a>
+              <p>{project.description}</p>
+            </div>
+          ))
+        }
       </div>
       <div
         class={`

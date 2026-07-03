@@ -3,12 +3,16 @@ import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.cnwy.dev",
   output: "static",
-  integrations: [icon(), sitemap()],
+  markdown: {
+    syntaxHighlight: "shiki",
+  },
+  integrations: [icon(), sitemap(), mdx()],
   vite: {
     plugins: [tailwindcss()],
   },
