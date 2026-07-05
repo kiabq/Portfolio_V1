@@ -1,0 +1,74 @@
+[
+  {
+    "category": "Technical Books",
+    "title": "Practical Typography",
+    "src": "practical_typography.jpg",
+    "authors": ["Matthew Butterick"],
+    "notes": "I enjoyed this book. A must read for UX designers in my opinion. It's my goto reference for anything related to typography."
+  },
+  {
+    "category": "Technical Books",
+    "title": "The Pragmatic Programmer",
+    "src": "the_pragmatic_programmer.jpg",
+    "authors": ["David Thomas", "Andrew Hunt"],
+    "notes": "",
+    "started": "",
+    "finished": ""
+  },
+  {
+    "category": "Other Books",
+    "title": "Crime and Punishment",
+    "src": "crime_and_punishment.jpg",
+    "authors": ["Fyodor Dostoevsky"],
+    "notes": ""
+  },
+  {
+    "category": "Other Books",
+    "title": "No Longer Human",
+    "src": "no_longer_human.jpg",
+    "authors": ["Osamu Dazai"],
+    "notes": "This is probably one of the most depressing short fiction books I have ever read in my life. I highly recommend it."
+  },
+  {
+    "category": "Other Books",
+    "title": "Metamorphosis",
+    "src": "metamorphosis.jpg",
+    "authors": ["Franz Kafka"],
+    "notes": "I know people take this book seriously, but I couldn't help but laugh throughout the entire book because of how ridiculous the concept is."
+  },
+  {
+    "category": "Other Books",
+    "title": "Sunrise on the Reaping",
+    "src": "sunrise_on_the_reaping.jpg",
+    "authors": ["Suzanne Collins"],
+    "notes": ""
+  },
+  {
+    "category": "Other Books",
+    "title": "Rabid",
+    "src": "rabid.jpg",
+    "authors": ["Bill Wasik", "Monica Murphy"],
+    "notes": "Fairly interesting book about rabies and its origins. Who would have thought that the idea of zombies and vampires originated from rabies... I suppose it's pretty obvious."
+  },
+  {
+    "category": "Other Books",
+    "title": "The Midnight Library",
+    "src": "the_midnight_library.jpg",
+    "authors": ["Matt Haig"],
+    "notes": "This book is a bit of a mindfuck. Ultimately, it can be summed up that you shouldn't take your current life for granted."
+  },
+  {
+    "category": "Other Books",
+    "title": "A Hymn to Life",
+    "src": "a_hymn_to_life.jpg",
+    "authors": ["Giselle Pelicot"],
+    "notes": ""
+  },
+  {
+    "category": "Other Books",
+    "title": "How You Say It",
+    "src": "how_you_say_it.jpg",
+    "authors": ["Katherine D. Kinzler"],
+    "notes": "This book introduces the hypothesis that accents can influence how people form biases about you with evidence-backed studies."
+  }
+]

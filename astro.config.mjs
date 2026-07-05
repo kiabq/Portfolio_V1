@@ -16,6 +16,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  server: {
+    allowedHosts: ["9829-2605-a601-90c0-e600-d1f-41ee-9218-384.ngrok-free.app"],
+  },
   fonts: [
     {
       provider: fontProviders.local(),

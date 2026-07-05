@@ -3,16 +3,29 @@ import { Image } from "astro:assets";
 
 export interface Props {
   title: any;
-  src: any;
-  description?: string;
+  src?: any;
   authors: string[];
+  notes: string;
 }
 
-const { title, src, description, authors } = Astro.props;
+const { title, src, rating = 5, authors, notes } = Astro.props;
+
+const matches = import.meta.glob("../assets/images/*", { eager: true });
+let matched = null;
+Object.keys(matches).forEach((key, index) => {
+  const split = key.split("/");
+  const url = split[split.length - 1];
+  if (url.includes(src)) {
+    matched = matches[key]!.default;
+  }
+});
 ---
 
-<div>
-  <p>{title} by {authors?.join(", ")}</p>
-  <Image src={src} alt={title} class="h-[100px] w-auto" />
-  <p>{description}</p>
+<div class="flex gap-2">
+  {matched && <Image src={matched} alt={title} class="h-auto w-[80px]" />}
+  <div class="flex flex-col gap-2">
+    <p class="font-bold">{title}</p>
+    <p>by <span class="italic">{authors.join(", ")}</span></p>
+    <p>{notes}</p>
+  </div>
 </div>
