@@ -25,7 +25,6 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: 0;
 }
 
 @keyframes title-slide-out {
